@@ -1,0 +1,12 @@
+# csvn mountpoint
+# UUID=263C13E43C13ADB5  / ntfs defaults,errors=remount-ro 0       1
+UUID=263C13E43C13ADB5      /media/lraja/263C13E43C13ADB5  ntfs users,permissions,auto 0 0
+# UUID=263C13E43C13ADB5      /media/lraja     ntfs defaults,windows_names,locale=en_US.utf8 0 0
+# UUID=263C13E43C13ADB5      /media/lraja     ntfs defaults,umask=022 0 0
+# UUID=263C13E43C13ADB5      /media/lraja     ntfs defaults,umask=022,uid=1000,gid=1000 0 0
+
+# /dev/disk/by-uuid/263C13E43C13ADB5 /media/lraja auto user,auto,x-gvfs-show 0 0
+# /dev/disk/by-uuid/263C13E43C13ADB5 /media/lraja/263C13E43C13ADB5 auto nosuid,nodev,nofail,x-gvfs-show 0 0
+
+
+UUID=263C13E43C13ADB5      /media/lraja/263C13E43C13ADB5  ntfs nls=iso8859-1,permissions,users,umask=000,uid=lraja,gid=lraja 0 0

@@ -1,0 +1,13 @@
+
+
+vmstat
+
+lsof
+
+tcpdump -i eth0
+
+netstat -a | more
+
+nmon
+
+

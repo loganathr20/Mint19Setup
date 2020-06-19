@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# git remote update
+# git pull --all
+
+# for remote in `git checkout `; do git branch --track $remote; done
+
+touch myfile
+
+myfile = "git branch -r" > 
+
+cat myfile
+
+sleep 10
+
+
+awk '{print $1}' `git branch -r`
+
+# for i in $(git branch -vv); do
+#  git checkout $i
+# done
+
+#  remote=$(echo $i | sed 's/\/.*//')
+# if [[ "$this_branch" != "$branch" ]]; then
+#      git branch -t $branch $remote/$branch
+#  fi

@@ -1,0 +1,37 @@
+
+
+
+Tue Jan  6 10:51:48 IST 2015
+
+
+
+
+
+
+Filesystem     1K-blocks      Used Available Use% Mounted on
+/dev/sda7      149554464  58316692  83617732  42% /
+none                   4         0         4   0% /sys/fs/cgroup
+udev             4011568         8   4011560   1% /dev
+tmpfs             811880      1544    810336   1% /run
+none                5120         0      5120   0% /run/lock
+none             4059396     24272   4035124   1% /run/shm
+none              102400        44    102356   1% /run/user
+/dev/sda5      204799996 104365540 100434456  51% /media/lraja/LinuxStorage1
+/dev/sda6      308551212  31878460 276672752  11% /media/lraja/Volume61
+
+
+lraja     8787  8781  0 10:51 pts/5    00:00:00 grep rtm
+
+
+lraja     8789  8781  0 10:51 pts/5    00:00:00 grep dbsid
+
+
+lraja     8791  8781  0 10:51 pts/5    00:00:00 grep pws
+
+
+mysql     5395     1  0 08:35 ?        00:00:01 /usr/sbin/mysqld
+lraja     8793  8781  0 10:51 pts/5    00:00:00 grep sql
+
+
+
+

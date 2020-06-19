@@ -1,0 +1,18 @@
+for process in `ps -ax | grep 'sleep 1000' | awk '{print $1}' `
+do
+ # espeak " Hi jagi. You are a a cusu naari donkey.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+ espeak " Hi jagggi. You are an pigggy.  "
+done
+
+

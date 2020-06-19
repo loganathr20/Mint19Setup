@@ -1,0 +1,5 @@
+
+gnome-terminal -e leafpad
+ 
+
+

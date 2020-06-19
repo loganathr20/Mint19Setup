@@ -1,0 +1,92 @@
+
+EMAIL="loganathr@gmail.com"  # EMAIL ID TO WHICH EMAIL SHOULD BE SENT
+
+SUBJECT="MemoryAlert -- Full -- Please do Maintainence /home/lraja/Util/cpu_info.sh " # SUBJECT OF EMAIL SENT
+
+FILE="/root/tmpmu" # TEMP FILE TO WHICH EMAIL DATA IS WRITTEN
+
+TRIGGER=10000 # TRIGGER VALUE AT WHICH CMD's SHOULD BE EXECUTED
+
+BURST=6120  # BURST RAM ALLOTTED
+
+GUD=5168  # GURANTEED RAM
+
+
+
+# --------------------------DONOT CHANGE ANYTHING BELOW THIS -----------------------------
+
+TG="$(ps -u | grep checkerservice.pyc | awk '{print $2}')"
+
+MF="$(grep MemF /proc/meminfo | awk '{print $2}')"
+
+MemFree="$(( ${MF} / 1024 ))"
+
+MT="$(grep MemT /proc/meminfo | awk '{print $2}')"
+
+MemTotal="$(( ${MT} / 1024 ))"
+
+MU="$(( ${MT} - ${MF} ))"
+
+MemUsed="$(( ${MU} /1024 ))"
+
+CT="$(grep ache /proc/meminfo | awk '{print $2}')"
+
+TMU=" $MF + $CT "
+
+TMUK="$TMU / 1024 "
+
+# BRU=0
+
+BRTT="$(( ${BURST} - ${GUD} ))"
+
+if [ $MemUsed -gt $GUD ]; 
+then
+ BRU="$(( ${MemUsed} - ${GUD} ))"
+fi
+
+echo " " > $FILE
+
+echo "Hostname: $(hostname)" > $FILE
+
+echo "Local Date & Time : $(date)" >> $FILE
+
+echo " Memory Usage(Used/Guaranteed RAM): $MemUsed/$GUD "  >> $FILE
+
+echo " Burst Usage: $BRU/$BRTT " >> $FILE
+
+echo " MF: $MF " >> $FILE
+
+echo " MemFree: $MemFree " >> $FILE
+
+echo " MT: $MT " >> $FILE
+
+echo " MemTotal: $MemTotal " >> $FILE
+
+echo " MU: $MU " >> $FILE
+
+echo " MemUsed: $MemUsed " >> $FILE
+
+echo " Cached Memory: $CT " >> $FILE
+
+echo " TotalMemUsed: $TMUK " >> $FILE
+
+echo "" >> $FILE
+
+if [ $TMUK -gt $TRIGGER ];
+ then
+  #--------SET THE BELOW COMMANDS INSIDE THE BRACKETS WHICH YOU WANT TO RUN ON TRIGGER-------
+  # echo "$(/etc/init.d/apache2 restart)" >> $FILE
+  # echo "$(/etc/init.d/mysql restart)" >> $FILE
+  # echo "$(killall conky)" >> $FILE
+  # echo "$(killall cairo-dock)" >> $FILE
+    echo "$(kill-9 $TG)" >> $FILE
+  # echo "$(/home/lraja/csvn/bin/httpd -f /home/lraja/csvn/data/conf/httpd.conf -k restart)" >> $FILE
+  # echo " Memory Full.. Backend Servers stopped as Precaution. Please do maintainence...  /home/lraja/Util/cpu_info.sh " >> $FILE
+  /usr/bin/mail -s "$SUBJECT" "$EMAIL" < $FILE
+
+fi
+
+
+# echo > $FILE
+
+

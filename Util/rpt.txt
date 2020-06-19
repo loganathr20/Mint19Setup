@@ -1,0 +1,2 @@
+/home/Systemback/S01_2015-02-26,11.45.53/home/lraja/.cache/evolution/mail/1419081374.8888.58@lraja-Aspire-X3990/folders/INBOX/cur/13/9777: Heuristics.Phishing.Email.SpoofedDomain FOUND
+/home/Systemback/S01_2015-02-26,11.45.53/home/lraja/.cache/evolution/mail/1419081374.8888.58@lraja-Aspire-X3990/folders/INBOX/cur/13/9777: Heuristics.Phishing.Email.SpoofedDomain FOUND
