@@ -28,7 +28,8 @@ killall tomboy
 killall gnome-system-monitor
 killall radio-tray
 killall /usr/lib/firefox/firefox
-
+killall googleearth-bin
+killall google-earth-pro
 
 
 
