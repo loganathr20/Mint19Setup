@@ -240,7 +240,7 @@ alias c='clear'
 alias top='htop'
 alias f='finger'
 alias ut='uptime'
-alias u='cd $HOME/Mint19Setup/Util'
+alias u='cd $HOME/Github/Mint19Setup/Util'
 alias s='sudo su'
 alias x='exit'
 alias xx='exit \n exit'
@@ -255,8 +255,8 @@ alias sf='screenfetch'
 alias sm='banner santhosh is a monkey'
 alias gd='google-drive-ocamlfuse ~/gdrive'
 alias gdrive='google-drive-ocamlfuse ~/gdrive'
-alias synccloud='sh $HOME/Mint19Setup/Util/synccloud.sh &'
-alias syn='sh $HOME/Mint19Setup/Util/synccloud.sh &'
+alias synccloud='sh $HOME/Github/Mint19Setup/Util/synccloud.sh &'
+alias syn='sh $HOME/Github/Mint19Setup/Util/synccloud.sh &'
 # alias cl='sh freemem.sh && sh clear_swap.sh && sh clean_mailbox.sh && sh killusage.sh'
 alias fm='sh freemem.sh'
 alias cs='sh clear_swap.sh'
@@ -298,10 +298,10 @@ alias aws='nemo $HOME/Documents/CommonRepo/AWS'
 alias n='cd $HOME/Documents/Net_Downloads/Kernel/latest4.1.1'
 alias svnss='clear && sh $HOME/csvn/bin/csvn start'
 alias svnt='clear && sh $HOME/csvn/bin/csvn stop && sudo fuser -k 18080/tcp'
-alias svns='sh $HOME/Mint19Setup/Util/svns.sh &'
-alias svnst='sh $HOME/Mint19Setup/Util/svnstatus.sh &'
-alias cst='sh $HOME/Mint19Setup/Util/cst.sh &'
-alias mp4tomp3='sh $HOME/Mint19Setup/Util/mp4tomp3.sh &'
+alias svns='sh $HOME/Github/Mint19Setup/Util/svns.sh &'
+alias svnst='sh $HOME/Github/Mint19Setup/Util/svnstatus.sh &'
+alias cst='sh $HOME/Github/Mint19Setup/Util/cst.sh &'
+alias mp4tomp3='sh $HOME/Github/Mint19Setup/Util/mp4tomp3.sh &'
 
 
 alias insur='v $HOME/Documents/SVN/Lodgey/Documents/Kwid/RTO_and_Insurance/insurance_companytxt'
@@ -312,10 +312,10 @@ alias aprilia='nemo $HOME/Documents/SVN/Lodgey/Documents/Aprilia'
 alias sc='svn cleanup'
 alias up='svn update'
 alias st='svn status'
-alias upt='sh $HOME/Mint19Setup/Util/upt.sh'
+alias upt='sh $HOME/Github/Mint19Setup/Util/upt.sh'
 alias kp='sudo fuser -k 18080/tcp'
 alias m='more '
-alias tree='sh $HOME/Mint19Setup/Util/tree.sh '
+alias tree='sh $HOME/Github/Mint19Setup/Util/tree.sh '
 alias gk='$HOME/gitkraken/gitkraken'
 
 ## Helpful Ubuntu Aliases
@@ -336,7 +336,7 @@ alias j='crontab -l'
 alias cmod='chmod +x'
 alias updategrub='sudo update-grub'
 alias yt='youtube-dl '
-alias mi='cd $HOME/Mint19Setup'
+alias mi='cd $HOME/Github/Mint19Setup'
 alias gs='git status'
 alias gp='git push'
 alias gco='git commit -a'
@@ -349,12 +349,12 @@ alias tomstart='sudo systemctl start tomcat'
 alias tomstatus='sudo systemctl status tomcat'
 alias tomrestart='sudo systemctl restart tomcat'
 alias tomstop='sudo systemctl stop tomcat'
-alias tomdeploy='sudo sh $HOME/Mint19Setup/Util/tomdeploy.sh '
+alias tomdeploy='sudo sh $HOME/Github/Mint19Setup/Util/tomdeploy.sh '
 alias tomconfig='sudo nano /etc/systemd/system/tomcat.service'
-alias tomurl='sh $HOME/Mint19Setup/Util/urlopener.sh "http://lraja-Aspire-X3990:8080" & '
-alias googleurl='sh $HOME/Mint19Setup/Util/urlopener.sh "https://google.com"'
+alias tomurl='sh $HOME/Github/Mint19Setup/Util/urlopener.sh "http://lraja-Aspire-X3990:8080" & '
+alias googleurl='sh $HOME/Github/Mint19Setup/Util/urlopener.sh "https://google.com"'
 alias bb='cd $HOME/BitBucket'
-alias i='sh $HOME/Mint19Setup/Util/ids.sh'
+alias i='sh $HOME/Github/Mint19Setup/Util/ids.sh'
 # alias memfree =  free -m | grep -i mem | tr -d [A-z],\:,\+,\=,\-,\/, | awk '{print"Mem used: "100-(($3)/($1)*100)"%"}'
 
 
@@ -366,7 +366,7 @@ alias jenkinsstatus='sudo systemctl status jenkins'
 alias jenkinsrestart='sudo systemctl restart jenkins'
 alias jenkinsstop='sudo systemctl stop jenkins'
 alias netstat='netstat -tulpn'
-# alias gf='sh $HOME/Mint19Setup/Util/gitflow/git-flow'
+# alias gf='sh $HOME/Github/Mint19Setup/Util/gitflow/git-flow'
 alias gf='sh $HOME/DriessensModel/gitflow/git-flow'
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
 
@@ -407,11 +407,11 @@ DEB_HOME=$HOME/Documents/Net_Downloads
 
 export PYTHONPATH="$PYTHONPATH:$HOME/Development/python"
 gitkraken="$HOME/gitkraken"
-# gitflow="$HOME/Mint19Setup/Util/gitflow"
+# gitflow="$HOME/Github/Mint19Setup/Util/gitflow"
 gitflow="$HOME/DriessensModel/gitflow"
 
-export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$JRE_HOME/bin:$ANT_HOME:$JAVA_HOME:$DEB_HOME:$ANT_HOME/bin:$HOME/Mint19Setup/Util:$HOME/csvn
-export PATH=/usr/bin:/usr/sbin:$HOME/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow:$M2_HOME:$M2
+export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$JRE_HOME/bin:$ANT_HOME:$JAVA_HOME:$DEB_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$HOME/csvn
+export PATH=/usr/bin:/usr/sbin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow:$M2_HOME:$M2
 
 
 
@@ -444,7 +444,7 @@ echo " $HOST Welcomes You. \n "
 
 echo " Current working directory is `pwd` \n "
 echo " To list currently running cronjobs press j \n"
-echo " To increase disk space run $HOME/Mint19Setup/Util/movebackup.sh as super user "
+echo " To increase disk space run $HOME/Github/Mint19Setup/Util/movebackup.sh as super user "
 
  crontab -l
  inxi -F
@@ -460,7 +460,7 @@ echo " \n \n \n Current system uptime statistics: \n  `uptime` \n "
 # cowsay `fortune` 
 echo "\n "
 
-# sh $HOME/Mint19Setup/Util/highcpu_usage.sh &
+# sh $HOME/Github/Mint19Setup/Util/highcpu_usage.sh &
 
 # git config --global credential.helper 'cache --timeout=3600'
 
