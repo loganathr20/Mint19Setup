@@ -276,6 +276,8 @@ alias as='cd $HOME/Documents/Cloud/Assembla'
 alias dsts='v $HOME/Documents/SVN/Lodgey/Documents/Lokesh/dsts.txt'
 alias kdsts='v $HOME/Documents/SVN/Lodgey/Documents/Kotak/dsts.txt'
 alias dxts='v $HOME/Documents/SVN/Lodgey/Documents/DXCTech/dxts.txt'
+alias nissd='v $HOME/Documents/SVN/Lodgey/Documents/DXCTech/Nissan/OneDrive/NewOnedrive/ANissan/Personal/nissd.txt'
+
 alias dstsa='v $HOME/Documents/SVN/Lodgey/Documents/DXCTech/OneDriveDXC/OneDriveDxc/Personal/dstsa.txt'
 alias dstsd='v $HOME/Documents/SVN/Lodgey/Documents/DXCTech/OneDriveDXC/OneDriveDxc/Personal/dstsd.txt'
 alias gh='v $HOME/Documents/SVN/Lodgey/Documents/GitHelp/githelp.txt'
