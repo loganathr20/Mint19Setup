@@ -30,6 +30,8 @@ killall radio-tray
 killall /usr/lib/firefox/firefox
 killall googleearth-bin
 killall google-earth-pro
+killall zoom
+
 
 
 
