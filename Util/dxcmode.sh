@@ -23,7 +23,7 @@ killall /usr/share/skypeforlinux/skypeforlinux
 killall nemo
 killall leafpad
 killall gnome-do gnome-calculator tomboy skype  pidgin  nemo
-killall gnome-terminal chrome  gnome-terminal-server tomboy dropbox leafpad
+killall gnome-terminal gnome-terminal-server tomboy dropbox leafpad
 killall tomboy
 # killall gnome-system-monitor
 killall radio-tray
