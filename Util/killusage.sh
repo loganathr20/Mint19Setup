@@ -33,3 +33,4 @@ killall google-earth-pro
 killall zoom
 killall teams
 killall team
+# killall cairo-dock
