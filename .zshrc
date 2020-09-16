@@ -363,6 +363,8 @@ alias tomurl='sh $HOME/Github/Mint19Setup/Util/urlopener.sh "http://lraja-Aspire
 alias googleurl='sh $HOME/Github/Mint19Setup/Util/urlopener.sh "https://google.com"'
 alias bb='cd $HOME/BitBucket'
 alias i='sh $HOME/Github/Mint19Setup/Util/ids.sh'
+alias ovpn='sudo sh $HOME/Github/Mint19Setup/Util/ovpn.sh'
+
 # alias memfree =  free -m | grep -i mem | tr -d [A-z],\:,\+,\=,\-,\/, | awk '{print"Mem used: "100-(($3)/($1)*100)"%"}'
 
 
