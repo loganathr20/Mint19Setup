@@ -34,3 +34,6 @@ killall zoom
 killall teams
 killall team
 # killall cairo-dock
+
+killall pulseUi
+
