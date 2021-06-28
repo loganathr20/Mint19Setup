@@ -264,6 +264,7 @@ alias fm='sh freemem.sh'
 alias cs='sh clear_swap.sh'
 alias cm='sh clean_mailbox.sh'
 alias ki='sh killusage.sh'
+alias tm='sudo hddtemp /dev/sda'
 
 alias dx='sh dxcmode.sh'
 
