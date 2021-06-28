@@ -250,8 +250,8 @@ alias k='killall '
 alias h='history 0'
 alias cr='cinnamon --replace &'
 alias ks='killall gnome-do gnome-calculator tomboy skype  pidgin  evolution nemo'
-alias e='leafpad ' 
-alias v='leafpad ' 
+alias e='gedit ' 
+alias v='gedit ' 
 alias kt='killall gnome-terminal chrome  gnome-system-monitor gnome-terminal-server'
 alias sf='screenfetch'
 alias sm='banner santhosh is a monkey'
@@ -395,8 +395,10 @@ export GUIEDITOR=gedit
 # JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 # JAVA_HOME="/usr/lib/jvm/java-9-oracle"
 # JAVA_HOME=/usr/lib/jvm/jdk-11.0.1
-JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+# JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 # JAVA_HOME="/usr/lib/jvm/jdk1.6.0_45"
+JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+
 
 M2_HOME=/usr/share/maven
 M2=$M2_HOME/bin
