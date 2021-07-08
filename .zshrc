@@ -284,14 +284,16 @@ alias kdsts='v $HOME/Documents/SVN/Lodgey/Documents/Kotak/dsts.txt'
 alias dxts='v $HOME/Documents/SVN/Lodgey/Documents/DXCTech/dxts.txt'
 alias nissd='v $HOME/Documents/SVN/Lodgey/Documents/DXCTech/Nissan/NewOnedrive/ANissan/Personal/nissd.txt'
 alias dbsdoc='cd $HOME/Documents/DXCTech/Nissan/VDI_codesetup/Regarding_DBS_setup_'
+alias usts='v $HOME/Documents/SVN/Win10Repo/Personal/ust.txt'
+alias ust=' nemo $HOME/Documents/SVN/Lodgey/Documents/USTGlobal'
 
 alias dstsa='v $HOME/Documents/SVN/Lodgey/Documents/DXCTech/OneDriveDXC/OneDriveDxc/Personal/dstsa.txt'
 alias dstsd='v $HOME/Documents/SVN/Lodgey/Documents/DXCTech/OneDriveDXC/OneDriveDxc/Personal/dstsd.txt'
 alias gh='v $HOME/Documents/SVN/Lodgey/Documents/GitHelp/githelp.txt'
 alias notes='v $HOME/Documents/SVN/Lodgey/Documents/GitHelp/Notes.txt'
-alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
-alias speed='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
-alias sp='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
+alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
+alias speed='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
+alias sp='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 
 
 
@@ -418,7 +420,7 @@ ANT_HOME=/usr/share/ant
 
 DEB_HOME=$HOME/Documents/Net_Downloads
 
-export PYTHONPATH="$PYTHONPATH:$HOME/Development/python"
+export PYTHONPATH="$PYTHONPATH:$HOME/Development/python3"
 gitkraken="$HOME/gitkraken"
 # gitflow="$HOME/Github/Mint19Setup/Util/gitflow"
 gitflow="$HOME/DriessensModel/gitflow"
@@ -494,4 +496,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-# TRY
