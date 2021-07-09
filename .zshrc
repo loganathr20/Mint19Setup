@@ -286,6 +286,8 @@ alias nissd='v $HOME/Documents/SVN/Lodgey/Documents/DXCTech/Nissan/NewOnedrive/A
 alias dbsdoc='cd $HOME/Documents/DXCTech/Nissan/VDI_codesetup/Regarding_DBS_setup_'
 alias usts='v $HOME/Documents/SVN/Win10Repo/Personal/ust.txt'
 alias ust=' nemo $HOME/Documents/SVN/Lodgey/Documents/USTGlobal'
+alias pcj=' v $HOME/Documents/SVN/Lodgey/Documents/Kotak/PCJ_DIGIGOLD/pcj.txt'
+
 
 alias dstsa='v $HOME/Documents/SVN/Lodgey/Documents/DXCTech/OneDriveDXC/OneDriveDxc/Personal/dstsa.txt'
 alias dstsd='v $HOME/Documents/SVN/Lodgey/Documents/DXCTech/OneDriveDXC/OneDriveDxc/Personal/dstsd.txt'
