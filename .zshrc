@@ -498,7 +498,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+hostnamectl
+echo "\n"
+echo "\n"
 
+w
 
 # sudo /etc/init.d/bluetooth start
 # sudo /etc/init.d/bluetooth status
