@@ -385,6 +385,9 @@ alias netstat='netstat -tulpn'
 # alias gf='sh $HOME/Github/Mint19Setup/Util/gitflow/git-flow'
 alias gf='sh $HOME/DriessensModel/gitflow/git-flow'
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
+alias hibernate='systemctl hibernate -i'
+alias g='glances'
+
 
 
 # sudo /etc/init.d/jenkins restart
@@ -492,6 +495,7 @@ mp4TOmp3 () {
 }
 
 
+export MAIL=/var/mail/username
 
 
 export NVM_DIR="$HOME/.nvm"
