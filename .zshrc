@@ -398,21 +398,12 @@ export CLIEDITOR=nano
 export GUIEDITOR=gedit
 
 
-# JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-# JAVA_HOME=/usr/lib/jvm/jdk1.7.0_80
-# JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-# JAVA_HOME="/usr/lib/jvm/java-9-oracle"
-# JAVA_HOME=/usr/lib/jvm/jdk-11.0.1
-# JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-# JAVA_HOME="/usr/lib/jvm/jdk1.6.0_45"
+
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
 
 M2_HOME=/usr/share/maven
 M2=$M2_HOME/bin
-
-# export CATALINA_HOME
-# export TOMCAT_JAVA_HOME
 
 export JAVA_HOME
 
@@ -433,9 +424,6 @@ gitflow="$HOME/DriessensModel/gitflow"
 
 export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$JRE_HOME/bin:$ANT_HOME:$JAVA_HOME:$DEB_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$HOME/csvn
 export PATH=/usr/bin:/usr/sbin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow:$M2_HOME:$M2
-
-
-
 
 
 
