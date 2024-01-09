@@ -13,7 +13,7 @@ do
 	echo "Running in Background. Hit [CTRL+C] to stop!"
         echo "--------------------------------------------------------------"
         # sleep 10
-        sleep 600
+        sleep 0.06m
 
 done
 
