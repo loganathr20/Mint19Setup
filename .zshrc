@@ -388,6 +388,7 @@ alias glog='git log --graph --abbrev-commit --decorate --date=relative --all'
 alias hibernate='systemctl hibernate -i'
 alias g='glances'
 alias se='sensors'
+alias shut='shutdown -r now'
 
 
 # sudo /etc/init.d/jenkins restart
