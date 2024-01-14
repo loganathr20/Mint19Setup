@@ -330,7 +330,7 @@ alias aprilia='nemo $HOME/Documents/SVN/Golden/Documents/Aprilia'
 
 
 alias sc='svn cleanup'
-alias up='svn update'
+alias upp='svn update'
 alias st='svn status'
 alias upt='sh $HOME/Github/Mint19Setup/Util/upt.sh'
 alias kp='sudo fuser -k 18080/tcp'
@@ -358,11 +358,13 @@ alias updategrub='sudo update-grub'
 alias yt='youtube-dl '
 alias mi='cd $HOME/Github/Mint19Setup'
 alias gs='git status'
-alias gp='git push'
+alias gp='git pull'
 alias gco='git commit -a'
 alias gc='git checkout '
 alias gb='git branch '
 alias gba='git branch -a'
+alias up='sh /home/lraja/Documents/update_git.sh'
+
 
 alias tomreload='sudo systemctl daemon-reload'
 alias tomstart='sudo systemctl start tomcat'
