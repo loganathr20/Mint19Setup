@@ -236,6 +236,8 @@ alias wth='ps -uxa | more'
 alias ps='ps -aux'
 alias kill='kill -9'
 alias ke='killall evolution'
+alias kteams='killall teams-for-linux'
+
 alias kz='killall zoom'
 alias cairo='killall cairo-dock'
 alias c='clear'
@@ -244,6 +246,8 @@ alias f='finger'
 alias ut='uptime'
 alias u='cd $HOME/Github/Mint19Setup/Util'
 alias mi='cd $HOME/Github/Mint19Setup'
+alias ub='cd /usr/bin'
+
 alias ga='cd /home/lraja/Desktop/Garage'
 alias s='sudo su'
 alias x='exit'
@@ -251,12 +255,12 @@ alias xx='exit \n exit'
 alias k='killall ' 
 alias h='history 0'
 alias cr='cinnamon --replace &'
-alias ks='killall gnome-do gnome-calculator tomboy skype  pidgin  evolution nemo'
+alias kt='killall gnome-do gnome-calculator tomboy skype  pidgin  gnome-terminal'
 alias e='gedit ' 
 alias v='gedit ' 
-alias kt='killall gnome-terminal chrome  gnome-system-monitor gnome-terminal-server'
+alias kii='killall  chrome  gnome-system-monitor gnome-terminal-server teams-for-linux evolution nemo gnome-do gnome-calculator pidgin skype tomboy whatsapp-desktop-linux'
 alias sf='screenfetch'
-alias sm='banner santhosh is a monkey'
+alias sm='banner santhya is a monkey'
 alias gd='google-drive-ocamlfuse ~/gdrive'
 alias gdrive='google-drive-ocamlfuse ~/gdrive'
 alias synccloud='sh $HOME/Github/Mint19Setup/Util/synccloud.sh &'
@@ -310,14 +314,15 @@ alias cvf='v $HOME/Documents/SVN/Golden/CV/Current/CV_upto_HTC/cvform.txt'
 alias cv='nemo $HOME/Documents/SVN/Golden/CV/Current/CV_upto_HTC'
 alias cn=' nemo $HOME/Documents/SVN/Golden/Documents/Kotak/ContractNotes'
 alias aws='nemo $HOME/Documents/CommonRepo/AWS'
-alias n='cd $HOME/Documents/Net_Downloads/Kernel/latest4.1.1'
+alias n='cd $HOME/Documents/Net_Downloads'
 alias svnss='clear && sh $HOME/csvn/bin/csvn start'
 alias svnt='clear && sh $HOME/csvn/bin/csvn stop && sudo fuser -k 18080/tcp'
 alias svns='sh $HOME/Github/Mint19Setup/Util/svns.sh &'
 alias svnst='sh $HOME/Github/Mint19Setup/Util/svnstatus.sh &'
 alias cst='sh $HOME/Github/Mint19Setup/Util/cst.sh &'
 alias mp4tomp3='sh $HOME/Github/Mint19Setup/Util/mp4tomp3.sh &'
-
+alias dos2unix='perl -pi -e 's/\r\n/\n/g' $1'
+# alias dos2unix='sed -e "s/^M//" $1 $2'
 
 alias insur='v $HOME/Documents/SVN/Golden/Documents/Kwid/RTO_and_Insurance/insurance_companytxt'
 alias kwid='nemo $HOME/Documents/SVN/Golden/Documents/Kwid'
@@ -426,8 +431,7 @@ gitkraken="$HOME/gitkraken"
 gitflow="$HOME/DriessensModel/gitflow"
 
 export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$JRE_HOME/bin:$ANT_HOME:$JAVA_HOME:$DEB_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$HOME/csvn
-export PATH=/usr/bin:/usr/sbin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow:$M2_HOME:$M2
-
+export PATH=$PATH:/usr/bin:/usr/sbin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow:$M2_HOME:$M2
 
 
 # Jenkins environment ( Change it when job changes)
@@ -458,8 +462,8 @@ echo " Current working directory is `pwd` \n "
 echo " To list currently running cronjobs press j \n"
 echo " To increase disk space run $HOME/Github/Mint19Setup/Util/movebackup.sh as super user "
 
- crontab -l
- inxi -F
+crontab -l
+inxi -F
 
 # stty intr ^v^c
 
@@ -500,8 +504,6 @@ echo "\n"
 
 w
 
-# sudo /etc/init.d/bluetooth start
-# sudo /etc/init.d/bluetooth status
-
+f
 
 
