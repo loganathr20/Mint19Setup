@@ -403,13 +403,16 @@ alias shut='shutdown -r now'
 # sudo /etc/init.d/jenkins restart
 # Usage: /etc/init.d/jenkins {start|stop|status|restart|force-reload}
 
-## Environment variables
+# Environment variables
 export CLIEDITOR=nano
 export GUIEDITOR=gedit
 
 
 
-JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+# JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+
+JAVA_HOME="/usr/lib/jvm/jdk-21-oracle-x64"
+
 
 
 M2_HOME=/usr/share/maven
@@ -432,8 +435,10 @@ gitkraken="$HOME/gitkraken"
 # gitflow="$HOME/Github/Mint19Setup/Util/gitflow"
 gitflow="$HOME/DriessensModel/gitflow"
 
-export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$JRE_HOME/bin:$ANT_HOME:$JAVA_HOME:$DEB_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$HOME/csvn
-export PATH=$PATH:/usr/bin:/usr/sbin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow:$M2_HOME:$M2
+# export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$JRE_HOME/bin:$ANT_HOME:$JAVA_HOME:$DEB_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$HOME/csvn
+# export PATH=$PATH:/usr/bin:/usr/sbin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow:$M2_HOME:$M2
+
+export PATH=$PATH:$PATH:/usr/bin:/usr/sbin:$JAVA_HOME:$JAVA_HOME/bin:$JAVA_HOME/lib:$JRE_HOME/bin:$JRE_HOME/lib:$ANT_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow
 
 
 # Jenkins environment ( Change it when job changes)
@@ -446,10 +451,10 @@ export ITEM_FULLNAME
 export ITEM_ROOTDIR
 
 
-# export M3_HOME=/opt/apache-maven-3.1.0
-export M3_HOME=/usr/share/maven
-export M3=$M3_HOME/bin
-export PATH=$M3:$PATH
+
+M2_HOME='/opt/apache-maven-3.9.6'
+PATH="$M2_HOME/bin:$PATH"
+export PATH
 
 
 screenfetch
@@ -495,17 +500,29 @@ mp4TOmp3 () {
 export MAIL=/var/mail/username
 
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+
+echo " Home Directory is $HOME"
+echo "\n"
+
+echo " Path is \n"
+echo $PATH
+
+echo "\n"
+
+# echo " Jenkins server status \n"
+# jenkinsstatus
 
 hostnamectl
-echo "\n"
+
 echo "\n"
 
 w
 
-f
+echo "\n"
 
 
