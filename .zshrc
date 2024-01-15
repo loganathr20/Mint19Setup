@@ -410,21 +410,20 @@ export GUIEDITOR=gedit
 
 
 
-# JAVAHOME="/usr/lib/jvm/java-11-openjdk-amd64"
+# JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
-JAVAHOME="/usr/lib/jvm/jdk-21-oracle-x64"
+JAVA_HOME="/usr/lib/jvm/jdk-21-oracle-x64"
 
-M2_HOME='/opt/apache-maven-3.9.6'
+# M2_HOME='/opt/apache-maven-3.9.6'
+# PATH="$M2_HOME/bin:$PATH"
+# export PATH
+
+M2_HOME=/usr/share/maven
 PATH="$M2_HOME/bin:$PATH"
 export PATH
 
-# M2_HOME=/usr/share/maven
-# M2=$M2_HOME/bin
-
-export JAVAHOME
-
-export JREHOME=$JAVAHOME/jre
-
+export JAVA_HOME
+export JRE_HOME=$JAVA_HOME/jre
 
 ANT_HOME=/usr/share/ant
 
@@ -438,10 +437,10 @@ export PYTHONPATH="$PYTHONPATH:$HOME/Development/python3"
 # gitflow="$HOME/Github/Mint19Setup/Util/gitflow"
 # gitflow="$HOME/DriessensModel/gitflow"
 
-# export PATH=$PATH:$HOME/bin:$JAVAHOME/bin:$JREHOME/bin:$ANT_HOME:$JAVAHOME:$DEB_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$HOME/csvn
+# export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$JRE_HOME/bin:$ANT_HOME:$JAVA_HOME:$DEB_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$HOME/csvn
 # export PATH=$PATH:/usr/bin:/usr/sbin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow:$M2_HOME:$M2
 
-export PATH=$PATH:$PATH:/usr/bin:/usr/sbin:$JAVAHOME:$JAVAHOME/bin:$JAVAHOME/lib:$JREHOME/bin:$JREHOME/lib:$ANT_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow
+export PATH=$PATH:$PATH:/usr/bin:/usr/sbin:$JAVA_HOME:$JAVA_HOME/bin:$JAVA_HOME/lib:$JRE_HOME/bin:$JRE_HOME/lib:$ANT_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow
 
 
 # Jenkins environment ( Change it when job changes)
@@ -452,18 +451,6 @@ ITEM_ROOTDIR=${JENKINS_HOME}/workspace/${ITEM_FULLNAME}
 export JENKINS_HOME
 export ITEM_FULLNAME
 export ITEM_ROOTDIR
-
-
-
-# M2_HOME='/opt/apache-maven-3.9.6'
-# PATH="$M2_HOME/bin:$PATH"
-# export PATH
-
-
-M2_HOME='/usr/share/maven'
-PATH="$M2_HOME/bin:$PATH"
-export PATH
-
 
 
 screenfetch
@@ -509,32 +496,32 @@ mp4TOmp3 () {
 export MAIL=/var/mail/username
 
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
+echo "************************************************************************\n"
 
 echo " Home Directory is $HOME"
 echo "\n"
 
-echo " JAVAHOME Directory is $JAVAHOME"
+echo " JAVA_HOME Directory is $JAVA_HOME"
 echo "\n"
 
-echo " JREHOME Directory is $JREHOME"
+echo " JRE_HOME Directory is $JRE_HOME"
 echo "\n"
 
 echo " M2_Home Directory is $M2_HOME"
 echo "\n"
 
+echo " ANT_Home Directory is $ANT_HOME"
+echo "\n"
+
 echo " JENKINS_HOME Directory is $JENKINS_HOME"
 echo "\n"
 
-
 echo " Path is \n"
 echo $PATH
-
 echo "\n"
+
+echo "************************************************************************\n"
+
 
 # echo " Jenkins server status \n"
 # jenkinsstatus
