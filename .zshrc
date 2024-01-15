@@ -367,13 +367,14 @@ alias up='sh /home/lraja/Documents/update_git.sh'
 
 
 alias tomreload='sudo systemctl daemon-reload'
+alias tom='cd /opt/tomcat/'
 alias tomstart='sudo systemctl start tomcat'
 alias tomstatus='sudo systemctl status tomcat'
 alias tomrestart='sudo systemctl restart tomcat'
 alias tomstop='sudo systemctl stop tomcat'
 alias tomdeploy='sudo sh $HOME/Github/Mint19Setup/Util/tomdeploy.sh '
 alias tomconfig='sudo nano /etc/systemd/system/tomcat.service'
-alias tomurl='sh $HOME/Github/Mint19Setup/Util/urlopener.sh "http://lraja-Aspire-X3990:8080" & '
+alias tomurl='sh $HOME/Github/Mint19Setup/Util/urlopener.sh "http://LinuxMint-Thinkcentre:8080" & '
 alias googleurl='sh $HOME/Github/Mint19Setup/Util/urlopener.sh "https://google.com"'
 alias bb='cd $HOME/BitBucket'
 alias i='sh $HOME/Github/Mint19Setup/Util/ids.sh'
@@ -409,18 +410,20 @@ export GUIEDITOR=gedit
 
 
 
-# JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+# JAVAHOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
-JAVA_HOME="/usr/lib/jvm/jdk-21-oracle-x64"
+JAVAHOME="/usr/lib/jvm/jdk-21-oracle-x64"
 
+M2_HOME='/opt/apache-maven-3.9.6'
+PATH="$M2_HOME/bin:$PATH"
+export PATH
 
+# M2_HOME=/usr/share/maven
+# M2=$M2_HOME/bin
 
-M2_HOME=/usr/share/maven
-M2=$M2_HOME/bin
+export JAVAHOME
 
-export JAVA_HOME
-
-export JRE_HOME=$JAVA_HOME/jre
+export JREHOME=$JAVAHOME/jre
 
 
 ANT_HOME=/usr/share/ant
@@ -431,14 +434,14 @@ ANT_HOME=/usr/share/ant
 DEB_HOME=$HOME/Documents/Net_Downloads
 
 export PYTHONPATH="$PYTHONPATH:$HOME/Development/python3"
-gitkraken="$HOME/gitkraken"
+# gitkraken="$HOME/gitkraken"
 # gitflow="$HOME/Github/Mint19Setup/Util/gitflow"
-gitflow="$HOME/DriessensModel/gitflow"
+# gitflow="$HOME/DriessensModel/gitflow"
 
-# export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$JRE_HOME/bin:$ANT_HOME:$JAVA_HOME:$DEB_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$HOME/csvn
+# export PATH=$PATH:$HOME/bin:$JAVAHOME/bin:$JREHOME/bin:$ANT_HOME:$JAVAHOME:$DEB_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$HOME/csvn
 # export PATH=$PATH:/usr/bin:/usr/sbin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow:$M2_HOME:$M2
 
-export PATH=$PATH:$PATH:/usr/bin:/usr/sbin:$JAVA_HOME:$JAVA_HOME/bin:$JAVA_HOME/lib:$JRE_HOME/bin:$JRE_HOME/lib:$ANT_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow
+export PATH=$PATH:$PATH:/usr/bin:/usr/sbin:$JAVAHOME:$JAVAHOME/bin:$JAVAHOME/lib:$JREHOME/bin:$JREHOME/lib:$ANT_HOME:$ANT_HOME/bin:$HOME/Github/Mint19Setup/Util:$PYTHONPATH:$PATH:$gitkraken:$gitflow
 
 
 # Jenkins environment ( Change it when job changes)
@@ -452,9 +455,15 @@ export ITEM_ROOTDIR
 
 
 
-M2_HOME='/opt/apache-maven-3.9.6'
+# M2_HOME='/opt/apache-maven-3.9.6'
+# PATH="$M2_HOME/bin:$PATH"
+# export PATH
+
+
+M2_HOME='/usr/share/maven'
 PATH="$M2_HOME/bin:$PATH"
 export PATH
+
 
 
 screenfetch
@@ -508,6 +517,19 @@ export MAIL=/var/mail/username
 
 echo " Home Directory is $HOME"
 echo "\n"
+
+echo " JAVAHOME Directory is $JAVAHOME"
+echo "\n"
+
+echo " JREHOME Directory is $JREHOME"
+echo "\n"
+
+echo " M2_Home Directory is $M2_HOME"
+echo "\n"
+
+echo " JENKINS_HOME Directory is $JENKINS_HOME"
+echo "\n"
+
 
 echo " Path is \n"
 echo $PATH
