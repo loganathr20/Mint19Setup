@@ -380,6 +380,7 @@ alias bb='cd $HOME/BitBucket'
 alias i='sh $HOME/Github/Mint19Setup/Util/ids.sh'
 alias ovpn='sudo sh $HOME/Github/Mint19Setup/Util/ovpn.sh'
 alias reboot='sudo systemctl reboot -i'
+alias locateupdate='sudo apt install locate && sudo updatedb'
 
 # alias memfree =  free -m | grep -i mem | tr -d [A-z],\:,\+,\=,\-,\/, | awk '{print"Mem used: "100-(($3)/($1)*100)"%"}'
 

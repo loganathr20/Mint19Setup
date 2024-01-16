@@ -1,0 +1,16 @@
+echo off
+
+echo "*************************************************************"
+echo "Build started from branch :  $BRANCH_NAME $GIT_BRANCH"
+echo "Workspace for the build :  $WORKSPACE"
+echo " Test build started...   %date %time " 
+echo " maven version used ..."   
+mvn --version 
+echo "*************************************************************"
+
+
+
+mvn package install
+
+
+
