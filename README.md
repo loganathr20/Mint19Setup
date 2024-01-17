@@ -1,9 +1,10 @@
 # Mint19Setup
 
 
-Mint19Setup -- Utilities for Linux Mint 19 cinnamon
-Config files(bashrc, zshrc, git etc) and utilities, .deb archives(for quick installation) conky setup files etc.. etc
-Download this project as a .zip fileDownload this project as a tar.gz file
+Mint19Setup -- Utilities for Linux Mint 21.3 cinnamon
+
+Config files(bashrc, zshrc, git etc) and utilities, conky setup files etc.. etc
+
 Welcome to GitHub Pages.
 
 Target Audience: People who want to setup Linux Mint19 with Cinnamon desktop configurations quickly
@@ -30,7 +31,7 @@ loganathr20@gmail.com
 Support or Contact
 loganathr20@gmail.com
 
-LinuxMint19hub -- Utilities for Linux Mint 19 cinnamon maintained by loganathr20
+LinuxMint19hub -- Utilities for Linux Mint 21.3  cinnamon maintained by loganathr20
 
 Published with GitHub Pages
 
