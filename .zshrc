@@ -377,6 +377,8 @@ alias tomconfig='sudo nano /etc/systemd/system/tomcat.service'
 alias tomurl='sh $HOME/Github/Mint19Setup/Util/urlopener.sh "http://LinuxMint-Thinkcentre:8080" & '
 alias googleurl='sh $HOME/Github/Mint19Setup/Util/urlopener.sh "https://google.com"'
 alias bb='cd $HOME/BitBucket'
+alias je='cd $JENKINS_HOME'
+alias ws='cd $JENKINS_HOME/workspace'
 alias i='sh $HOME/Github/Mint19Setup/Util/ids.sh'
 alias ovpn='sudo sh $HOME/Github/Mint19Setup/Util/ovpn.sh'
 alias reboot='sudo systemctl reboot -i'
@@ -428,6 +430,7 @@ export JRE_HOME=$JAVA_HOME/jre
 
 ANT_HOME=/usr/share/ant
 
+
 # For Backing up .deb files for easy installation  
 # cp -r /var/cache/apt/archives/*.* $HOME/Documents/Net_Downloads
 
@@ -445,9 +448,11 @@ export PATH=$PATH:$PATH:/usr/bin:/usr/sbin:$JAVA_HOME:$JAVA_HOME/bin:$JAVA_HOME/
 
 
 # Jenkins environment ( Change it when job changes)
-JENKINS_HOME=$HOME/JenkinsJobs
-ITEM_FULLNAME=${JENKINS_HOME}/atoadapp
-ITEM_ROOTDIR=${JENKINS_HOME}/workspace/${ITEM_FULLNAME}
+#JENKINS_HOME=$HOME/JenkinsJobs
+
+JENKINS_HOME=/var/lib/jenkins
+# ITEM_FULLNAME=${JENKINS_HOME}/atoadapp
+# ITEM_ROOTDIR=${JENKINS_HOME}/workspace/${ITEM_FULLNAME}
 
 export JENKINS_HOME
 export ITEM_FULLNAME
