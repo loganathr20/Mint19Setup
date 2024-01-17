@@ -1,4 +1,4 @@
-# Mint19Setup
+# LinuxMint Setup
 
 
 Mint19Setup -- Utilities for Linux Mint 21.3 cinnamon
