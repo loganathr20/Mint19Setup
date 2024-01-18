@@ -304,7 +304,8 @@ alias speed='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/maste
 alias sp='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 
 
-
+alias doc='cd $HOME/Documents'
+alias down='cd $HOME/Downloads'
 alias kot='cd $HOME/Documents/SVN/Golden/Documents/Kotak'
 alias lok='cd $HOME/Documents/SVN/Golden/Documents/Lokesh'
 alias dxc='nemo $HOME/Documents/SVN/Golden/Documents/DXCTech'
@@ -429,6 +430,8 @@ export JAVA_HOME
 export JRE_HOME=$JAVA_HOME/jre
 
 ANT_HOME=/usr/share/ant
+PATH="$ANT_HOME:$ANT_HOME/bin:$PATH"
+export PATH
 
 
 # For Backing up .deb files for easy installation  
