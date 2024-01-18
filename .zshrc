@@ -506,6 +506,7 @@ export MAIL=/var/mail/username
 
 
 echo "************************************************************************\n"
+echo "\n"
 
 echo " Home Directory is $HOME"
 echo "\n"
@@ -525,13 +526,13 @@ echo "\n"
 echo " JENKINS_HOME Directory is $JENKINS_HOME"
 echo "\n"
 
-echo " Path is \n"
-echo $PATH
+echo " Current Shell  is $0 "
 echo "\n"
 
-echo " Current Shell  is $0 "
+echo " Path is \n"
+echo $PATH
 
-
+echo "\n"
 echo "************************************************************************\n"
 
 
