@@ -303,7 +303,7 @@ alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias speed='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 alias sp='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 
-
+alias whichs='echo $0'
 alias doc='cd $HOME/Documents'
 alias down='cd $HOME/Downloads'
 alias kot='cd $HOME/Documents/SVN/Golden/Documents/Kotak'
@@ -528,6 +528,9 @@ echo "\n"
 echo " Path is \n"
 echo $PATH
 echo "\n"
+
+echo " Current Shell  is $0 "
+
 
 echo "************************************************************************\n"
 
