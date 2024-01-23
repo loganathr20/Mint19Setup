@@ -463,10 +463,11 @@ export ITEM_FULLNAME
 export ITEM_ROOTDIR
 
 
-screenfetch
+# screenfetch
+neofetch
 
 ##Commands to run at start
-clear 
+# clear 
 echo " Press i and enter for more Information \n "
 echo " $HOST Welcomes You. \n "
 
