@@ -404,7 +404,7 @@ alias hibernate='systemctl hibernate -i'
 alias g='glances'
 alias se='sensors'
 alias shut='shutdown -r now'
-
+alias neo='neofetch'
 
 # sudo /etc/init.d/jenkins restart
 # Usage: /etc/init.d/jenkins {start|stop|status|restart|force-reload}
