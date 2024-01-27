@@ -15,6 +15,9 @@ Old
 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
 
 
+git config --global credential.helper store
+
+
 
 loganathr20@gmail.com
 Red2Greens#$
