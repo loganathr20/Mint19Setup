@@ -20,6 +20,14 @@ cd /home/lraja/Desktop/Garage
 git status
 git pull
 
+cd /home/lraja/Documents/Deploy.tomcat.web-project
+git status
+git pull
+
+cd /home/lraja/Desktop/Deploy.tomcat.web-project
+git status
+git pull
+
 cd /home/lraja/Desktop/kandasubbu
 git status
 git pull
