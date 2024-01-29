@@ -30,7 +30,7 @@ echo " \n"
 echo " jenkins status "
 echo " \n"
 
-"sudo systemctl status jenkins"
+sudo systemctl status jenkins
 
 echo " ________________________________________________________ "
 echo " \n"

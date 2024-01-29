@@ -5,6 +5,7 @@ echo "========================================"
 echo "\n\n"
 
 echo "Updating Desktop/Mint19Setup"
+git config --global --add safe.directory /home/lraja/Desktop/Mint19Setup
 cd /home/lraja/Desktop/Mint19Setup
 git status
 git pull
@@ -17,24 +18,28 @@ git pull
 
 echo "\n\n"
 echo "Updating Desktop/PrivateRepo"
+git config --global --add safe.directory /home/lraja/Desktop/PrivateRepo
 cd /home/lraja/Desktop/PrivateRepo
 git status
 git pull
 
 echo "\n\n"
 echo "Updating Desktop/Kanda"
+git config --global --add safe.directory /home/lraja/Desktop/Kanda
 cd /home/lraja/Desktop/Kanda
 git status
 git pull
 
 echo "\n\n"
 echo "Updating Desktop/Garage"
+git config --global --add safe.directory /home/lraja/Desktop/Garage
 cd /home/lraja/Desktop/Garage
 git status
 git pull
 
 echo "\n\n"
 echo "Updating Documents/Deploy.tomcat.web-project"
+git config --global --add safe.directory /home/lraja/Desktop/Deploy.tomcat.web-project
 cd /home/lraja/Documents/Deploy.tomcat.web-project
 git status
 git pull
@@ -47,6 +52,7 @@ git pull
 
 echo "\n\n"
 echo "Updating Documents/Deploy.Kubernetes.web-project"
+git config --global --add safe.directory /home/lraja/Documents/Deploy.Kubernetes.web-project
 cd /home/lraja/Documents/Deploy.Kubernetes.web-project
 git status
 git pull
@@ -57,5 +63,6 @@ git pull
 # git status
 # git pull
 
-sleep 30
+sleep 15
+
 
