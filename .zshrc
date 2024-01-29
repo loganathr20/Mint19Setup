@@ -404,7 +404,7 @@ alias tomurl='sh $HOME/Github/Mint19Setup/Util/urlopener.sh "http://LinuxMint-Th
 
 alias kuberstart='microk8s start'
 alias kuberstop='microk8s stop'
-alias kuberstop='microk8s status'
+alias kuberstatus='microk8s status'
 alias kuberdash='microk8s dashboard-proxy'
 alias mkctl='microk8s kubectl'
 

@@ -59,6 +59,7 @@ alias e='leafpad '
 alias v='leafpad ' 
 alias kt='killall gnome-terminal '
 alias sf='screenfetch'
+alias nf='neofetch'
 alias sm='banner santhosh is a monkey'
 alias gd='google-drive-ocamlfuse ~/gdrive'
 alias gdrive='google-drive-ocamlfuse ~/gdrive'
@@ -78,6 +79,35 @@ alias autoremove='sudo apt-get autoremove'
 alias apt-source='apt-get source'
 alias apt-search='apt-cache search'
 alias mountg='google-drive-ocamlfuse ~/gdrive'
+
+alias g='glances'
+alias se='sensors'
+alias shut='shutdown -r now'
+alias neo='neofetch'
+
+
+alias tomreload='sudo systemctl daemon-reload'
+alias tom='cd /opt/tomcat/'
+alias tomstart='sudo systemctl start tomcat'
+alias tomstatus='sudo systemctl status tomcat'
+alias tomrestart='sudo systemctl restart tomcat'
+alias tomstop='sudo systemctl stop tomcat'
+alias tomdeploy='sudo sh $HOME/Github/Mint19Setup/Util/tomdeploy.sh '
+alias tomconfig='sudo nano /etc/systemd/system/tomcat.service'
+alias tomurl='sh $HOME/Github/Mint19Setup/Util/urlopener.sh "http://LinuxMint-Thinkcentre:8080" & '
+
+
+alias kuberstart='microk8s start'
+alias kuberstop='microk8s stop'
+alias kuberstatus='microk8s status'
+alias kuberdash='microk8s dashboard-proxy'
+alias mkctl='microk8s kubectl'
+
+alias jenkinsreload='sudo systemctl daemon-reload'
+alias jenkinsstart='sudo systemctl start jenkins'
+alias jenkinsstatus='sudo systemctl status jenkins'
+alias jenkinsrestart='sudo systemctl restart jenkins'
+alias jenkinsstop='sudo systemctl stop jenkins'
 
 
 ## Environment variables
