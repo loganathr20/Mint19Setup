@@ -28,9 +28,13 @@ cd /home/lraja/Desktop/Deploy.tomcat.web-project
 git status
 git pull
 
-cd /home/lraja/Desktop/kandasubbu
+cd /home/lraja/Documents/Deploy.Kubernetes.web-project
 git status
 git pull
+
+# cd /home/lraja/Desktop/kandasubbu
+# git status
+# git pull
 
 sleep 30
 
