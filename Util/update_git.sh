@@ -39,16 +39,17 @@ git pull
 
 echo "\n\n"
 echo "Updating Documents/Deploy.tomcat.web-project"
-git config --global --add safe.directory /home/lraja/Desktop/Deploy.tomcat.web-project
+git config --global --add safe.directory /home/lraja/Documents/Deploy.tomcat.web-project
 cd /home/lraja/Documents/Deploy.tomcat.web-project
 git status
 git pull
 
-echo "\n\n"
-echo "Updating Desktop/Deploy.tomcat.web-project"
-cd /home/lraja/Desktop/Deploy.tomcat.web-project
-git status
-git pull
+# echo "\n\n"
+# echo "Updating Desktop/Deploy.tomcat.web-project"
+# git config --global --add safe.directory /home/lraja/Desktop/Deploy.tomcat.web-project
+# cd /home/lraja/Desktop/Deploy.tomcat.web-project
+# git status
+# git pull
 
 echo "\n\n"
 echo "Updating Documents/Deploy.Kubernetes.web-project"
