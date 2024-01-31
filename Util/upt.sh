@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# ANSI color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RESET='\033[0m' # Reset color to default
+
+
 clear
 
 while true
@@ -7,24 +14,25 @@ do
         clear
 
         echo "--------------------------------------------------------------"
-        echo " System Temperature -- HDD  "
+        echo -e "${GREEN} System Temperature -- HDD  "
         # sudo hddtemp /dev/sda
         sudo sensors
         uptime
         echo " "
-        echo " "
+        echo -e " ${RESET}"
         
         echo "--------------------------------------------------------------"
-        echo " Network Speed  "
+        echo -e "${YELLOW}  Network Speed "
         echo " "
-	curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
+	    curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
         echo "--------------------------------------------------------------"
         echo " "
-        echo " "
-	echo "Running in Background. Hit [CTRL+C] to stop!"
+        echo -e " ${RESET} "
+
+	    echo -e "${RED} Running in Background. Hit [CTRL+C] to stop! ${RESET} "
         echo "--------------------------------------------------------------"
         # sleep 10
-        sleep 50m
+        sleep 15m
 
 done
 
