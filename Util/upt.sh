@@ -12,11 +12,14 @@ clear
 while true
 do
         clear
-
         echo "--------------------------------------------------------------"
-        echo -e "${GREEN} System Temperature -- HDD  "
-        # sudo hddtemp /dev/sda
-        sudo sensors
+
+#       echo -e "${GREEN} System Temperature -- HDD  "
+#       sudo hddtemp /dev/sda
+#       sudo sensors
+ 
+        echo -e "${GREEN} System Uptime :  "
+        echo " "
         uptime
         echo " "
         echo -e " ${RESET}"
@@ -31,7 +34,6 @@ do
 
 	    echo -e "${RED} Running in Background. Hit [CTRL+C] to stop! ${RESET} "
         echo "--------------------------------------------------------------"
-        # sleep 10
         sleep 15m
 
 done
