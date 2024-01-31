@@ -12,6 +12,10 @@ clear
 while true
 do
         clear
+        sh /home/lraja/Documents/update_git.sh
+        
+        clear
+        
         echo "--------------------------------------------------------------"
 
 #       echo -e "${GREEN} System Temperature -- HDD  "
