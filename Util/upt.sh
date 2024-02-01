@@ -38,7 +38,7 @@ do
 
 	    echo -e "${RED} Running in Background. Hit [CTRL+C] to stop! ${RESET} "
         echo "--------------------------------------------------------------"
-        sleep 15m
+        sleep 58m
 
 done
 
