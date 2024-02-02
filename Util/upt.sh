@@ -22,21 +22,21 @@ do
 #       sudo hddtemp /dev/sda
 #       sudo sensors
  
-        echo -e "${GREEN} System Uptime :  "
+        echo  "${GREEN} System Uptime :  "
         echo " "
         uptime
         echo " "
-        echo -e " ${RESET}"
+        echo  " ${RESET}"
         
         echo "--------------------------------------------------------------"
-        echo -e "${YELLOW}  Network Speed "
+        echo  "${YELLOW}  Network Speed "
         echo " "
 	    curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
         echo "--------------------------------------------------------------"
         echo " "
-        echo -e " ${RESET} "
+        echo  " ${RESET} "
 
-	    echo -e "${RED} Running in Background. Hit [CTRL+C] to stop! ${RESET} "
+	    echo  "${RED} Running in Background. Hit [CTRL+C] to stop! ${RESET} "
         echo "--------------------------------------------------------------"
         sleep 58m
 

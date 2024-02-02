@@ -1,0 +1,807 @@
+SmartGit 23.1.1 (2023-12-08)
+============================
+Fixed Bugs
+----------
+- GitHub email address confirmation dialog: selecting the *Always use default email address* radio button wrote empty email address to `.git/config`
+- Azure DevOps: OAuth-authentication for repository was broken (unless Git config "useHttpPath" was set)
+- Investigate: under certain unclear conditions an internal error could occur when closing the Investigate window
+- Standard window:
+    - Commit: should not allow to create empty commit even if repository is empty
+- Linux: several problems with forced light theme on dark system theme
+    - the background color of the Std, Directories table is dark gray instead of light gray
+    - the caret in text fields is not visible
+    - the preferences tree uses light foreground on light background for the selected node
+- macOS: click-dragging a table item might cause an internal error under unclear conditions
+
+Other Noteworthy Changes
+------------------------
+- Branches view:
+    - when using `branchBrowser.showClassicAheadBehindNumbers`, colors are used (as in before SmartGit 22.1)
+    - Log: added low-level property `core.remote.configNamesToIgnoreForUrlLessRemotes` to hide incomplete remotes (that are shown by `git status`)
+- some i18n fixes
+
+
+SmartGit 23.1.0 (2023-11-24)
+============================
+Fixed Bugs
+----------
+- Refresh: possible internal error while concurrently adding LFS objects
+
+
+SmartGit 23.1 RC 6 (2023-11-22)
+===============================
+Fixed Bugs
+----------
+- Changes view:
+    - staging added block may not work anymore (regression in 23.1 RC 5)
+- Syntax coloring:
+    - Verilog: number literals: did not support exponential representation, upper-case base characters and ommitting the size
+- Working Tree window:
+    - Pull toolbar button did not show popup menu if Branches view was selected
+- Log window:
+    - Files view for committed files: external tool from directory context menu ignored selected directory
+- Linux:
+    - Branches view (Working Tree, Log window):
+        - double-clicking to check out a different branch selected the next ref after the previously selected one, too
+- MacOS:
+    - Files table: file icon was drawn too far left
+
+Other Noteworthy Changes
+------------------------
+- Stash-on-demand dialog: optionally without Discard button by setting the low-level property `stashOnDemand.offerDiscard` to `false`
+- updated translation
+- Linux:
+    - smartgit.sh: added hint to set `XDG_SESSION_TYPE=X11`
+
+
+SmartGit 23.1 RC 5 (2023-11-09)
+===============================
+Fixed Bugs
+----------
+- Changes view:
+    - possible internal error when invoking Stage Line
+- File Compare/Conflict Solver:
+    - internal error pressing Shift+Tab depending on the selection
+- File Log: possible internal error when clicking ref-link in Commit view
+- Pull (Working Tree, Log window): did not work any more
+- Refresh (working tree): worktree definitions (.git/worktrees/<branch>/gitdir) with relative path should better be honored
+- Stage: possible internal error when staging a file in the root directory of a partition mounted to a NTFS directory (Windows)
+- Standard window:
+    - My History: internal error for a diverged local, tracked branch
+    - Pull: should not auto-forward branchs which are attached to worktrees
+    - Start Feature dialog: the dialog is too large if no main branch selection is showing now, but for other repositories
+- Linux:
+    - caret color for editable combobox was not set for forced dark theme
+    - workaround for SWT/GTK bug https://github.com/eclipse-platform/eclipse.platform.swt/issues/403 (Table: vertical scrollbar is misplaced depending on used Layout)
+
+Other Noteworthy Changes
+------------------------
+- Commit dialog: reverted default behavior to honor "Prefer staged" from 22.1 unless the low-level property `commit.overridePreferStagedPreferenceBySplitTableFocus` has been configured
+- i18n: updated Japanese translation
+
+
+SmartGit 23.1 RC 4 (2023-10-27)
+===============================
+Fixed Bugs
+----------
+- Changes view:
+    - possible internal error when opening file with comments which is too large to display
+    - Images viewer: zooming is incorrectly handled by mouse position
+- Refresh (Working Tree): possible internal error after switching Git's "core.ignoreCase"
+- Remove Worktree (Working Tree window): error `GIT_DIR for repository at '...\branch' does not exist.`
+- Stage: possible internal error when staging a missing file while concurrent processes recreate this file
+- Syntax, Markdown: styling did not end at begin of new list item, header, ...
+- UI: some checkboxes and radio buttons were incorrectly layed out (which was only noticable on certain systems)
+- Log and Standard window:
+    - massive performance regression for the working tree status (since version 21.2)
+- Log window:
+    - most tools were disabled if, e.g., the Branches view was selected
+
+
+SmartGit 23.1 RC 3 (2023-10-16)
+===============================
+New Features, Improvements
+--------------------------
+- Syntax coloring:
+    - C(++): show valid and invalid escape sequences (fix)
+    - Java: support more invalid char literal (escape) sequences (fix)
+
+Fixed Bugs
+----------
+- in some dialogs checkboxes or radiobuttons are incorrectly layed out
+- possible internal error after registering hobby license without restarting
+- Log, Commits view: temporary memory leak after closing repository
+- Standard window:
+    - Start Feature:
+        - main branch suggestion should honor current head
+        - if multiple main branches are configured, ahead main branch may be reset back without confirmation
+- Working tree window:
+    - (permanent) memory leaks after closing repository
+
+Other Noteworthy Changes
+------------------------
+- Changes view, images diff: limit the size of images to (by default) 5000 pixels in each direction (low-level property `org.eclipse.swt.internal.imageLoader.maxSize` configures this limit)
+    (e.g. to avoid possible out-of-memory error for small SVG files on Linux)
+- File Compare and others: remove fix for non-US-ASCII characters
+  those which have problems with increasing row-heights caused by non-US-ASCII characters should set the low-level property `org.eclipse.swt.internal.styledtext.additionalTextForSizeTest` to contain such character(s)
+- Git-Flow Finish: for external Git-Flow, show information explaining why tag name can't be customized
+- Standard window:
+    - Start Feature: improve "move into feature branch" dialog
+
+
+SmartGit 23.1 RC 2 (2023-10-05)
+===============================
+New Features, Improvements
+--------------------------
+- Syntax:
+    - ANTLR: support for code blocks
+    - Cmd: support for "strings"
+    - Markdown: support for frontmatter (e.g. GitHub as blog)
+
+Fixed Bugs
+----------
+- Changes view, File Compare:
+    - Go to Next Change was broken if caret was only changed in other view
+- Standard window:
+    - Graph:
+        - "Follow only first parents" option fails to properly collapse paths after expanding them
+        - repository might remain locked after closing tab while long-running refresh was still in progress
+- MacOS:
+    - Preferences: left tree had hard-to-read white text on light-blue background
+
+Other Noteworthy Changes
+------------------------
+- GitHub avatars: support for <account-id>+<account-name>@users.noreply.github.com emails
+
+
+SmartGit 23.1 RC 1 (2023-09-27)
+===============================
+New Features, Improvements
+--------------------------
+- Preferences:
+    - Unified Font and Color settings on one tab
+    - preview also for coloring (language dependent snippets)
+- Syntax:
+    - added more and reworked colors
+    - Java:
+        - support for Java 21 String templates
+- Log and Working Tree window:
+    - Window | Reset Perspective
+
+Fixed Bugs
+----------
+- BitBucket: possible internal error
+- Changes view: did not correctly set editable/non-editable colors
+- Syntax:
+    - Markdown: possible internal error
+    - Groovy: incorrectly highlighted leading `"` for string
+    - JSON: did not highlight `null`
+    - PHP: incorrectly highlighted `<?php`
+- Standard window:
+    - Graph:
+        - Copy ID: possible internal error
+        - Select Child: possible internal error
+- MacOS:
+    - environment variables configured in ~/.zshrc were not detected (requires low-level property `envVarParser.interactiveShell` set to `true`)
+    - wrong environment variables were logged as detected ones
+
+Other Noteworthy Changes
+------------------------
+- Commit views: allow to commit empyt merge commit with the low-level property `commit.allowToCreateEmpty`
+- Preferences:
+    - setting the low-level property `preferences.font.showFixedWidthOption` to `true` will show a checkbox for filtering the shown fonts to those with fixed widths
+
+
+
+SmartGit 23.1 Preview 14 (2023-09-20)
+=====================================
+New Features, Improvements
+--------------------------
+- Log/Working Tree window
+    - Discard: reject if selection contains staged+locally modified files
+- Standard window:
+    - Pull: improve order of operations (fetch, fast-forward non-checked out branches, merge/rebase)
+    - Start Feature: offer to reset main branch, if current main branch is ahead of its remote
+- Syntax:
+    - simple Markdown support
+
+Fixed Bugs
+----------
+- Changes view: scrolling down might stop for certain changes
+- Standard window:
+    - My History: author's pull request should show up for source branch, not for target branch
+- macOS:
+    - environment variable detection did not detect all variables, e.g. not those from ~/.zshrc
+    - macOS 14/Sonoma: "NewApplication" was shown as application name
+- Linux:
+    - Gerrit integration: hook should not be detected if not executable
+
+Other Noteworthy Changes
+------------------------
+- Conflict Solver: improve detection of base blob ID in case of missing index entry (set default for "LLP conflictSolver.determineBaseBlobIdFromLogIfNotPresentInIndex" to "true")
+- Delete tracked branch: simplified dialog
+- Repository URL input fields (Clone, Submodule | Add, Subtree | Add): delete entries with Shift+Delete
+- Standard window:
+    - Mini-Log: don't select Amend checkbox if forced push is not allowed in preferences
+
+
+SmartGit 23.1 Preview 13 (2023-09-14)
+=====================================
+New Features, Improvements
+--------------------------
+- Clone: special branches "main" and "development" are suggested in branch to check out
+- Commit views (in all windows):
+    - if nothing is staged
+        - if multiple files are selected, commit those
+        - commit only those files which are visible - not those from parent or sibling directories (Working tree window: from the selected repository)
+    - warn, if
+        - not all staged files are visible
+        - Working Tree window: files in a submodule are staged, but not in the selected repository
+    - file completion only suggests committable files, including all (!) staged ones
+- Gerrit integration: support for .gitreview, including option "defaultbranch"
+- Graph:
+    - Avatar: support for github-no-reply email addresses
+    - Bisect: show "good" and "bad" classification also for merge commits
+- Stash Selection: don't include/warn for staged files
+- Syntax coloring:
+    - ANTLR, Java: string or character escape sequences are shown in different color
+- Standard window:
+    - Configure Features: branch "development" is detected as main branch, too
+    - Stash Selection
+    - Stage All/Unstage All: requires low-level properties "standard.actions.stageAll" or "standard.actions.unstageAll" to be set to "true"
+- Windows: added default tool "Open in Powershell"
+
+Fixed Bugs
+----------
+- Auto-updates: directory .updates/<major-version>/ fills up with control-xxx files
+- Bitbucket: internal error trying to add a Bitbucket provider without invoking "Generate Token"
+- Changes view: deselecting a file kept the vertical scrollbar as-is
+- Commit view: "Commit" button could be enabled, but non-functional
+- Gerrit integration: may not be applicable in case of multiple remotes
+- Refresh: "no is marked as missing" error
+- Speed-search in tables/trees was at wrong horizontal position if the control was scrolled horizontally
+- Standard window:
+    - Commit: completion did not suggest submodule changes
+    - Discard did not work on missing submodule
+    - Reflog: revealing did not work reliably
+    - Windows:
+        - workaround for repaint problems if a menu is opened while loading
+          https://github.com/eclipse-platform/eclipse.platform.swt/issues/791
+- Working Tree window:
+    - Changes view: unselecting "Automatic" re-enabled it on hunk stage
+    - after committing all files, the displayed one remained (regression)
+- Linux: the desktop file which was created using add-menuitem.sh was reported as buggy
+
+Other Noteworthy Changes
+------------------------
+- GitHub email checker: remember no-reply email address for making it easier to select in other GitHub repositories
+- Refresh: in case of junctions in the working tree, a warning is shown
+- Save File As dialog: remembers size
+- word-caret movement: made own implementation option by introducing the low-level property styledtext.useOwnWordBoundaryDetection 
+
+
+SmartGit 23.1 Preview 12 (2023-08-21)
+=====================================
+New Features, Improvements
+--------------------------
+- Changes view: allow to apply lines at start/end of changed blocks with different sizes
+- Standard window:
+    - My History: ability to add further "favorite" branches (from All Branches & Tags)
+    - All Branches & Tags: double-clicking a tag allows to check it out like double-clicking its commit
+- Syntax coloring:
+    - added Forth, Verilog and (x86) Assembler
+
+Fixed Bugs
+----------
+- Commit, Rewrap Lines: deleted all # lines
+- http(s) connections: possible NPE for strange/buggy proxy setups
+- Preferences:
+    - Add GitHub hosting provider: did not check for github.com in Server URL input field when adding, but only for editing
+- Rebase: could show error "The rebasing state has changed unexpectedly"
+- Refresh: symlinks in .git/objects are now followed
+- Log window:
+    - Files: Save as invoked in a bare repository should not suggest location inside repository
+- Standard window:
+    - Reflog: revealed old instead of new commit
+- Syntax coloring:
+    - Batch: incorrect detection of FOR variables, e.g. `set PATH=%~dp0bin;%PATH%`
+    - Python: _ was not supported in number literals
+
+Other Noteworthy Changes
+------------------------
+- GitHub: shows a more reasonable error message for HTTP error 502
+- Refresh:
+    - show more detailed error message in case of 'missing node'
+    - support for $XDG_CONFIG_HOME/git/config
+- Standard window:
+    - added low-level properties std.*.allowDirtyWt to disable some safety checks for certain commands
+    - Reflog:
+        - hide intermediate commits
+        - don't display gray commits
+        - reliably include all commits up to a certain limit
+- Working Tree, Log window:
+    - Commit dialog invoked from focused (split) Working Tree table: don't suggest index changes
+- Preferences:
+    - moved Refresh options to "Commands" card to indicate that they are valid for Standard and Log/Working Tree windows
+- bundled Git:
+    - updated to version 2.41.0
+    - set gc.autoDetach=false, core.fsache=false
+- Linux:
+    - show notification if non-UTF-8 configuration is detected which might cause problems for file names with non-US-ASCII characters
+    - should auto-detect date format depending on LC_TIME environment variable
+
+
+SmartGit 23.1 Preview 11 (2023-07-23)
+=====================================
+New Features, Improvements
+--------------------------
+- Standard window:
+    - added Remove action
+
+Fixed Bugs
+----------
+- internal error when opening Blame and immediately dragging the repository window
+- memory leak for "Detect remote changes" background command
+- Log window:
+    - Edit Message: internal error if working tree node was selected
+- Standard window:
+    - Files: if no file is shown, the context menu showed enabled "Reveal in Explorer"
+    - Output dialog: right-clicking a link, Copy URL did not work
+- Linux tar.gz bundle: contained mac-specific files
+
+Other Noteworthy Changes
+------------------------
+- updated SSHJ to v0.35.0
+- Add Branch (Log and Working Tree window): only allow checkout if the repository is in "normal" state (not during merging, rebasing, ...)
+- Conflict Solver (external): optionally find merge base for renamed files, if not present in .git/index (LLP conflictSolver.determineBaseBlobIdFromLogIfNotPresentInIndex)
+- (external) Diff tool: if multiple diff similar tools are configured for different extensions, they are used if comparing files with different extensions (until now the different extensions had to be specified in one diff tool)
+- Rebase Head to: show target in Output
+- Refresh (Refs): added low-level property "core.refs.followSymlinks"
+- Standard window:
+    - Graph, Files: added low-level property "standard.graph.files.copyBlobIdAction" to unlock "Copy Blob ID"
+    - removed Toggle Assume Unchanged/Skip Worktree commands from context menu (too much power-user)
+    - removed Split-Off Files from Branches menu (only in History/Files context menu)
+
+
+SmartGit 23.1 Preview 10 (2023-07-07)
+=====================================
+New Features, Improvements
+--------------------------
+- support for on-premise license server (e.g. for license tracking in the company)
+- Commit view (Log and Working Tree window):
+    - if nothing is staged, ask for committing all files, with or without untracked files
+    - added similar option in the preferences
+- Standard window: simple customization of view-dependent toolbars (context menu)
+
+Fixed Bugs
+----------
+- Clone, GitHub: repository list could use incorrectly cased URL
+- Evaluation: after end of evaluation, SmartGit could not be started anymore (failed silently)
+- GitHub and others: the virtual pull request commits should always show up, regardless of the Follow Only Primary Parents option's state
+- Log Graph: multi-selection broke after fresh
+- Standard window, +/Repositories tab: Add option is missing if the path was entered with leading ~/
+- Squash: possible internal error
+- MacOS: Open in Terminal showed 2 terminal windows, if Terminal app was started by this command
+
+Other Noteworthy Changes
+------------------------
+- Conflict Solver: converted preferences option "swap ours/theirs on rebase" into low-level property conflictSolver.swapOursTheirsForRebaseConflicts
+    (reason: if set, it is not 100% consistent, e.g. Git writes ours/theirs in the conflict markers)
+- Graph layout: reduced memory consumption
+- Preferences: needs-restart notification becomes auto-hiding and hence shows on top of other notifications
+- Standard window:
+    - Add Branch, Add Tag: allow to execute from Local Changes view
+    - Start Feature: enabled for more situations, e.g. when using the Local Changes view, or if no main branch is configured yet
+- added low-level property window.title.showRepositoryPath to show the repository path in the window title
+- Edit | Copy Name: now also can copy repository names, not just directory names
+
+
+SmartGit 23.1 Preview 9 (2023-06-07)
+====================================
+New Features, Improvements
+--------------------------
+- Standard window:
+    - GitHub: for forks "my" outgoing pull requests to upstream are shown (not just pull requests to the cloned repository)
+- GitLab, Bitbucket: authentication using OAuth 2.0 Loopback interface redirection
+
+Fixed Bugs
+----------
+- bug file was deleted immediately on startup if settings directory (or its parent) was symlink/junction
+- Bitbucket Server: wrong encoding was used for REST API (e.g. non-ASCII comments were not properly created)
+- Git-LFS: possible repeated SSH prompts for "-oControlMaster"
+- Syntax:
+    - Inno Setup: "" inside "..." was incorrectly parsed
+    - Yaml: invalid rendering of some comment lines
+- Log window:
+    - Graph: "Show Only Selected Branches and Tags" option becomes re-selected after restart
+- Working Tree window:
+    - Refresh: possible "cancelled" dialogs when switched between repositories
+
+Other Noteworthy Changes
+------------------------
+- GitHub: added low level property "json.graphQL.ignoreErrorsIfDataIsPresent" to hopefully work around GitHub organization permission issues
+- main windows titles cleaned up (no path shown any more, no preview expiration date)
+- syntax colors in dark theme: made Comment a little bit brighter to be better readable on green (= added) background
+- added system property smartgit.settings.defaults to change the location of the "defaults" directory
+- Log window:
+    - Graph: adverse order of Varying Coloring colors
+
+
+SmartGit 23.1 Preview 8 (2023-05-11)
+====================================
+New Features, Improvements
+--------------------------
+- Compare and other similar controls: extended whitespace option to "Trailing, in selection and changed blocks"
+    -> if selected, whitespace is shown in text selection, too
+
+Fixed Bugs
+----------
+- Accessibility: possible internal errors on non-Windows systems
+- JIRA, Resolve: possible internal error
+- GitLab: can't add comment to unchanged lines
+- Graph: double-click should not offer to check out for bare repositories
+- Refresh:
+    - deleting nested .git directory did not refresh correctly
+    - possible internal error in case of inaccessible directories
+- passing command line parameters to already running instance was broken
+- Distributed Reviews add-on: fix possible problem with negative refspecs
+- Standard window:
+    - top-level bare repository could not be opened (but sub-repository could)
+    - for bare repositories only basic ref-related options should be enabled
+
+Other Noteworthy Changes
+------------------------
+- Commit: workaround for bug in Git 2.40 preventing to create initial empty commit
+    https://lore.kernel.org/git/bt4342bdip3nzlikjsv6wozszmcbsc2av6cyo3z2lra4jhx3ii@ut2sl5h4f5xn/T/#u
+- Hobby license: support for GitHub SSH URLs
+- optionally no unpacking of SWT/JNA libraries needed any more
+- Graph:
+    - in Rebasing mode
+        - sort "in-progress" commit immediately before the HEAD commit
+        - 'orig' branch should remain top-most
+    - HEAD triangle (for detached commit) is now also black
+    - bare repository: allow dragging non-head refs
+- Repositories view: when dragging files from other application, bring SmartGit window to front
+- Standard window:
+    - Graph: in Rebasing mode, HEAD column should be sorted first (as in Log window)
+    - Resolve: works now on multiple files (as in Working Tree and Log window)
+    - Files, context menu: for conflicted files, Resolve is shown above Stage
+- macOS:
+    - if no window is shown, allow to open any kind of main window
+- Windows:
+    - smartgit.exe does not create temporary files any more
+
+
+SmartGit 23.1 Preview 7 (2023-04-27)
+====================================
+New Features, Improvements
+--------------------------
+- Standard window: first accessibility support (for getting feedback)
+
+Fixed Bugs
+----------
+- commands to create tags without message failed if tag.gpgSign was set
+- Graph:
+    - avatar display in "Only if Changed" mode did not check for change in email address (but just user name)
+- Squash: dialog might show visually identical authorships
+- Log window:
+    - internal error when using low-level property "log.workingTreeState"
+    - Commit view: if name is an email, it was not shown
+- Standard window:
+    - Output dialog: performance problem for many lines
+    - Repositories tree: could not rename groups
+- GUI:
+    - speed-search popup remained in error state after non-match
+
+Other Noteworthy Changes
+------------------------
+- Graph and other controls show an empty message if nothing is selected
+- GitHub: added low-level property log.github.createPullRequestAllowDifferentUpstreamName
+- GitLab, Bitbucket, Azure: Create Pull Request simply routes to browser
+- Submodule/Subtree wizard: made clear that (previous) "Local Path" is a relative path
+- command line option to copy (convert) a repository to single-user (experimental)
+- Standard window:
+    - same refresh-related checks as Log and Working Tree windows, e.g. for loose objects
+    - shows URL-less remotes, too (as "git remote" does)
+
+
+SmartGit 23.1 Preview 6 (2023-04-14)
+====================================
+New Features, Improvements
+--------------------------
+- Changes view: added Go To Line command (for non-compact side-by-side view)
+- File Log: distinguish between exact refs and refs pointing to other commits, but were mapped to the same file state
+- JIRA, resolve on Push: optionally remember the last selected version
+- Syntax:
+    - added TOML
+
+Fixed Bugs
+----------
+- fixed memory leak
+- Branches view: scrolls to selected ref on refresh
+- Changes view: synchronized scrolling did not work when searching
+- File log: possible wrong branch-mapping (to commit which does not represent file's correct state in the branch)
+- Log window or Standard window:
+    - double-clicking a stash commit should not suggest to check out commit, but invoke Apply Stash
+- Standard window:
+    - Commit: if nothing was selected, "There is nothing to commit" message
+    - Output dialog:
+        - scrolled always to top with new output
+        - closing dialog could cause hang up
+    - My History, All Branches + Tags: selecting multiple values (more than fit onto one page) scrolls to top
+    - Stashes: selection was not properly initialized
+
+Other Noteworthy Changes
+------------------------
+- support for Hobby-use license:
+    - single author repositories or
+    - open source repositories
+- Split Commit: preserve author
+- removed SVN integration
+- Log graph:
+    - dark theme: show author != commiter in lighter foreground color (instead of pink)
+- Log window:
+    - Commit (details) view: added low-level properties log.details.separateOnBranchesAndMergedToBranches and log.details.separateSameStateTagsAndClosestTags
+- when upgrading from previous major version, never unset Split Working tree/Index tables option under certain conditions
+- Working Tree window:
+    - Log Selection toolbar button now named "Log Selection" as in the Log window
+
+
+SmartGit 23.1 Preview 5 (2023-03-30)
+====================================
+New Features, Improvements
+--------------------------
+- Commit:
+    - for GitHub repositories let the user confirm the used email address
+- Rebase Interactive and other history commands: support for initial commit handling
+- Log window:
+    - Commit Details: Closest Tags display now all tags which are reachable without any other intermediate tag
+- Standard window:
+    - Integrate: asks whether to use --fork-point if it might be useful
+    - Pull toolbar button: popup menu offers now Pull All for multi-remote repositories
+    - left lists: keyboard shortcuts for commands
+
+Fixed Bugs
+----------
+- Graph:
+    - branches might jump downwards when extending the graph
+- Log window:
+    - revealing a branch might have failed (auto-loading might have not get triggered)
+    - Commit Details: tag-groupong tags should show up for commits with exact tags, too
+- Standard window:
+    - Integrate: for diverged main branch, with deactivated progress dialog, nothing happened
+    - changing keyboard shortcuts did not apply them until the window was closed and reopened
+    - possible internal error switching from Local Files to History
+    - All Branches + Tags: HEAD occurred with tag symbol
+    - Graph:
+        - clicking branch arrow did not load more commits
+        - switching between All Branches + Tags and Stashes caused tag display flickering
+- Working Tree window:
+    - Repositories: right-clicking a bare repository did not show any external tools
+- File Compare: syntax coloring was not correctly selected if no pattern, but a full file name was configured
+- WSLg: opening the browser did not work
+
+Other Noteworthy Changes
+------------------------
+- Add or Init repository: don't add initial commit, because Commit will do that already
+- Graph: layouting improvements with respect to the sorting of tip commits
+- Preferences, Filter input field: ESC should clear it
+- Repositories, Remove: tries to close the repository before removing
+- Log, Working Tree windows:
+    - Push: should be enabled for multiple remotes not named "origin"
+    - Output, Clear: will clear now all items, except those which finished < 0.5s ago
+
+
+SmartGit 23.1 Preview 4 (2023-03-08)
+====================================
+Fixed Bugs
+----------
+- Changes view: submodule comparison may continue to show error banner from previously selected file
+- Git-Flow: Configure was incorrectly enabled
+- Tag Grouping: was not applied if ~/.gitconfig contained [taggrouping] section without any key
+- Theming, default theme: table did not reset yellowish background after filtering
+- Log:
+    - Commits view:
+        - did not update after re-configuring Tag-Grouping
+        - with tag-grouping configured, branch calculations (like "on", "closest tags") were not performed for standalone tags
+    - possible deadlock when opening submodule
+- Standard window:
+    - Commit, file name completion: possible internal error
+    - Repositories tab: fixed layout for small screen sizes
+- WSLg:
+    - on a fresh system (without ~/.config/) the settings were written to wrong location
+    - installation update failed
+    - restarting SmartGit after settings change did not work
+    - windows did not show minimize/maximize buttons
+
+Other Noteworthy Changes
+------------------------
+- Branches view: apply Tag-Grouping even if no "title:" has been configured for group-patterns
+- Changes view: for non-binary files which are simply too large, "File content not loaded" instead of "File is considered as binary" is shown now
+- Conflict Solver: better description for left/right side
+- GitHub: display pull requests from non-existing users
+- Graph:
+    - tag and ref background is better noticable now (according to Twitter/Mastodon poll)
+    - too long, truncated ref names show now tooltip with full name
+- Standard window:
+    - Repository tab context menu: added Close to the Right
+- WSLg:
+    - add-menuitem.sh and remove-menuitem.sh create icon on Windows host
+    - license file and a few settings are copied from the Windows host system
+
+
+SmartGit 23.1 Preview 3 (2023-02-23)
+====================================
+New Features, Improvements
+--------------------------
+- Commit: preferences option for ignore comment lines, use message literally, or ask the user
+    - Rename Commit, Split-Off, Squash dialogs always use the message as provided
+- Changes view, Submodule change: ability to open submodule log in compare mode
+- Split-Off Files: optionally create the new commit before or after the original commit
+- Log window:
+    - Create Pull Request: optionally allow to open the web browser to create the pull request at GitHub
+- Standard window:
+    - Finish Feature:
+        - optionally allow to open the web browser to create the pull request at GitHub
+        - detect protected branches and in that case default to Create Pull Request
+    - Graph: loads more commits when scrolling to the bottom
+
+Fixed Bugs
+----------
+- Background commands:
+    - for poll, disable partial clone logic
+    - memory leak if Detect Local Changes was enabled
+- Changes view, Resolve: possible error "Input length = ..." error for conflict files with specific encodings
+- Move and Squash: could create # in commit message of the resulting commit though the original message did not contain #
+- Refresh: possible problems with Git filter-invocations (low-level property core.git.invokeFilterDirectly)
+- Syntax:
+    - Clojure: symbols might contain some non-letter character
+    - PHP: backslash in single-quoted strings was incorrectly parsed
+    - TypeScript:
+        - underscore in numbers was not allowed
+        - "any", "number", "string" and "undefined" were not highlighted
+- WSLg:
+    - GUI was broken for 200% zoom level without configuring the low-level property ui.dpiFactor
+- Standard window:
+    - Feature commands: for multiple main branches wrong main branch was suggested
+    - Configure Features:
+        - accepted input which was rejected later
+        - did not show remote-only branches
+        - lost pattern-based configurations after reopening
+        - switching back grom pattern to simple branch did not work
+        - configuration was picked up delayed
+    - Open (file): for some extensions wrong default tool was used (on Windows)
+    - Mini-log: bold (pushable) commits were not identical in all cases with Graph
+    - Rebase: false-positive warning about already pushed commits
+
+Other Noteworthy Changes
+------------------------
+- Add or Create Repository:
+    - if a path inside a repository is provided, open that repository
+    - if a path inside a submodule is provided, ask whether to open the submodule or outer-most repository
+- update bundled Git to 2.39.1 and Git-LFS 3.3.0
+- theming:
+    - make it easier to override only specific colors on top of an existing theme: https://docs.syntevo.com/SmartGit/Latest/Theme-Customization.html
+    - improved default (light) theme on macOS (less gray)
+- smartgit.properties: support UTF-8
+- Syntax:
+    - JSON: support // and /* ... */ as in TypeScript's tsconfig.json
+- macOS: ignore events for disposed widgets causing assertions
+- Log window:
+    - Changes view: opening Submodule re-uses current window when selecting "Existing window"
+    - Drop Local Data (for pull requests): works on multiple pull requests at once
+- Standard window:
+    - Commit: unset "Amend", if "Amend" was set automatically by clicking the HEAD commit in the mini-log, and the user edits the commit message
+    - Files view:
+        - if the space is not enough to display the full name or path, especially for renamed files, give the name more place
+        - for renamed files, the renamed part is highlighted
+        - show "empty commit" if no files are available
+    - Finish Feature: more efficient GitHub query (Finish dialog comes up faster)
+    - Integrate Feature: in dialog-less mode, show warning for diverged main branch
+    - My History view: if a local branch is different from its remote branch, show the remote branch as separate line below the local branch; this simplified selecting the remote branch in the Graph
+    - Refresh:
+        - performance improvements (by using a .git/index cache like the Log window)
+        - reduced memory consumption for repositories containing many files
+    - Tools main menu: contains only tools that operate on the repository root;
+      if the tool should operate on a specific directory or file, invoke the tool from the directory's or file's context menu
+
+
+SmartGit 23.1 Preview 2 (2023-01-25)
+====================================
+Fixed Bugs
+----------
+- Completion: selection is lost if the popup is open and the selection is modified
+- Refresh: possible problems with Git filter-invocations (low-level property "core.git.invokeFilterDirectly")
+- Windows might be possible to come to front if focus is changed while in background (regression)
+- Standard window:
+    - some menu items are enabled if no repository was opened
+    - My History: even branches where shown packed
+
+Other Noteworthy Changes
+------------------------
+- Standard window:
+    - Apply Stash: should only switch to WT if there are local changes
+    - Mini-Log: use log.useCommitMessage.prefix, except of when amending
+    - Repositories tab:
+        - allow to copy path of selected repository
+        - Filter input field:
+            - don't suggest Initialize for roots or parent dirs of known repositories
+            - show Add suggestion even if repositories with this prefix are known, except if the found root is already known
+
+
+SmartGit 23.1 Preview 1 (2023-01-20)
+====================================
+New Features, Improvements
+--------------------------
+- Azure DevOps: support OAuth authentication for multiple cloud accounts
+- GitHub integration: switch OAuth to loopback-callback for improved convenience and security
+- Syntax coloring:
+    - support for Lua/Nelua
+    - support for Odin
+- Standard window:
+    - allow to reorder tabs with drag and drop
+    - Features: support for multiple "main branches", e.g. develop, release-v1, release-v1.1
+    - My History: added option in Hamburger menu to show tags pointing to the displayed commits
+    - My History, All Branches + Tags: selecting 2 refs selects them in the graph, too, for easier comparison
+
+Fixed Bugs
+----------
+- Changes view:
+    - did not update properly for Index-only changes
+    - might show outdated diff after switching repositories
+- Changes view, Compare, Conflict Solver, Index Editor:
+    - possible problems with increased line heights caused by non-US-ASCII characters resulting in selection problems, Goto Next/Prev Change selecting wrong lines
+    - Find did not find text inside selection
+    - Syntax
+        - Crystal: numbers can have suffixes like _i8
+        - C#: hex literal may start with 0X (uppercase x)
+- Conflict Solver: problem with conflict at end of file with/without line separate in last line
+- Spell Checker: old (removed) language is still shown in context menu for typo
+- SSH: possible problems with ! in GIT_SSH path on Windows
+- GUI:
+    - File completion: selection is lost if popup is open and the selection is modified (with Shift+Left)
+    - Graph: tooltip for truncated messsage did not hide if mouse was moved
+    - Output dialog: could get too large (high)
+    - Table controls: multi-selection could break for refreshs
+- Standard window:
+    - Graph: main branch was not always layouted left-most
+    - Refresh: possible "missing object" error when opening repository
+    - Start Feature: must not reset diverged local main branch onto remote branch
+    - Repositories tab: possible is-disposed error when renaming a repository
+
+Other Noteworthy Changes
+------------------------
+- Clean Working Tree: reworked options to make more obvious what is done
+- Delete Branch: cleans up Git-Flow branch information in Git config files
+- Discard submodule: can operate on multiple selected submodules now
+- History-related operations: are enabled for inapplicable commits, but show an information explaining why they are not available
+- Refresh: files inaccessible due to file system permissions are denoted by a "inaccessible" state
+- Squash: authorship defaults to oldest author with most recent date (low-level property "squash.authorshipDefault")
+- Log window:
+    - Branches, context menu: "Toggle" is only available where reasonable
+    - Changes view: a different font is used (on Windows) so the comments are better readable (font can be configured with low-level property "changesView.comment.fontName")
+    - Discard should not abort commands (it is too easy to confirm, e.g. while bisecting) by default (low-level property "discard.canAbort")
+    - Graph: distinct popup menus for Pull Request and Stashes
+    - while Bisecting: all commands that make no sense are disabled
+- Standard window:
+    - Checkout commit: will create a temporary branch
+    - Commit: added low-level property "standard.selectIndexOnFocusCommitMessage" to always select Index when focusing commit message input field
+    - Directories view: can delete untracked directories
+    - Files views: can group by state
+    - Repositories tab:
+        - ability to Mark as Favorite (putting repositories at begin of group)
+        - filter input field can filter by full path now
+            - if repository at path is not known, it can be added/opened
+            - if directory at path is no repository, it can be initialized
+    - Features:
+        - reads .gitflow file for the defaults
+        - commands work for repositories without remote, too
+        - Start Feature:
+            - checks for diverged main branch earlier
+            - update submodules
+            - is also available in My History toolbar
+        - Integrate Feature: improved wording and display of progress
+    - Undo Last Commit: requires only clean Index, but allows dirty working tree
+    - added Clean Working Tree (requires "standard.actions.advanced.clean" to be set to "true")
+- updated bundled Java to 17.0.5
+- updated SWT to v4958r2
