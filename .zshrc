@@ -424,6 +424,13 @@ export CLIEDITOR=nano
 export GUIEDITOR=gedit
 
 
+git config --global core.editor "vim"
+export GIT_EDITOR=vim
+
+export VISUAL=gedit
+export EDITOR="$VISUAL"
+
+
 
 # JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
