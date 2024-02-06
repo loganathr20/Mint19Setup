@@ -1,2 +1,0 @@
-JAVA_VERSION="17.0.5"
-MODULES="java.base java.instrument java.logging java.management java.security.sasl java.naming java.rmi java.management.rmi java.security.jgss java.xml jdk.charsets jdk.crypto.ec jdk.httpserver jdk.jdwp.agent jdk.jfr jdk.management jdk.management.agent jdk.security.auth jdk.unsupported"

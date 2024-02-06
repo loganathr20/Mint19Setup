@@ -339,6 +339,7 @@ alias m='more '
 alias tree='sh $HOME/Github/Mint19Setup/Util/tree.sh '
 alias gk='$HOME/Documents/GitGUI/gitkraken/gitkraken'
 
+
 ## Helpful Ubuntu Aliases
 alias install='sudo apt-get install'
 alias update='sudo apt-get update'

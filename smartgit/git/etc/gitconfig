@@ -1,4 +1,0 @@
-[gc]
-	autoDetach = false
-[core]
-	fscache = false
