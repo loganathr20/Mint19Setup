@@ -337,7 +337,7 @@ alias upt='sh $HOME/Github/Mint19Setup/Util/upt.sh'
 alias kp='sudo fuser -k 18080/tcp'
 alias m='more '
 alias tree='sh $HOME/Github/Mint19Setup/Util/tree.sh '
-alias gk='$HOME/gitkraken/gitkraken'
+alias gk='$HOME/Documents/GitGUI/gitkraken/gitkraken'
 
 ## Helpful Ubuntu Aliases
 alias install='sudo apt-get install'
