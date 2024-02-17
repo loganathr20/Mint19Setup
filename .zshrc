@@ -391,7 +391,7 @@ alias g='glances'
 alias se='sensors'
 alias shut='shutdown -r now'
 alias neo='neofetch'
-alias suspend='systemctl suspend'
+alias suspend='systemctl suspend -i'
 
 alias tomreload='sudo systemctl daemon-reload'
 alias tom='cd /opt/tomcat/'
