@@ -415,6 +415,7 @@ alias jenkinsstart='sudo systemctl start jenkins'
 alias jenkinsstatus='sudo systemctl status jenkins'
 alias jenkinsrestart='sudo systemctl restart jenkins'
 alias jenkinsstop='sudo systemctl stop jenkins'
+alias kc='killall -HUP cinnamon'
 
 
 # sudo /etc/init.d/jenkins restart
