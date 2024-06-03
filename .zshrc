@@ -330,6 +330,11 @@ alias kwid='nemo $HOME/Documents/SVN/Golden/Documents/Kwid'
 alias aprilia='nemo $HOME/Documents/SVN/Golden/Documents/Aprilia'
 
 alias tslist='sudo timeshift --list'
+alias tscheck='sudo timeshift --check'
+alias tscreate='sudo timeshift --create'
+
+alias tsdelete='sudo timeshift --delete'
+alias tsdeleteall='sudo timeshift --delete-all'
 
 alias sc='svn cleanup'
 alias upp='svn update'

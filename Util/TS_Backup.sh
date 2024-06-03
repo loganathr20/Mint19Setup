@@ -14,7 +14,6 @@ clear
 sudo timeshift --list
 
 
-
 sudo timeshift --check
 
 
@@ -22,3 +21,8 @@ sudo timeshift --create
 
 
 sudo timeshift --list
+
+
+sudo timeshift --check
+
+
