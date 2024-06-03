@@ -34,6 +34,13 @@ do
 	    curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
         echo "--------------------------------------------------------------"
         echo " "
+        echo -e "${GREEN}  TimeShift Backup Status "
+        sudo timeshift --list
+	sudo timeshift --check
+
+        echo "--------------------------------------------------------------"
+        echo " "
+
         echo -e " ${RESET} "
 
 	    echo -e "${RED} Running in Background. Hit [CTRL+C] to stop! ${RESET} "
