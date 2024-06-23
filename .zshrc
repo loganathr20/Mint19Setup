@@ -285,8 +285,13 @@ alias deb='cd /var/cache/apt/archives/'
 alias sb='cd $HOME/Documents/SystemBack'
 alias sv='cd $HOME/Documents/SVN/Golden'
 alias as='cd $HOME/Documents/Cloud/Assembla'
-alias dsts='v $HOME/Documents/SVN/Golden/Documents/Lokesh/dsts.txt'
-alias kdsts='v $HOME/Documents/SVN/Golden/Documents/Kotak/dsts.txt'
+# alias dsts='v $HOME/Documents/SVN/Golden/Documents/Lokesh/dsts.txt'
+# alias kdsts='v $HOME/Documents/SVN/Golden/Documents/Kotak/dsts.txt'
+
+alias dsts='v /media/lraja/DDrive_SSD_SATA/SVN/Golden/Documents/Lokesh/dsts.txt'
+alias kdsts='v /media/lraja/DDrive_SSD_SATA/SVN/Golden/Documents/Kotak/dsts.txt'
+
+
 alias dxts='v $HOME/Documents/SVN/Golden/Documents/DXCTech/dxts.txt'
 alias nissd='v $HOME/Documents/SVN/Golden/Documents/DXCTech/Nissan/NewOnedrive/ANissan/Personal/nissd.txt'
 alias dbsdoc='cd $HOME/Documents/DXCTech/Nissan/VDI_codesetup/Regarding_DBS_setup_'
