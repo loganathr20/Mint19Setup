@@ -364,6 +364,8 @@ alias autopurge='sudo apt-get purge autoclean'
 alias apt-source='apt-get source'
 alias apt-search='apt-cache search'
 alias mountg='google-drive-ocamlfuse ~/gdrive'
+alias MountIphone='ifuse ~/IPhone'
+
 alias in='inxi -F'
 alias j='crontab -l'
 alias cmod='chmod +x'
@@ -427,6 +429,8 @@ alias jenkinsstatus='sudo systemctl status jenkins'
 alias jenkinsrestart='sudo systemctl restart jenkins'
 alias jenkinsstop='sudo systemctl stop jenkins'
 alias kc='killall -HUP cinnamon'
+
+alias MountIphone='ifuse ~/IPhone'
 
 
 # sudo /etc/init.d/jenkins restart
@@ -563,6 +567,12 @@ echo "\n"
 
 echo " Path is \n"
 echo $PATH
+
+echo "\n"
+echo " Mounting Iphone "
+echo "\n"
+ifuse ~/IPhone
+
 
 echo "\n"
 echo "************************************************************************\n"
