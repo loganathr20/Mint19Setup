@@ -16,6 +16,10 @@ cache="$(echo "$mem_data" | awk '{print $7}')"
 total_free=$((free_mem + buffers + cache))
 used_swap="$(echo "$free_data" | grep 'Swap:' | awk '{print $3}')"
 
+
+swapoff -a
+swapon -a
+    
 echo -e "Free memory:\t$total_free kB ($((total_free / 1024)) MB)\nUsed swap:\t$used_swap kB ($((used_swap / 1024)) MB)"
 
 # Do the work
