@@ -4,7 +4,6 @@
 # This script will return the following set of system information:
 # -Hostname information:
 
-clear 
 
 echo "\e[31;43m***** HOSTNAME INFORMATION *****\e[0m"
 hostnamectl
