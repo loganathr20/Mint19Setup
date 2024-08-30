@@ -43,7 +43,7 @@ do
 
 
 
-        sh /home/lraja/Github/Mint19Setup/Util/clearswap.sh
+        sudo sh /home/lraja/Github/Mint19Setup/Util/clearswap.sh
        
         echo "--------------------------------------------------------------"
 
