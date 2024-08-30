@@ -41,17 +41,19 @@ do
         echo "--------------------------------------------------------------"
         echo " "
 
-        echo -e " ${RESET} "
 
-	    echo -e "${RED} Running in Background. Hit [CTRL+C] to stop! ${RESET} "
+
+        sh /home/lraja/Github/Mint19Setup/Util/clearswap.sh
+       
+        echo "--------------------------------------------------------------"
+
+        echo -e " ${RESET} "
+        
+        echo -e "${RED} Running in Background. Hit [CTRL+C] to stop! ${RESET} "
         echo "--------------------------------------------------------------"
         sleep 30m
 
 
-        clear
-        sh /home/lraja/Github/Mint19Setup/Util/clearswap.sh
-       
-        echo "--------------------------------------------------------------"
 
 done
 
