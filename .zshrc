@@ -429,6 +429,7 @@ alias jenkinsstatus='sudo systemctl status jenkins'
 alias jenkinsrestart='sudo systemctl restart jenkins'
 alias jenkinsstop='sudo systemctl stop jenkins'
 alias kc='killall -HUP cinnamon'
+alias gtalk='google-chat-electron &'
 
 alias MountIphone='ifuse ~/IPhone'
 
@@ -588,5 +589,11 @@ echo "\n"
 w
 
 echo "\n"
+
+
+# google-chat-electron &
+
+
+
 
 
