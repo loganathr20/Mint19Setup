@@ -452,7 +452,8 @@ export EDITOR="$VISUAL"
 
 # JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
-JAVA_HOME="/usr/lib/jvm/jdk-21-oracle-x64"
+# JAVA_HOME="/usr/lib/jvm/jdk-21-oracle-x64"
+JAVA_HOME="/usr/lib/jvm/jdk-23.0.1-oracle-x64"
 
 # M2_HOME='/opt/apache-maven-3.9.6'
 # PATH="$M2_HOME/bin:$PATH"
