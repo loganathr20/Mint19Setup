@@ -288,8 +288,8 @@ alias as='cd $HOME/Documents/Cloud/Assembla'
 # alias dsts='v $HOME/Documents/SVN/Golden/Documents/Lokesh/dsts.txt'
 # alias kdsts='v $HOME/Documents/SVN/Golden/Documents/Kotak/dsts.txt'
 
-alias dsts='v /media/lraja/DDrive_SSD_SATA/SVN/Golden/Documents/Lokesh/dsts.txt'
-alias kdsts='v /media/lraja/DDrive_SSD_SATA/SVN/Golden/Documents/Kotak/dsts.txt'
+alias dsts='v /media/lraja/DDrive_SSD/SVN/Golden/Documents/Lokesh/dsts.txt'
+alias kdsts='v /media/lraja/DDrive_SSD/SVN/Golden/Documents/Kotak/dsts.txt'
 
 
 alias dxts='v $HOME/Documents/SVN/Golden/Documents/DXCTech/dxts.txt'
