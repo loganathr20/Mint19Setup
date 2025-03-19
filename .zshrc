@@ -288,8 +288,8 @@ alias as='cd $HOME/Documents/Cloud/Assembla'
 # alias dsts='v $HOME/Documents/SVN/Golden/Documents/Lokesh/dsts.txt'
 # alias kdsts='v $HOME/Documents/SVN/Golden/Documents/Kotak/dsts.txt'
 
-alias dsts='v /media/lraja/DDrive_SSD/SVN/Golden/Documents/Lokesh/dsts.txt'
-alias kdsts='v /media/lraja/DDrive_SSD/SVN/Golden/Documents/Kotak/dsts.txt'
+alias dsts='v /media/lraja/DDrive_SSD_SATA/SVN/Golden/Documents/Lokesh/dsts.txt'
+alias kdsts='v /media/lraja/DDrive_SSD_SATA/SVN/Golden/Documents/Kotak/dsts.txt'
 
 
 alias dxts='v $HOME/Documents/SVN/Golden/Documents/DXCTech/dxts.txt'
@@ -361,6 +361,9 @@ alias remove='sudo apt-get remove'
 alias autoremove='sudo apt-get autoremove'
 alias autoclean='sudo apt-get autoclean'
 alias autopurge='sudo apt-get purge autoclean'
+alias ar='sudo apt-get autoremove'
+alias ac='sudo apt-get autoclean'
+alias ap='sudo apt-get purge autoclean'
 alias apt-source='apt-get source'
 alias apt-search='apt-cache search'
 alias mountg='google-drive-ocamlfuse ~/gdrive'
@@ -452,18 +455,15 @@ export EDITOR="$VISUAL"
 
 # JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
-# JAVA_HOME="/usr/lib/jvm/jdk-21-oracle-x64"
-JAVA_HOME="/usr/lib/jvm/jdk-23.0.1-oracle-x64"
+JAVA_HOME="/usr/lib/jvm/jdk-21-oracle-x64"
 
-M2_HOME='/opt/apache-maven-4.0.0-beta-5'
-MVN_HOME='/opt/apache-maven-4.0.0-beta-5'
-
-PATH="$M2_HOME/bin:$PATH"
-export PATH
-
-# M2_HOME=/usr/share/maven
+# M2_HOME='/opt/apache-maven-3.9.6'
 # PATH="$M2_HOME/bin:$PATH"
 # export PATH
+
+M2_HOME=/usr/share/maven
+PATH="$M2_HOME/bin:$PATH"
+export PATH
 
 export JAVA_HOME
 export JRE_HOME=$JAVA_HOME/jre
