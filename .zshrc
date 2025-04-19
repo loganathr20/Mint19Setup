@@ -329,6 +329,7 @@ alias cst='sh $HOME/Github/Mint19Setup/Util/cst.sh &'
 alias mp4tomp3='sh $HOME/Github/Mint19Setup/Util/mp4tomp3.sh &'
 alias dos2unix='perl -pi -e 's/\r\n/\n/g' $1'
 # alias dos2unix='sed -e "s/^M//" $1 $2'
+alias convertmedia='ffmpeg -i $1 $2'
 
 alias insur='v $HOME/Documents/SVN/Golden/Documents/Kwid/RTO_and_Insurance/insurance_companytxt'
 alias kwid='nemo $HOME/Documents/SVN/Golden/Documents/Kwid'
