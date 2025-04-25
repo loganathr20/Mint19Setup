@@ -129,9 +129,12 @@ echo "Setting timer for $time_str ($seconds seconds)..."
 sleep "$seconds"
 
 # Display notification
-echo "Time's up! Displaying notification..."
+echo -e "\e[32m Time's up! Displaying notification... \e[0m"
 # Use "Timer" as the title for consistency
 notify-send "Timer" "$message"
+
+echo -e "\e[32mSuccess: Operation completed.\e[0m"
+
 
 # Play sound if specified and mplayer is available
 if [ -n "$sound_file" ]; then
