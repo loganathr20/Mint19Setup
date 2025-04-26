@@ -27,6 +27,8 @@
 # Logs and databases #
 ######################
 *.log
+*.nohup.out
+nohup.out
 *.sql
 *.sqlite
 
