@@ -306,7 +306,7 @@ alias gh='v $HOME/Documents/SVN/Golden/Documents/GitHelp/githelp.txt'
 alias notes='v $HOME/Documents/SVN/Golden/Documents/GitHelp/Notes.txt'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 alias speed='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
-alias sp='clear && curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
+alias sp='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 
 alias whichs='echo $0'
 alias doc='cd $HOME/Documents'
