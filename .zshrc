@@ -437,6 +437,11 @@ alias gtalk='google-chat-electron &'
 
 alias MountIphone='ifuse ~/IPhone'
 
+# MYSQL Alias
+alias mysqlrestart='sudo service mysql restart'
+alias journalctl='sudo journalctl -u mysql'
+alias mysqldump='mysqldump -u root [database name] > dump.sql'
+alias mysqlrestore='mysql -u root [database name] < dump.sql'
 
 # sudo /etc/init.d/jenkins restart
 # Usage: /etc/init.d/jenkins {start|stop|status|restart|force-reload}
