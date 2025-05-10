@@ -442,6 +442,8 @@ alias mysqlrestart='sudo service mysql restart'
 alias journalctl='sudo journalctl -u mysql'
 alias mysqldump='mysqldump -u root [database name] > dump.sql'
 alias mysqlrestore='mysql -u root [database name] < dump.sql'
+alias mysqlworkbench='mysql-workbench-community'
+
 
 # sudo /etc/init.d/jenkins restart
 # Usage: /etc/init.d/jenkins {start|stop|status|restart|force-reload}
