@@ -113,8 +113,8 @@ notify-send "Timer" "$message"
 if [ -n "$sound_file" ]; then
     # echo "Playing sound: $sound_file"
     mplayer "$sound_file" &> /dev/null # Redirect output to /dev/null to keep the console clean
-    mplayer "$sound_file" &> /dev/null # Redirect output to /dev/null to keep the console clean
-    mplayer "$sound_file" &> /dev/null # Redirect output to /dev/null to keep the console clean
+#    mplayer "$sound_file" &> /dev/null # Redirect output to /dev/null to keep the console clean
+#    mplayer "$sound_file" &> /dev/null # Redirect output to /dev/null to keep the console clean
 fi
 
 echo "Script finished."
