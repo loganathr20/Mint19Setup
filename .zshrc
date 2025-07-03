@@ -432,6 +432,11 @@ alias jenkinsstart='sudo systemctl start jenkins'
 alias jenkinsstatus='sudo systemctl status jenkins'
 alias jenkinsrestart='sudo systemctl restart jenkins'
 alias jenkinsstop='sudo systemctl stop jenkins'
+
+alias jiradir='cd /opt/atlassian/jira/bin'
+alias jirastart='sudo ./start-jira.sh'
+
+
 alias kc='killall -HUP cinnamon'
 alias gtalk='google-chat-electron &'
 
