@@ -50,7 +50,6 @@ git status
 git pull
 
 
-
 # echo "\n\n"
 echo "Updating Documents/Deploy.tomcat.web-project"
 git config --global --add safe.directory /home/lraja/Documents/Deploy.tomcat.web-project
@@ -64,10 +63,10 @@ git pull
 # cd /home/lraja/Desktop/Deploy.tomcat.web-project
 # git status
 # git pull
-# echo "\n\n"
 
 
 
+echo "\n\n"
 echo "Updating Documents/Deploy.Kubernetes.web-project"
 git config --global --add safe.directory /home/lraja/Documents/Deploy.Kubernetes.web-project
 cd /home/lraja/Documents/Deploy.Kubernetes.web-project
