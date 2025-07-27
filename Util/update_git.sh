@@ -66,18 +66,16 @@ git pull
 
 
 
-echo "\n\n"
+# echo "\n\n"
 echo "Updating Documents/Deploy.Kubernetes.web-project"
-git config --global --add safe.directory /home/lraja/Documents/Deploy.Kubernetes.web-project
+# git config --global --add safe.directory /home/lraja/Documents/Deploy.Kubernetes.web-project
 cd /home/lraja/Documents/Deploy.Kubernetes.web-project
 git status
 git pull
-sleep 5
 
-
-echo "\n\n"
+# echo "\n\n"
 echo "Updating Desktop/Deploy.Kubernetes.web-project"
-git config --global --add safe.directory /home/lraja/Desktop/Deploy.Kubernetes.web-project
+# git config --global --add safe.directory /home/lraja/Desktop/Deploy.Kubernetes.web-project
 cd /home/lraja/Desktop/Deploy.Kubernetes.web-project
 git status
 git pull
