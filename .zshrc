@@ -354,8 +354,13 @@ alias gk='$HOME/Documents/GitGUI/gitkraken/gitkraken'
 
 ## Helpful Ubuntu Aliases
 alias install='sudo apt-get install'
-alias update='sudo apt-get update'
-alias upgrade='sudo apt-get upgrade'
+# alias update='sudo apt-get update'
+# alias upgrade='sudo apt-get upgrade'
+
+alias update='sudo nala update'
+alias upgrade='sudo nala upgrade'
+
+
 # alias dist-upgrade='sudo apt-get dist-upgrade'
 alias dist-upgrade='sudo apt-get update && time sudo apt-get dist-upgrade'
 alias remove='sudo apt-get remove'
@@ -449,6 +454,8 @@ alias mysqldump='mysqldump -u root [database name] > dump.sql'
 alias mysqlrestore='mysql -u root [database name] < dump.sql'
 alias mysqlworkbench='mysql-workbench-community'
 
+$ Package Managment
+alias nalai='nala list --installed'
 
 # sudo /etc/init.d/jenkins restart
 # Usage: /etc/init.d/jenkins {start|stop|status|restart|force-reload}
