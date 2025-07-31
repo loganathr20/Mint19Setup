@@ -354,8 +354,8 @@ alias gk='$HOME/Documents/GitGUI/gitkraken/gitkraken'
 
 ## Helpful Ubuntu Aliases
 alias install='sudo apt-get install'
-# alias update='sudo apt-get update'
-# alias upgrade='sudo apt-get upgrade'
+alias update1='sudo apt-get update'
+alias upgrade1='sudo apt-get upgrade'
 
 alias update='sudo nala update'
 alias upgrade='sudo nala upgrade'
