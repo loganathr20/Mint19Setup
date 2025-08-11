@@ -368,6 +368,8 @@ alias ap='sudo apt-get purge autoclean'
 alias install='sudo nala install'
 alias update='sudo nala update'
 alias upgrade='sudo nala upgrade'
+alias uu='sudo nala update && sudo nala upgrade'
+
 alias full-upgrade='sudo nala full-upgrade'
 alias autoremove='sudo nala autoremove'
 alias remove='sudo nala remove'
