@@ -368,6 +368,8 @@ alias ap='sudo apt-get purge autoclean'
 alias install='sudo nala install'
 alias update='sudo nala update'
 alias upgrade='sudo nala upgrade'
+alias uu1='sudo systemctl restart NetworkManager'
+
 alias uu='sudo nala update && sudo nala upgrade && sudo nala full-upgrade && sudo apt-get autoremove && sudo apt-get autoclean  && sudo nala autoremove  && sudo nala list --upgradable && sudo nala history '
 
 alias full-upgrade='sudo nala full-upgrade'
