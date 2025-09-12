@@ -473,7 +473,7 @@ alias mysqldump='mysqldump -u root [database name] > dump.sql'
 alias mysqlrestore='mysql -u root [database name] < dump.sql'
 alias mysqlworkbench='mysql-workbench-community'
 
-$ Package Managment
+# Package Managment
 alias nalai='nala list --installed'
 
 # sudo /etc/init.d/jenkins restart
