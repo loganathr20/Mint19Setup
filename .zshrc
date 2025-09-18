@@ -368,15 +368,18 @@ alias ap='sudo apt-get purge autoclean'
 alias install='sudo nala install'
 alias update='sudo nala update'
 alias upgrade='sudo nala upgrade'
-alias uu1='sudo systemctl restart NetworkManager'
 
-alias uu='sudo nala update && sudo nala upgrade && sudo nala full-upgrade && sudo apt-get autoremove && sudo apt-get autoclean  && sudo nala autoremove  && sudo nala list --upgradable && sudo nala history  && echo "\n\n **********************************************************\n\n Network Settings \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 10 && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
+alias uu='sudo nala update && sudo nala upgrade && sudo nala full-upgrade && sudo apt-get autoremove && sudo apt-get autoclean  && sudo nala autoremove  && sudo nala list --upgradable && sudo nala history'
 
-alias nn='echo "\n *********************************************************\n\n Network Settings \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 10  && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
+alias uu1='echo "\n\n **********************************************************\n\n Network Settings \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 10 && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
 
-alias nnc='echo "\n *********************************************************\n\n Network Settings \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 5  && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
+alias ns='sudo iwconfig wlx98038eb487bc'
 
-alias nns='echo "\n *********************************************************\n\n Network Settings \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 15  && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
+alias nn='echo "\n *********************************************************\n\n Network Settings txpower 10 - Default Temp \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 10  && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
+
+alias nnc='echo "\n *********************************************************\n\n Network Settings txpower 5 -- Cooler Temp \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 5  && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
+
+alias nns='echo "\n *********************************************************\n\n Network Settings txpower 15 - Optimum Temp \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 15  && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
 
 
 alias full-upgrade='sudo nala full-upgrade'
