@@ -370,7 +370,7 @@ alias update='sudo nala update'
 alias upgrade='sudo nala upgrade'
 alias uu1='sudo systemctl restart NetworkManager'
 
-alias uu='sudo nala update && sudo nala upgrade && sudo nala full-upgrade && sudo apt-get autoremove && sudo apt-get autoclean  && sudo nala autoremove  && sudo nala list --upgradable && sudo nala history  && sudo iwconfig wlp2s0 txpower 10'
+alias uu='sudo nala update && sudo nala upgrade && sudo nala full-upgrade && sudo apt-get autoremove && sudo apt-get autoclean  && sudo nala autoremove  && sudo nala list --upgradable && sudo nala history  && sudo iwconfig wlx98038eb487bc txpower 10'
 
 alias full-upgrade='sudo nala full-upgrade'
 alias autoremove='sudo nala autoremove'
