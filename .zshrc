@@ -370,7 +370,14 @@ alias update='sudo nala update'
 alias upgrade='sudo nala upgrade'
 alias uu1='sudo systemctl restart NetworkManager'
 
-alias uu='sudo nala update && sudo nala upgrade && sudo nala full-upgrade && sudo apt-get autoremove && sudo apt-get autoclean  && sudo nala autoremove  && sudo nala list --upgradable && sudo nala history  && sudo iwconfig wlx98038eb487bc txpower 10'
+alias uu='sudo nala update && sudo nala upgrade && sudo nala full-upgrade && sudo apt-get autoremove && sudo apt-get autoclean  && sudo nala autoremove  && sudo nala list --upgradable && sudo nala history  && echo "********************************************\n\n Network Settings \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 10 && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
+
+alias nn='echo "********************************************\n\n Network Settings \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 10  && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
+
+alias nnc='echo "********************************************\n\n Network Settings \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 5  && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
+
+alias nns='echo "********************************************\n\n Network Settings \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 15  && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
+
 
 alias full-upgrade='sudo nala full-upgrade'
 alias autoremove='sudo nala autoremove'
@@ -633,9 +640,7 @@ w
 echo "\n"
 
 
-# google-chat-electron &
-
-
+# google-chat-electron 
 
 
 
