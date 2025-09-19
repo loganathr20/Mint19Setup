@@ -375,7 +375,14 @@ alias uu1='echo "\n\n **********************************************************
 
 alias ns='sudo iwconfig wlx98038eb487bc'
 
+alias ns1='sudo iwconfig wlxf0a73129dcba'
+
+
+
 alias nn='echo "\n *********************************************************\n\n Network Settings txpower 10 - Default Temp \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 10  && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
+
+alias nn1='echo "\n *********************************************************\n\n Network Settings txpower 10 - Default Temp \n **********************************************************\n" && sudo iwconfig wlxf0a73129dcba txpower 10  && sudo iwconfig wlxf0a73129dcba && sudo systemctl restart NetworkManager'
+
 
 alias nnc='echo "\n *********************************************************\n\n Network Settings txpower 5 -- Cooler Temp \n **********************************************************\n" && sudo iwconfig wlx98038eb487bc txpower 5  && sudo iwconfig wlx98038eb487bc && sudo systemctl restart NetworkManager'
 
