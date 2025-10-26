@@ -33,6 +33,10 @@ SIZE1_GB=$(echo "scale=2; $SIZE1/1024/1024/1024" | bc)
 SIZE2_MB=$(echo "scale=2; $SIZE2/1024/1024" | bc)
 SIZE2_GB=$(echo "scale=2; $SIZE2/1024/1024/1024" | bc)
 
+# Count number of files
+FILES1=$(find "$FOLDER1" -type f | wc -l)
+FILES2=$(find "$FOLDER2" -type f | wc -l)
+
 # Compare sizes
 if [ "$SIZE1" -eq "$SIZE2" ]; then
     MATCH="Yes"
@@ -45,9 +49,11 @@ echo "Folder Comparison Report:"
 echo "--------------------------"
 echo "Folder 1: $FOLDER1"
 echo "Size: $SIZE1 bytes | $SIZE1_MB MB | $SIZE1_GB GB"
+echo "Number of files: $FILES1"
 echo
 echo "Folder 2: $FOLDER2"
 echo "Size: $SIZE2 bytes | $SIZE2_MB MB | $SIZE2_GB GB"
+echo "Number of files: $FILES2"
 echo
 echo "Do sizes match? $MATCH"
 
