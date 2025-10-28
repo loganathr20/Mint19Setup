@@ -490,6 +490,19 @@ alias mysqldump='mysqldump -u root [database name] > dump.sql'
 alias mysqlrestore='mysql -u root [database name] < dump.sql'
 alias mysqlworkbench='mysql-workbench-community'
 
+
+# Compare SVN REPOs
+alias compareall='
+  foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/GoldenBird /media/lraja/Elephant/SVN/Repositories/Archive/GoldenBird &&
+  foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/Win10Repo /media/lraja/Elephant/SVN/Repositories/Archive/Win10Repo &&
+  foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/GoldenBird /media/lraja/Elephant/SVN/Repositories/Backup/GoldenBird &&
+  foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/Win10Repo /media/lraja/Elephant/SVN/Repositories/Backup/Win10Repo &&
+  foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data "/media/lraja/My Passport/SVN/data" &&
+  foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/GoldenBird "/media/lraja/My Passport/SVN/data/repositories/GoldenBird" &&
+  foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/Win10Repo "/media/lraja/My Passport/SVN/data/repositories/Win10Repo"
+'
+
+
 # Package Managment
 alias nalai='nala list --installed'
 
