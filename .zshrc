@@ -492,7 +492,7 @@ alias mysqlworkbench='mysql-workbench-community'
 
 
 # Compare SVN REPOs
-alias compareall='
+alias comparealla='
   foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/GoldenBird /media/lraja/Elephant/SVN/Repositories/Archive/GoldenBird &&
   foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/Win10Repo /media/lraja/Elephant/SVN/Repositories/Archive/Win10Repo &&
   foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/GoldenBird /media/lraja/Elephant/SVN/Repositories/Backup/GoldenBird &&
@@ -501,6 +501,18 @@ alias compareall='
   foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/GoldenBird "/media/lraja/My Passport/SVN/data/repositories/GoldenBird" &&
   foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/Win10Repo "/media/lraja/My Passport/SVN/data/repositories/Win10Repo"
 '
+
+alias compareall='
+  echo "Comparing GoldenBird → Archive"; foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/GoldenBird /media/lraja/Elephant/SVN/Repositories/Archive/GoldenBird; echo "Press Enter to continue..."; read _; clear ;
+  echo "Comparing Win10Repo → Archive"; foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/Win10Repo /media/lraja/Elephant/SVN/Repositories/Archive/Win10Repo; echo "Press Enter to continue..."; read _; clear ; 
+  echo "Comparing GoldenBird → Backup"; foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/GoldenBird /media/lraja/Elephant/SVN/Repositories/Backup/GoldenBird; echo "Press Enter to continue..."; read _; clear ;
+  echo "Comparing Win10Repo → Backup"; foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/Win10Repo /media/lraja/Elephant/SVN/Repositories/Backup/Win10Repo; echo "Press Enter to continue..."; read _; clear ; 
+  echo "Comparing /data → My Passport"; foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data "/media/lraja/My Passport/SVN/data"; echo "Press Enter to continue..."; read _;  clear ;
+  echo "Comparing GoldenBird → My Passport"; foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/GoldenBird "/media/lraja/My Passport/SVN/data/repositories/GoldenBird"; echo "Press Enter to continue..."; read _; clear ; 
+  echo "Comparing Win10Repo → My Passport"; foldercompare.sh /media/lraja/DDrive_SSD_SATA/csvn/data/repositories/Win10Repo "/media/lraja/My Passport/SVN/data/repositories/Win10Repo"; read _; clear ; 
+'
+
+
 
 
 # Package Managment
