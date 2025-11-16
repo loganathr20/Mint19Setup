@@ -15,5 +15,7 @@ adb connect "$DEVICEIP"
 sleep 1
 
 echo "Launching scrcpy..."
-scrcpy -s "$DEVICEIP" --max-fps=60 --bit-rate=8M
+scrcpy -s "$DEVICEIP" --max-fps=60 --video-bit-rate=8M
+
+
 
