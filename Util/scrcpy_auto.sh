@@ -1,5 +1,10 @@
 #!/bin/bash
 
+adb shell input keyevent KEYCODE_WAKEUP
+adb shell input keyevent KEYCODE_MENU
+adb shell input keyevent 82
+adb shell input keyevent 224
+
 DEFAULT_IP="192.168.1.13"
 DEFAULT_PORT="5555"
 CONNECT_IP="$DEFAULT_IP:$DEFAULT_PORT"
@@ -56,11 +61,12 @@ adb devices -l
 # Launch scrcpy
 if command -v scrcpy >/dev/null 2>&1; then
     echo "📺 Launching scrcpy..."
-    scrcpy --video-bit-rate=8M --max-size=1080 -s "$CONNECT_IP"
+    scrcpy  --video-bit-rate=8M --max-size=1080 -s "$CONNECT_IP"
 else
     echo "⚠ scrcpy is not installed. Install it with: sudo apt install scrcpy"
 fi
 
 exit 0
+
 
 
