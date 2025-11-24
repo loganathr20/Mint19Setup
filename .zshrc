@@ -336,11 +336,20 @@ alias kwid='nemo $HOME/Documents/SVN/GoldenBird/Documents/Kwid'
 alias aprilia='nemo $HOME/Documents/SVN/GoldenBird/Documents/Aprilia'
 
 alias tslist='sudo timeshift --list'
+alias ts='sudo timeshift --list'
+alias t='sudo timeshift --list'
 alias tscheck='sudo timeshift --check'
+alias tch='sudo timeshift --check'
 alias tscreate='sudo timeshift --create'
 
 alias tsdelete='sudo timeshift --delete'
 alias tsdeleteall='sudo timeshift --delete-all'
+
+alias timerstatus='systemctl list-timers --all | grep New_timeshift'
+
+alias bootstatus='sudo systemctl status New_timeshift-boot.service'
+alias hourstatus='sudo systemctl status New_timeshift-10h.service'
+
 
 alias sc='svn cleanup'
 alias upp='svn update'
@@ -659,7 +668,6 @@ echo "\n"
 ifuse ~/IPhone
 
 
-
 echo "\n"
 echo "************************************************************************\n"
 
@@ -674,6 +682,9 @@ echo "\n"
 w
 
 echo "\n"
+
+echo "timerstatus \n"
+systemctl list-timers --all | grep New_timeshift
 
 
 # google-chat-electron 

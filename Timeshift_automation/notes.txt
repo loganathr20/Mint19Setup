@@ -1,0 +1,54 @@
+rm -rf /etc/systemd/system/New_timeshift-boot.service
+rm -rf /etc/systemd/system/New_timeshift-boot.timer
+rm -rf /etc/systemd/system/New_timeshift-10h.service
+rm -rf /etc/systemd/system/New_timeshift-10h.timer
+
+
+
+ls -l /etc/systemd/system/New_timeshift-boot.service
+ls -l /etc/systemd/system/New_timeshift-boot.timer
+ls -l /etc/systemd/system/New_timeshift-10h.service
+ls -l /etc/systemd/system/New_timeshift-10h.timer
+
+
+
+mv New_timeshift-boot.service /etc/systemd/system
+mv New_timeshift-boot.timer /etc/systemd/system
+mv New_timeshift-10h.service /etc/systemd/system
+mv New_timeshift-10h.timer /etc/systemd/system
+
+
+cp /etc/systemd/system/New_timeshift-boot.service /home/lraja/Github/Mint19Setup/Timeshift_automation
+cp /etc/systemd/system/New_timeshift-boot.timer /home/lraja/Github/Mint19Setup/Timeshift_automation
+cp /etc/systemd/system/New_timeshift-10h.service /home/lraja/Github/Mint19Setup/Timeshift_automation
+cp /etc/systemd/system/New_timeshift-10h.timer /home/lraja/Github/Mint19Setup/Timeshift_automation
+
+
+cp /usr/local/bin/New_timeshift-job-v4.sh /home/lraja/Github/Mint19Setup/Timeshift_automation
+cp /usr/local/bin/New_timeshift-job-v4.sh /home/lraja/Github/Mint19Setup/Timeshift_automation
+
+
+cp /usr/local/bin/New_timeshift-job.sh /home/lraja/Github/Mint19Setup/Timeshift_automation
+cp /usr/local/bin/New_timeshift-job-v2.sh /home/lraja/Github/Mint19Setup/Timeshift_automation
+cp /usr/local/bin/New_timeshift-job-v3.sh /home/lraja/Github/Mint19Setup/Timeshift_automation
+cp /usr/local/bin/New_timeshift-job-v4.sh /home/lraja/Github/Mint19Setup/Timeshift_automation
+
+
+sudo systemctl daemon-reload
+sudo systemctl start New_timeshift-boot.service
+
+sudo systemctl daemon-reload
+sudo systemctl start New_timeshift-10h.service
+
+sudo systemctl status New_timeshift-boot.service
+sudo systemctl status New_timeshift-10h.service
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now New_timeshift-boot.timer
+sudo systemctl enable --now New_timeshift-10h.timer
+
+
+
+Note::: 
+Use the latest one New_timeshift-job-v4.sh
