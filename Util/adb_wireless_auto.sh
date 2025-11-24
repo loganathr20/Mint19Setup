@@ -36,6 +36,8 @@ echo "✅ Successfully connected to $CONNECT_IP"
 echo "📱 Current connected devices:"
 adb devices -l
 
+scrcpy
+
 exit 0
 
 
