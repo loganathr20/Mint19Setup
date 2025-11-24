@@ -1,0 +1,10 @@
+[Unit]
+Description=Timeshift Snapshot Every 10 Hours (V5)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/New_timeshift-job-v5.sh Scheduled
+Nice=19
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+

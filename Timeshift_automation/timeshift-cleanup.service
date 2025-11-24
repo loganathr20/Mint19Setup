@@ -1,0 +1,13 @@
+[Unit]
+Description=Timeshift Cleanup Script
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/New_timeshift_cleanup.sh
+Nice=10
+
+[Install]
+WantedBy=multi-user.target
+

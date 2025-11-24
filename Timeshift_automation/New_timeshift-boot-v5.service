@@ -1,0 +1,15 @@
+[Unit]
+Description=Timeshift Snapshot at Boot (V5)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/New_timeshift-job-v5.sh BootTime
+Nice=19
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=multi-user.target
+

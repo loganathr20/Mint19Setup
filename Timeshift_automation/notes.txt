@@ -33,6 +33,12 @@ cp /usr/local/bin/New_timeshift-job-v2.sh /home/lraja/Github/Mint19Setup/Timeshi
 cp /usr/local/bin/New_timeshift-job-v3.sh /home/lraja/Github/Mint19Setup/Timeshift_automation
 cp /usr/local/bin/New_timeshift-job-v4.sh /home/lraja/Github/Mint19Setup/Timeshift_automation
 
+cp /usr/local/bin/New_timeshift_cleanup.sh  /home/lraja/Github/Mint19Setup/Timeshift_automation
+cp /etc/systemd/system/timeshift-cleanup.timer /home/lraja/Github/Mint19Setup/Timeshift_automation
+cp /etc/systemd/system/timeshift-cleanup.service /home/lraja/Github/Mint19Setup/Timeshift_automation
+
+0 */4 * * * /usr/local/bin/New_timeshift_cleanup.sh
+
 
 sudo systemctl daemon-reload
 sudo systemctl start New_timeshift-boot.service
