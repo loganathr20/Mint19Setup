@@ -1,0 +1,52 @@
+
+
+cp /etc/systemd/system/new_timeshift-8h.service /home/lraja/Github/Mint19Setup/TimeShift_Automate
+cp /etc/systemd/system/new_timeshift-8h.timer /home/lraja/Github/Mint19Setup/TimeShift_Automate
+cp /etc/systemd/system/new_timeshift-boot.service /home/lraja/Github/Mint19Setup/TimeShift_Automate
+cp /etc/systemd/system/new_timeshift-boot.timer /home/lraja/Github/Mint19Setup/TimeShift_Automate
+cp /etc/systemd/system/timeshift-cleanup.service /home/lraja/Github/Mint19Setup/TimeShift_Automate
+cp /etc/systemd/system/timeshift-cleanup.timer /home/lraja/Github/Mint19Setup/TimeShift_Automate
+
+cp /usr/local/bin/New_timeshift-job.sh  /home/lraja/Github/Mint19Setup/Timeshift_automation
+cp /usr/local/bin/cleanup_timeshift.sh  /home/lraja/Github/Mint19Setup/Timeshift_automation
+
+0 */4 * * * /usr/local/bin/New_timeshift_cleanup.sh
+
+timerstatus
+
+sudo systemctl daemon-reload
+sudo systemctl start new_timeshift-8h.service 
+sudo systemctl start new_timeshift-boot.service
+sudo systemctl start timeshift-cleanup.service
+sudo systemctl daemon-reload
+
+sudo systemctl daemon-reload
+sudo systemctl status new_timeshift-8h.service 
+sudo systemctl status new_timeshift-boot.service
+sudo systemctl status timeshift-cleanup.service
+sudo systemctl daemon-reload
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now new_timeshift-8h.timer
+sudo systemctl enable --now new_timeshift-boot.timer
+sudo systemctl enable --now timeshift-cleanup.timer
+sudo systemctl daemon-reload
+
+sudo systemctl stop new_timeshift-8h.timer
+sudo systemctl stop new_timeshift-boot.timer
+sudo systemctl stop timeshift-cleanup.timer
+
+sudo systemctl disable new_timeshift-8h.timer
+sudo systemctl disable new_timeshift-boot.timer
+sudo systemctl disable timeshift-cleanup.timer
+
+systemctl list-timers --all | grep timeshift
+
+cd /usr/local/bin/
+sudo /usr/local/bin/New_timeshift-job.sh Boottime
+sudo /usr/local/bin/New_timeshift-job.sh Other
+sudo /usr/local/bin/cleanup_timeshift.sh
+
+
+Note::
+

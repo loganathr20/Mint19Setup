@@ -1,0 +1,7 @@
+[Unit]
+Description=Run Timeshift snapshot every 6 hours
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/New_timeshift-job.sh Other
+

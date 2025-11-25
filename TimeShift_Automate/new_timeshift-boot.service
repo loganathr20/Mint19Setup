@@ -1,0 +1,7 @@
+[Unit]
+Description=Run Timeshift snapshot at boot
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/New_timeshift-job.sh Boottime
+
