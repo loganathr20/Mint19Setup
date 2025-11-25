@@ -1,9 +1,0 @@
-
-[Unit]
-Description=Timeshift Cleanup Script
-
-[Service]
-Type=oneshot
-ExecStart=/usr/local/bin/cleanup_timeshift.sh
-
-
