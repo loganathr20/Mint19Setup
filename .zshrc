@@ -345,11 +345,11 @@ alias tscreate='sudo timeshift --create'
 alias tsdelete='sudo timeshift --delete'
 alias tsdeleteall='sudo timeshift --delete-all'
 
-# alias timerstatus='systemctl list-timers --all | grep New_timeshift'
-alias timerstatus='systemctl list-timers --all | grep timeshift'
 
-alias bootstatus='sudo systemctl status New_timeshift-boot.service'
-alias hourstatus='sudo systemctl status New_timeshift-10h.service'
+alias timerstatus='systemctl list-timers --all | grep timeshift'
+alias 8hstatus='sudo systemctl status new_timeshift-8h.service' 
+alias bootstatus='sudo systemctl status new_timeshift-boot.service'
+alias cleanuptatus='sudo systemctl status timeshift-cleanup.service'
 
 
 alias sc='svn cleanup'
@@ -686,6 +686,15 @@ echo "\n"
 
 # echo "timerstatus \n"
 # systemctl list-timers --all | grep timeshift
+
+
+echo " alias timerstatus='systemctl list-timers --all | grep timeshift'  \n"
+echo " alias 8hstatus='sudo systemctl status new_timeshift-8h.service'  \n"
+echo " alias bootstatus='sudo systemctl status new_timeshift-boot.service' \n"
+echo " alias cleanuptatus='sudo systemctl status timeshift-cleanup.service' \n"
+
+
+
 
 
 # google-chat-electron 

@@ -48,5 +48,11 @@ sudo /usr/local/bin/New_timeshift-job.sh Other
 sudo /usr/local/bin/cleanup_timeshift.sh
 
 
+alias timerstatus='systemctl list-timers --all | grep timeshift'
+alias 8hstatus='sudo systemctl status new_timeshift-8h.service' 
+alias bootstatus='sudo systemctl status new_timeshift-boot.service'
+alias cleanuptatus='sudo systemctl status timeshift-cleanup.service'
+
+
 Note::
 
