@@ -7,8 +7,9 @@ cp /etc/systemd/system/new_timeshift-boot.timer /home/lraja/Github/Mint19Setup/T
 cp /etc/systemd/system/timeshift-cleanup.service /home/lraja/Github/Mint19Setup/TimeShift_Automate
 cp /etc/systemd/system/timeshift-cleanup.timer /home/lraja/Github/Mint19Setup/TimeShift_Automate
 
-cp /usr/local/bin/New_timeshift-job.sh  /home/lraja/Github/Mint19Setup/Timeshift_automation
-cp /usr/local/bin/cleanup_timeshift.sh  /home/lraja/Github/Mint19Setup/Timeshift_automation
+cp /usr/local/bin/New_timeshift-job.sh  /home/lraja/Github/Mint19Setup/TimeShift_Automate
+cp /usr/local/bin/cleanup_timeshift.sh  /home/lraja/Github/Mint19Setup/TimeShift_Automate
+
 
 0 */4 * * * /usr/local/bin/New_timeshift_cleanup.sh
 
