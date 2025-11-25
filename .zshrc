@@ -352,6 +352,11 @@ alias bootstatus='sudo systemctl status new_timeshift-boot.service'
 alias cleanupstatus='sudo systemctl status timeshift-cleanup.service'
 alias notes='v $HOME/Github/Mint19Setup/TimeShift_Automate/notes.txt'
 
+
+alias 8hstart='sudo systemctl start new_timeshift-8h.service'  
+alias bootstart='sudo systemctl start new_timeshift-boot.service' 
+alias cleanupstart='sudo systemctl start timeshift-cleanup.service' 
+
 alias sc='svn cleanup'
 alias upp='svn update'
 alias st='svn status'
@@ -693,9 +698,9 @@ echo " alias 8hstatus='sudo systemctl status new_timeshift-8h.service'  \n"
 echo " alias bootstatus='sudo systemctl status new_timeshift-boot.service' \n"
 echo " alias cleanupstatus='sudo systemctl status timeshift-cleanup.service' \n"
 
-
-
-
+echo " alias 8hstart='sudo systemctl start new_timeshift-8h.service' \n"  
+echo " alias bootstart='sudo systemctl start new_timeshift-boot.service' \n" 
+echo " alias cleanupstart='sudo systemctl start timeshift-cleanup.service' \n"
 
 # google-chat-electron 
 

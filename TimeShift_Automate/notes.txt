@@ -55,5 +55,9 @@ alias bootstatus='sudo systemctl status new_timeshift-boot.service'
 alias cleanuptatus='sudo systemctl status timeshift-cleanup.service'
 
 
+alias 8hstart='sudo systemctl start new_timeshift-8h.service'  
+alias bootstart='sudo systemctl start new_timeshift-boot.service' 
+alias cleanupstart='sudo systemctl start timeshift-cleanup.service' 
+
 Note::
 
