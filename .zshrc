@@ -349,8 +349,8 @@ alias tsdeleteall='sudo timeshift --delete-all'
 alias timerstatus='systemctl list-timers --all | grep timeshift'
 alias 8hstatus='sudo systemctl status new_timeshift-8h.service' 
 alias bootstatus='sudo systemctl status new_timeshift-boot.service'
-alias cleanuptatus='sudo systemctl status timeshift-cleanup.service'
-
+alias cleanupstatus='sudo systemctl status timeshift-cleanup.service'
+alias notes='v $HOME/Github/Mint19Setup/TimeShift_Automate/notes.txt'
 
 alias sc='svn cleanup'
 alias upp='svn update'
@@ -691,7 +691,7 @@ echo "\n"
 echo " alias timerstatus='systemctl list-timers --all | grep timeshift'  \n"
 echo " alias 8hstatus='sudo systemctl status new_timeshift-8h.service'  \n"
 echo " alias bootstatus='sudo systemctl status new_timeshift-boot.service' \n"
-echo " alias cleanuptatus='sudo systemctl status timeshift-cleanup.service' \n"
+echo " alias cleanupstatus='sudo systemctl status timeshift-cleanup.service' \n"
 
 
 
