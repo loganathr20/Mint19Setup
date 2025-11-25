@@ -19,10 +19,10 @@ trap 'rm -rf "$TMPDIR"' EXIT
 # Map mode -> tag/comment
 if [[ "$MODE" == "Boottime" ]]; then
     TAG="B"
-    COMMENT=" Auto Boot Snapshot "
+    COMMENT="Auto Boot Snapshot "
 else
     TAG="O"
-    COMMENT=" Auto 6 Hour Snapshot "
+    COMMENT="Auto 6 Hour Snapshot "
 fi
 
 echo "== Timeshift snapshot (tag=$TAG) ==" > "$REPORT"
