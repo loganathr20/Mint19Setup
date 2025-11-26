@@ -27,10 +27,12 @@ sudo systemctl status new_timeshift-boot.service
 sudo systemctl status timeshift-cleanup.service
 sudo systemctl daemon-reload
 
+
 sudo systemctl daemon-reload
 sudo systemctl enable --now new_timeshift-8h.timer
 sudo systemctl enable --now new_timeshift-boot.timer
 sudo systemctl enable --now timeshift-cleanup.timer
+sudo systemctl enable --now cinnamon-restart.timer
 sudo systemctl daemon-reload
 
 sudo systemctl stop new_timeshift-8h.timer
@@ -95,6 +97,18 @@ sudo /usr/local/bin/timeshift_cleanup_cron.sh
 
 sudo /usr/local/bin/timeshift_cleanup_cron.sh >> /var/log/timeshift-cleanup-cron.log 2>&1
 cat /var/log/timeshift-cleanup-cron.log
+
+
+sudo systemctl daemon-reload
+sudo systemctl stop cinnamon-restart.timer
+sudo systemctl start cinnamon-restart.timer
+sudo systemctl enable cinnamon-restart.timer
+
+
+sudo systemctl daemon-reload
+sudo systemctl stop cinnamon-restart.timer
+sudo systemctl disable cinnamon-restart.timer
+sudo systemctl daemon-reload
 
 
 Note::
