@@ -1,9 +1,9 @@
-
 [Unit]
 Description=Timeshift Cleanup Script
+After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/cleanup_timeshift.sh
-
+User=loganathr20
+ExecStart=/usr/local/bin/timeshift_cleanup_cron.sh
 

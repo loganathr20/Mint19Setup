@@ -673,6 +673,20 @@ echo " Mounting Iphone "
 echo "\n"
 ifuse ~/IPhone
 
+echo "\n"
+
+# echo "timerstatus \n"
+# systemctl list-timers --all | grep timeshift
+
+echo " alias timerstatus='systemctl list-timers --all | grep timeshift'  \n"
+echo " alias 8hstatus='sudo systemctl status new_timeshift-8h.service'  \n"
+echo " alias bootstatus='sudo systemctl status new_timeshift-boot.service' \n"
+echo " alias cleanupstatus='sudo systemctl status timeshift-cleanup.service' \n"
+
+echo " alias 8hstart='sudo systemctl start new_timeshift-8h.service' \n"  
+echo " alias bootstart='sudo systemctl start new_timeshift-boot.service' \n" 
+echo " alias cleanupstart='sudo systemctl start timeshift-cleanup.service' \n"
+
 
 echo "\n"
 echo "************************************************************************\n"
@@ -689,18 +703,6 @@ w
 
 echo "\n"
 
-# echo "timerstatus \n"
-# systemctl list-timers --all | grep timeshift
-
-
-echo " alias timerstatus='systemctl list-timers --all | grep timeshift'  \n"
-echo " alias 8hstatus='sudo systemctl status new_timeshift-8h.service'  \n"
-echo " alias bootstatus='sudo systemctl status new_timeshift-boot.service' \n"
-echo " alias cleanupstatus='sudo systemctl status timeshift-cleanup.service' \n"
-
-echo " alias 8hstart='sudo systemctl start new_timeshift-8h.service' \n"  
-echo " alias bootstart='sudo systemctl start new_timeshift-boot.service' \n" 
-echo " alias cleanupstart='sudo systemctl start timeshift-cleanup.service' \n"
 
 # google-chat-electron 
 

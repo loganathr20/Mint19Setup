@@ -1,9 +1,8 @@
-
 [Unit]
-Description=Run Timeshift cleanup 4 hours after boot daily
+Description=Run Timeshift Cleanup Daily
 
 [Timer]
-OnBootSec=4h
+OnBootSec=10min
 OnUnitActiveSec=24h
 Persistent=true
 

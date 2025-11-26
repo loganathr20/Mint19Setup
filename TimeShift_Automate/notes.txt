@@ -9,7 +9,7 @@ cp /etc/systemd/system/timeshift-cleanup.timer /home/lraja/Github/Mint19Setup/Ti
 
 cp /usr/local/bin/New_timeshift-job.sh  /home/lraja/Github/Mint19Setup/TimeShift_Automate
 cp /usr/local/bin/cleanup_timeshift.sh  /home/lraja/Github/Mint19Setup/TimeShift_Automate
-
+cp /usr/local/bin/timeshift_cleanup_cron.sh   /home/lraja/Github/Mint19Setup/TimeShift_Automate
 
 0 */4 * * * /usr/local/bin/New_timeshift_cleanup.sh
 
@@ -46,8 +46,10 @@ systemctl list-timers --all | grep timeshift
 cd /usr/local/bin/
 sudo /usr/local/bin/New_timeshift-job.sh Boottime
 sudo /usr/local/bin/New_timeshift-job.sh Other
-sudo /usr/local/bin/cleanup_timeshift.sh
+sudo /usr/local/bin/timeshift_cleanup_cron.sh  
 
+/etc/systemd/system/timeshift-cleanup.service
+/etc/systemd/system/timeshift-cleanup.timer
 
 alias timerstatus='systemctl list-timers --all | grep timeshift'
 alias 8hstatus='sudo systemctl status new_timeshift-8h.service' 
@@ -58,6 +60,42 @@ alias cleanuptatus='sudo systemctl status timeshift-cleanup.service'
 alias 8hstart='sudo systemctl start new_timeshift-8h.service'  
 alias bootstart='sudo systemctl start new_timeshift-boot.service' 
 alias cleanupstart='sudo systemctl start timeshift-cleanup.service' 
+
+
+thru cron
+
+
+0 * * * * root /usr/bin/timeshift --check --scripted >> /var/log/timeshift-hourly.log 2>&1
+0 13 * * * root /usr/local/bin/New_timeshift-job.sh Boottime >> /var/log/new_timeshift-boot.log 2>&1
+30 13 * * * root /usr/local/bin/New_timeshift-job.sh Other >> /var/log/new_timeshift-other.log 2>&1
+0 14 * * * root /usr/local/bin/cleanup_timeshift.sh >> /var/log/cleanup_timeshift.log 2>&1
+
+
+sudo /usr/local/bin/New_timeshift-job.sh Boottime
+sudo /usr/local/bin/New_timeshift-job.sh Other
+sudo /usr/local/bin/cleanup_timeshift.sh
+
+
+
+sudo pkill timeshift
+pgrep -x timeshift
+sudo ./cleanup_timeshift.sh
+sudo /usr/local/bin/timeshift_cleanup_cron.sh
+
+/etc/crontab
+
+0 * * * * root /usr/bin/timeshift --check --scripted >> /var/log/timeshift-hourly.log 2>&1
+0 13 * * * root /usr/local/bin/New_timeshift-job.sh Boottime >> /var/log/new_timeshift-boot.log 2>&1
+30 13 * * * root /usr/local/bin/New_timeshift-job.sh Other >> /var/log/new_timeshift-other.log 2>&1
+0 14 * * * root /usr/local/bin/cleanup_timeshift.sh >> /var/log/cleanup_timeshift.log 2>&1
+
+# cleanup script on demand if disk space below 100 GB
+0 * * * * root /usr/local/bin/timeshift_cleanup_cron.sh
+
+
+sudo /usr/local/bin/timeshift_cleanup_cron.sh >> /var/log/timeshift-cleanup-cron.log 2>&1
+cat /var/log/timeshift-cleanup-cron.log
+
 
 Note::
 
