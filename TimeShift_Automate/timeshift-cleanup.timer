@@ -1,11 +1,13 @@
 [Unit]
-Description=Run Timeshift Cleanup Daily
+Description=Timeshift Cleanup every 3 hours
 
 [Timer]
 OnBootSec=10min
-OnUnitActiveSec=24h
+OnUnitActiveSec=3h
+AccuracySec=1min
 Persistent=true
 
 [Install]
 WantedBy=timers.target
+
 
