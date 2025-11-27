@@ -1,13 +1,17 @@
 [Unit]
-Description=Timeshift Cleanup every 3 hours
+Description=Timeshift Cleanup Timer (every 3 hours, wakes system)
 
 [Timer]
-OnBootSec=10min
-OnUnitActiveSec=3h
-AccuracySec=1min
+OnBootSec=1min
+OnUnitActiveSec=2h
+# AccuracySec=1min
+Unit=timeshift-cleanup.service
 Persistent=true
+WakeSystem=true
 
 [Install]
 WantedBy=timers.target
+
+
 
 

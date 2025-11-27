@@ -1,9 +1,10 @@
+
 [Unit]
-Description=Timeshift Cleanup Service
+Description=Timeshift Cleanup Script
 After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/timeshift_cleanup_cron.sh
-Nice=10
-
+# Prevent system from sleeping after the job finishes
+ExecStart=/usr/bin/systemd-inhibit --what=sleep --why="Running Timeshift Cleanup" /usr/local/bin/timeshift_cleanup_cron.sh

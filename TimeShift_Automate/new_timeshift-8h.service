@@ -1,5 +1,5 @@
 [Unit]
-Description=Run Timeshift snapshot every 6 hours
+Description=Run Timeshift snapshot every 8 hours
 
 [Service]
 Type=oneshot
