@@ -1,10 +1,10 @@
 
 [Unit]
-Description=Run Timeshift every 16 hours
+Description=Run Timeshift every 10 hours
 
 [Timer]
 OnBootSec=15min
-OnUnitActiveSec=16h
+OnUnitActiveSec=10h
 Persistent=true
 
 [Install]
