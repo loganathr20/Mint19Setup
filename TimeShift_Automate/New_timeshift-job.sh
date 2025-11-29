@@ -22,7 +22,7 @@ if [[ "$MODE" == "Boottime" ]]; then
     COMMENT="Auto Boot Snapshot "
 else
     TAG="O"
-    COMMENT="Auto 16 Hour Snapshot "
+    COMMENT="Auto 12 Hour Snapshot "
 fi
 
 echo "== Timeshift snapshot (tag=$TAG) ==" > "$REPORT"

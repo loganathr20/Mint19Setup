@@ -76,7 +76,7 @@ else
         while read -r snap; do
             [[ -z "$snap" ]] && continue
             sleep 2  # safety
-            sudo $TIMESHIFT_CMD --delete --snapshot "$snap" --tag O >> "$TMPFILE" 2>&1
+            sudo $TIMESHIFT_CMD --delete --snapshot "$snap"  >> "$TMPFILE" 2>&1
         done <<< "$OLD_SNAPS"
     fi
 fi
