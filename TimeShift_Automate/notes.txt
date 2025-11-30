@@ -44,6 +44,9 @@ sudo systemctl daemon-reload
 
 sudo systemctl enable --now cinnamon-restart.timer
 
+systemctl show new_timeshift-8h.timer | grep WakeSystem
+
+
 sudo systemctl stop new_timeshift-8h.timer
 sudo systemctl stop new_timeshift-boot.timer
 sudo systemctl stop timeshift-cleanup.timer
