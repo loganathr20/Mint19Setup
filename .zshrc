@@ -359,6 +359,8 @@ alias 8hstart='sudo systemctl start new_timeshift-8h.service'
 alias bootstart='sudo systemctl start new_timeshift-boot.service' 
 alias cleanupstart='sudo systemctl start timeshift-cleanup.service' 
 
+alias tio='sudo /usr/local/bin/New_timeshift-job.sh Other'
+
 alias sc='svn cleanup'
 alias upp='svn update'
 alias st='svn status'
@@ -688,6 +690,7 @@ echo " alias cleanupstatus='sudo systemctl status timeshift-cleanup.service' \n"
 echo " alias 8hstart='sudo systemctl start new_timeshift-8h.service' \n"  
 echo " alias bootstart='sudo systemctl start new_timeshift-boot.service' \n" 
 echo " alias cleanupstart='sudo systemctl start timeshift-cleanup.service' \n"
+
 
 
 echo "\n"
