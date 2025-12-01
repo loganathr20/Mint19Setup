@@ -17,6 +17,9 @@ cd /usr/local/bin/
 
 sudo nano /usr/local/bin/New_timeshift-job.sh
 sudo nano /usr/local/bin/timeshift_cleanup_cron.sh
+chmod +x /usr/local/bin/New_timeshift-job.sh
+chmod +x /usr/local/bin/timeshift_cleanup_cron.sh
+
 sudo nano /etc/systemd/system/new_timeshift-8h.timer
 sudo nano /etc/systemd/system/timeshift-cleanup.timer
 

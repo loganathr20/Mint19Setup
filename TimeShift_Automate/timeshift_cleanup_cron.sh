@@ -8,6 +8,7 @@ EMAIL="loganathr20@gmail.com"
 SUBJECT="Timeshift Cleanup Report - $(date '+%Y-%m-%d %H:%M')"
 TMPFILE="/tmp/timeshift_cleanup_report.txt"
 TIMESHIFT_CMD="/usr/bin/timeshift"
+TIMERSTATUS_CMD="systemctl list-timers --all | grep timeshift"
 DELETE_DAYS=1
 DRYRUN=0
 
@@ -93,6 +94,13 @@ echo "" >> "$TMPFILE"
 echo "----- Disk Usage AFTER Cleanup -----" >> "$TMPFILE"
 df -h >> "$TMPFILE"
 echo "" >> "$TMPFILE"
+echo "" >> "$TMPFILE"
+
+systemctl list-timers --all | grep timeshift >> "$TMPFILE" 2>&1
+
+# $TIMERSTATUS_CMD  >> "$TMPFILE" 2>&1
+echo "" >> "$TMPFILE"
+
 
 # Email report using msmtp
 if command -v msmtp >/dev/null 2>&1; then
