@@ -3,9 +3,9 @@ Description=Timeshift Cleanup at Boot
 After=network-online.target
 
 [Service]
-Type=oneshot
-ExecStart=/usr/local/bin/timeshift_cleanup_cron.sh
-Nice=10
+# Type=oneshot
+# ExecStart=/usr/local/bin/timeshift_cleanup_cron.sh
+# Nice=10
 
 [Install]
 WantedBy=multi-user.target

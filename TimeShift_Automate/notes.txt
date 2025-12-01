@@ -11,6 +11,9 @@ cp /etc/systemd/system/timeshift_cleanup_boot.service /home/lraja/Github/Mint19S
 cp /usr/local/bin/New_timeshift-job.sh  /home/lraja/Github/Mint19Setup/TimeShift_Automate
 cp /usr/local/bin/timeshift_cleanup_cron.sh   /home/lraja/Github/Mint19Setup/TimeShift_Automate
 
+cd /etc/systemd/system/
+
+cd /usr/local/bin/
 
 sudo nano /usr/local/bin/New_timeshift-job.sh
 sudo nano /usr/local/bin/timeshift_cleanup_cron.sh
