@@ -348,18 +348,20 @@ alias tsdeleteall='sudo timeshift --delete-all'
 
 # alias timerstatus='systemctl list-timers --all | grep timeshift'
 alias timerstatus='systemctl list-timers --all | grep -E "cinnamon|timeshift" '
+alias tst='systemctl list-timers --all | grep -E "cinnamon|timeshift" '
+alias tso='sudo /usr/local/bin/New_timeshift-job.sh Other'
+alias tsclean='sudo /usr/local/bin/timeshift_cleanup_cron.sh'
 
 alias 8hstatus='sudo systemctl status new_timeshift-8h.service' 
 alias bootstatus='sudo systemctl status new_timeshift-boot.service'
 alias cleanupstatus='sudo systemctl status timeshift-cleanup.service'
 alias notes='v $HOME/Github/Mint19Setup/TimeShift_Automate/notes.txt'
 
-
 alias 8hstart='sudo systemctl start new_timeshift-8h.service'  
 alias bootstart='sudo systemctl start new_timeshift-boot.service' 
 alias cleanupstart='sudo systemctl start timeshift-cleanup.service' 
 
-alias tio='sudo /usr/local/bin/New_timeshift-job.sh Other'
+
 
 alias sc='svn cleanup'
 alias upp='svn update'
