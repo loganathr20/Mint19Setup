@@ -63,7 +63,9 @@ done <<< "$SNAP_LIST"
 
 # Deletion section
 if [[ -z "$OLD_SNAPS" ]]; then
-    echo "No old snapshots older than $DELETE_DAYS day(s)." >> "$TMPFILE"
+    echo -e "================================================================== \n" >> "$TMPFILE"
+    echo -e "==========  No snapshots older than $DELETE_DAYS day(s)  =================== \n"  >> "$TMPFILE"
+    echo -e "================================================================== \n" >> "$TMPFILE"
 else
     echo "----- Snapshots Scheduled for Deletion -----" >> "$TMPFILE"
     echo "$OLD_SNAPS" >> "$TMPFILE"
