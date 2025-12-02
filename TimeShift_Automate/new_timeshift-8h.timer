@@ -3,7 +3,7 @@
 Description=Run Timeshift every 12 hours
 
 [Timer]
-OnBootSec=15min
+OnBootSec=17min
 OnUnitActiveSec=12h
 AccuracySec=1min
 Unit=new_timeshift-8h.service

@@ -2,7 +2,7 @@
 Description=Timeshift Cleanup Timer (every 3 hours, wakes system)
 
 [Timer]
-OnBootSec=9min
+OnBootSec=11min
 # OnUnitActiveSec=3h
 OnUnitActiveSec=45min
 AccuracySec=1min

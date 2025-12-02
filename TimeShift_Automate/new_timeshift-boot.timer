@@ -2,7 +2,7 @@
 Description=Run Timeshift snapshot 5 min after boot
 
 [Timer]
-OnBootSec=5min
+OnBootSec=3min
 Unit=new_timeshift-boot.service
 Persistent=true
 
