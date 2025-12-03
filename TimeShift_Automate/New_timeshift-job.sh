@@ -75,17 +75,17 @@ fi
 
 # Timeshift snapshot list
 echo >> "$REPORT"
-echo "== Timeshift snapshot list ==" >> "$REPORT"
+# echo "== Timeshift snapshot list ==" >> "$REPORT"
 SNAPSHOT_LIST=$("$TIMESHIFT_BIN" --list 2>&1 || true)
-echo "$SNAPSHOT_LIST" >> "$REPORT"
+# echo "$SNAPSHOT_LIST" >> "$REPORT"
 
 # Systemd timers
 echo >> "$REPORT"
-echo "== Systemd timers (next runs) ==" >> "$REPORT"
+# echo "== Systemd timers (next runs) ==" >> "$REPORT"
 NEWTIMERS=$(systemctl list-timers --all --no-legend | grep new_timeshift || true)
 CINNAMON_TIMERS=$(systemctl list-timers --all --no-legend | grep -E "cinnamon|timeshift" || true)
-echo "$NEWTIMERS" >> "$REPORT"
-echo "$CINNAMON_TIMERS" >> "$REPORT"
+# echo "$NEWTIMERS" >> "$REPORT"
+# echo "$CINNAMON_TIMERS" >> "$REPORT"
 
 # === HTML Helpers ===
 colorize_line() {
@@ -159,7 +159,7 @@ echo "</div>"
 
 # Systemd timers
 echo "<h3 style='background:#eee; padding:10px; border-left:5px solid #4a90e2;'>Systemd Timers</h3>"
-echo "<div style='background:#fafafa; border:1px solid #ddd; padding:10px; border-radius:6px; font-family:monospace; white-space:pre-wrap;'>$NEWTIMERS</div>"
+# echo "<div style='background:#fafafa; border:1px solid #ddd; padding:10px; border-radius:6px; font-family:monospace; white-space:pre-wrap;'>$NEWTIMERS</div>"
 echo "<div style='background:#fafafa; border:1px solid #ddd; padding:10px; border-radius:6px; font-family:monospace; white-space:pre-wrap;'>$CINNAMON_TIMERS</div>"
 
 echo "<div style='text-align:center; font-size:12px; color:#777; margin-top:20px;'>Report generated automatically by Timeshift Snapshot Script — $(hostname)</div>"
