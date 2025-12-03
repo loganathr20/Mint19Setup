@@ -61,7 +61,7 @@ done <<< "$SNAP_LIST"
 # Deletion
 if [[ -z "$OLD_SNAPS" ]]; then
     echo -e "================================================================== \n" >> "$RAW_REPORT"
-    echo -e "==========  No snapshots older than $DELETE_DAYS day(s)  =================== \n"  >> "$RAW_REPORT"
+    echo -e "==========  No snapshots older than $DELETE_DAYS day(s) to Delete ======= \n"  >> "$RAW_REPORT"
     echo -e "================================================================== \n" >> "$RAW_REPORT"
 else
     echo "----- Snapshots Scheduled for Deletion -----" >> "$RAW_REPORT"
@@ -94,6 +94,11 @@ echo "" >> "$RAW_REPORT"
 # Systemd timers
 NEWTIMERS=$(systemctl list-timers --all --no-legend | grep new_timeshift || true)
 CINNAMON_TIMERS=$(systemctl list-timers --all --no-legend | grep -E "cinnamon|timeshift" || true)
+
+echo "----- System D Timers  -----" >> "$RAW_REPORT"  2>&1
+echo "$CINNAMON_TIMERS" >> "$RAW_REPORT" 2>&1
+echo "" >> "$RAW_REPORT"
+
 
 # === HTML Helpers ===
 colorize_line() {
@@ -173,7 +178,7 @@ echo "</div>"
 
 # Systemd timers
 echo "<h3 style='background:#eee; padding:10px; border-left:5px solid #4a90e2;'>Systemd Timers</h3>"
-echo "<div style='background:#fafafa; border:1px solid #ddd; padding:10px; border-radius:6px; font-family:monospace; white-space:pre-wrap;'>$NEWTIMERS</div>"
+# echo "<div style='background:#fafafa; border:1px solid #ddd; padding:10px; border-radius:6px; font-family:monospace; white-space:pre-wrap;'>$NEWTIMERS</div>"
 echo "<div style='background:#fafafa; border:1px solid #ddd; padding:10px; border-radius:6px; font-family:monospace; white-space:pre-wrap;'>$CINNAMON_TIMERS</div>"
 
 echo "<div style='text-align:center; font-size:12px; color:#777; margin-top:20px;'>Report generated automatically by Timeshift Cleanup Script — $(hostname)</div>"
