@@ -75,17 +75,17 @@ fi
 
 # Timeshift snapshot list
 echo >> "$REPORT"
-# echo "== Timeshift snapshot list ==" >> "$REPORT"
+echo "== Timeshift snapshot list ==" >> "$REPORT"
 SNAPSHOT_LIST=$("$TIMESHIFT_BIN" --list 2>&1 || true)
-# echo "$SNAPSHOT_LIST" >> "$REPORT"
+echo "$SNAPSHOT_LIST" >> "$REPORT"
 
 # Systemd timers
 echo >> "$REPORT"
-# echo "== Systemd timers (next runs) ==" >> "$REPORT"
+echo "== Systemd timers (next runs) ==" >> "$REPORT"
 NEWTIMERS=$(systemctl list-timers --all --no-legend | grep new_timeshift || true)
 CINNAMON_TIMERS=$(systemctl list-timers --all --no-legend | grep -E "cinnamon|timeshift" || true)
 # echo "$NEWTIMERS" >> "$REPORT"
-# echo "$CINNAMON_TIMERS" >> "$REPORT"
+echo "$CINNAMON_TIMERS" >> "$REPORT"
 
 # === HTML Helpers ===
 colorize_line() {
