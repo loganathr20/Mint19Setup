@@ -17,13 +17,20 @@ cd /usr/local/bin/
 
 sudo nano /usr/local/bin/New_timeshift-job.sh
 sudo nano /usr/local/bin/timeshift_cleanup_cron.sh
+
 chmod +x /usr/local/bin/New_timeshift-job.sh
 chmod +x /usr/local/bin/timeshift_cleanup_cron.sh
 
 sudo nano /etc/systemd/system/new_timeshift-8h.timer
 sudo nano /etc/systemd/system/timeshift-cleanup.timer
 
-0 */4 * * * /usr/local/bin/New_timeshift_cleanup.sh
+
+
+sudo /usr/local/bin/New_timeshift-job.sh Boottime
+sudo /usr/local/bin/New_timeshift-job.sh Other
+sudo /usr/local/bin/timeshift_cleanup_cron.sh
+
+0 */4 * * * /usr/local/bin/timeshift_cleanup_cron.sh
 
 timerstatus
 
