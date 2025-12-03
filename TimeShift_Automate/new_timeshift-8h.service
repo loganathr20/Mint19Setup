@@ -1,7 +1,8 @@
+
 [Unit]
-Description=Run Timeshift snapshot every 16 hours
+Description=Run Timeshift snapshot every 12 hours
 
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/New_timeshift-job.sh Other
-
+ExecStartPost=/bin/systemctl suspend

@@ -1,95 +1,97 @@
-#!/usr/bin/env bash
-# New_timeshift-job.sh 
-# Robust Timeshift snapshot script with retries, inline email report, and concurrency check.
+#!/bin/bash
+# -------------------------------------------------------------------
+# New Timeshift Snapshot Job + HTML Email Report
+# Wakes system → runs snapshot → emails report → system sleeps again
+# -------------------------------------------------------------------
 
-set -euo pipefail
+EMAIL="loganathr20@gmail.com"
+HOSTNAME="$(hostname)"
+SUBJECT="[$HOSTNAME] Timeshift Snapshot Report - $(date '+%Y-%m-%d %H:%M')"
+TMP_HTML="/tmp/timeshift_report_$$.html"
 
-LOG_EMAIL="loganathr20@gmail.com"
-MODE="${1:-Other}"   # Default to Other if not specified
-TIMESHIFT_BIN="/usr/bin/timeshift"
-TMPDIR=$(mktemp -d /tmp/new_timeshift.XXXX)
-REPORT="$TMPDIR/report_${MODE}.txt"
-RETRIES=2
-SLEEP_BETWEEN=10          # Retry interval on failure
-WAIT_IF_RUNNING=15        # Seconds to wait if another timeshift process is running
+# --- HTML HEADER ---
+cat <<EOF > "$TMP_HTML"
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body { font-family: Arial, sans-serif; background: #f0f0f0; padding: 20px; }
+h2 { color: #2a4d9b; }
+pre {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+.ok { color: #4caf50; font-weight: bold; }
+.err { color: #ff5252; font-weight: bold; }
+.section { margin-top: 25px; }
+</style>
+</head>
+<body>
 
-# Cleanup temp dir on exit
-trap 'rm -rf "$TMPDIR"' EXIT
+<h2>Timeshift Snapshot Report</h2>
 
-# Map mode -> tag/comment
-if [[ "$MODE" == "Boottime" ]]; then
-    TAG="B"
-    COMMENT="Auto Boot Snapshot "
+<p><b>Hostname:</b> $HOSTNAME</p>
+<p><b>Timestamp:</b> $(date '+%Y-%m-%d %H:%M:%S')</p>
+<hr>
+EOF
+
+# -------------------------------------------------------------------
+# 1) RUN TIMESHIFT SNAPSHOT
+# -------------------------------------------------------------------
+echo "<div class='section'><h3>1. Running Timeshift Snapshot</h3>" >> "$TMP_HTML"
+
+TS_OUTPUT=$(timeshift --create --comments "Auto Snapshot" --tags O 2>&1)
+TS_EXIT=$?
+
+if [[ $TS_EXIT -eq 0 ]]; then
+    echo "<p class='ok'>Timeshift Snapshot: SUCCESS</p>" >> "$TMP_HTML"
 else
-    TAG="O"
-    COMMENT="Auto 12 Hour Snapshot "
+    echo "<p class='err'>Timeshift Snapshot: FAILED</p>" >> "$TMP_HTML"
 fi
 
-echo "== Timeshift snapshot (tag=$TAG) ==" > "$REPORT"
-echo "Started: $(date -R)" >> "$REPORT"
+echo "<pre>$TS_OUTPUT</pre>" >> "$TMP_HTML"
+echo "</div>" >> "$TMP_HTML"
 
-# Wait if another timeshift process is running
-while pgrep -x timeshift >/dev/null; do
-    echo "Another timeshift process is running. Waiting $WAIT_IF_RUNNING seconds..." >> "$REPORT"
-    sleep "$WAIT_IF_RUNNING"
-done
+# -------------------------------------------------------------------
+# 2) LIST TIMERS RELATED TO TIMESIFT & CINNAMON
+# -------------------------------------------------------------------
+echo "<div class='section'><h3>2. Active Related Timers</h3>" >> "$TMP_HTML"
 
-# Create snapshot with retry
-SUCCESS=0
-for attempt in $(seq 1 $((RETRIES + 1))); do
-    if "$TIMESHIFT_BIN" --create --tags "$TAG" --comments "$COMMENT" --scripted >> "$REPORT" 2>&1; then
-        SUCCESS=1
-        echo "Snapshot succeeded on attempt $attempt" >> "$REPORT"
-        break
-    else
-        echo "WARNING: timeshift create failed on attempt $attempt" >> "$REPORT"
-        if (( attempt <= RETRIES )); then
-            echo "Retrying in $SLEEP_BETWEEN seconds..." >> "$REPORT"
-            sleep "$SLEEP_BETWEEN"
-        fi
-    fi
-done
+TIMER_OUTPUT=$(systemctl list-timers --all | grep -E "cinnamon|timeshift" | sed 's/$/<br>/')
+echo "<pre>$TIMER_OUTPUT</pre>" >> "$TMP_HTML"
+echo "</div>" >> "$TMP_HTML"
 
-if (( SUCCESS == 0 )); then
-    echo "ERROR: Timeshift snapshot failed after $((RETRIES + 1)) attempts" >> "$REPORT"
-fi
+# -------------------------------------------------------------------
+# 3) LIST RECENT SNAPSHOTS
+# -------------------------------------------------------------------
+echo "<div class='section'><h3>3. Recent Timeshift Snapshots</h3>" >> "$TMP_HTML"
 
-# Host and date info
-echo >> "$REPORT"
-echo "== Host / Date ==" >> "$REPORT"
-echo "Host: $(hostname)" >> "$REPORT"
-echo "Date: $(date -R)" >> "$REPORT"
+SNAP_OUTPUT=$(timeshift --list | sed 's/$/<br>/')
+echo "<pre>$SNAP_OUTPUT</pre>" >> "$TMP_HTML"
+echo "</div>" >> "$TMP_HTML"
 
-# Disk usage
-read -r DFPCT DFFREE < <(df -h / --output=pcent,avail | tail -1)
-NUMUSED=$(echo "$DFPCT" | tr -d '%')
-NUMFREE=$((100 - NUMUSED))
-echo "Root: $(df -h / | tail -1)" >> "$REPORT"
-echo "UsedPercent: ${NUMUSED}%  FreePercent: ${NUMFREE}%" >> "$REPORT"
-if (( NUMFREE < 10 )); then
-    echo "" >> "$REPORT"
-    echo "WARNING: Free space < 10% on root (Free: ${NUMFREE}%)" >> "$REPORT"
-fi
+# -------------------------------------------------------------------
+# ENDING HTML
+# -------------------------------------------------------------------
+cat <<EOF >> "$TMP_HTML"
+<hr>
+<p>Report generated automatically by <b>new_timeshift-8h.service</b>.</p>
+</body>
+</html>
+EOF
 
-# Timeshift snapshot list
-echo >> "$REPORT"
-echo "== Timeshift snapshot list ==" >> "$REPORT"
-"$TIMESHIFT_BIN" --list 2>&1 >> "$REPORT" || true
+# -------------------------------------------------------------------
+# SEND EMAIL
+# -------------------------------------------------------------------
+/usr/bin/mail -a "Content-Type: text/html" -s "$SUBJECT" "$EMAIL" < "$TMP_HTML"
 
-# Systemd timers
-echo >> "$REPORT"
-echo "== Systemd timers (next runs) ==" >> "$REPORT"
-systemctl list-timers --all --no-legend | grep new_timeshift || true
-
-# Send inline email report
-SUBJ="[${HOSTNAME}] Timeshift_report_snapshot mode=$MODE - $(date '+%Y-%m-%d %H:%M:%S')"
-
-{
-    echo "To: $LOG_EMAIL"
-    echo "Subject: $SUBJ"
-    echo
-    cat "$REPORT"
-} | msmtp "$LOG_EMAIL" || echo "WARNING: mail send failed"
+rm -f "$TMP_HTML"
 
 exit 0
+
 

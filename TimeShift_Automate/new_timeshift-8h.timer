@@ -1,4 +1,5 @@
 
+
 [Unit]
 Description=Run Timeshift every 12 hours
 
@@ -6,11 +7,10 @@ Description=Run Timeshift every 12 hours
 OnBootSec=17min
 OnUnitActiveSec=12h
 AccuracySec=1min
-Unit=new_timeshift-8h.service
 Persistent=true
 WakeSystem=true
+Unit=new_timeshift-8h.service
 
 [Install]
 WantedBy=timers.target
-
 
