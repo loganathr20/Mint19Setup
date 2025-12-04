@@ -347,8 +347,8 @@ alias tsdeleteall='sudo timeshift --delete-all'
 
 
 # alias timerstatus='systemctl list-timers --all | grep timeshift'
-alias timerstatus='systemctl list-timers --all | grep -E "cinnamon|timeshift" '
-alias tst='systemctl list-timers --all | grep -E "cinnamon|timeshift" '
+alias timerstatus='systemctl list-timers --all | grep -E "cinnamon|timeshift|linux_hardware_report.timer" '
+alias tst='systemctl list-timers --all | grep -E "cinnamon|timeshift|linux_hardware_report.timer" '
 alias tso='sudo /usr/local/bin/New_timeshift-job.sh Other'
 alias tsclean='sudo /usr/local/bin/timeshift_cleanup_cron.sh'
 
