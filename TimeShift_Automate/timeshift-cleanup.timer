@@ -2,8 +2,8 @@
 Description=Timeshift Cleanup Timer (every 3 hours, wakes system)
 
 [Timer]
-OnBootSec=10min
-OnUnitActiveSec=2h
+OnBootSec=35min
+OnUnitActiveSec=55min
 # OnUnitActiveSec=45min
 AccuracySec=1min
 Unit=timeshift-cleanup.service
