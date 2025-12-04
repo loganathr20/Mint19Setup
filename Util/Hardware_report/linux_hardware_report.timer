@@ -3,11 +3,12 @@ Description=Run Linux Hardware Health Report every 4 hours
 
 [Timer]
 OnBootSec=2min
-OnUnitActiveSec=4h
+OnUnitActiveSec=6h
 Persistent=true
 WakeSystem=true
 Unit=linux_hardware_report.service
 
 [Install]
 WantedBy=timers.target
+
 

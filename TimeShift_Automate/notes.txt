@@ -26,15 +26,22 @@ sudo nano /usr/local/bin/timeshift_cleanup_cron.sh
 
 chmod +x /usr/local/bin/New_timeshift-job.sh
 chmod +x /usr/local/bin/timeshift_cleanup_cron.sh
+chmod +x /usr/local/bin/linux_hardware_report.sh
+
 
 sudo nano /etc/systemd/system/new_timeshift-8h.timer
 sudo nano /etc/systemd/system/timeshift-cleanup.timer
 
 
+sudo nano /etc/systemd/system/linux_hardware_report.service
+sudo nano /etc/systemd/system/linux_hardware_report.timer
+sudo nano /usr/local/bin/linux_hardware_report.sh
 
 sudo /usr/local/bin/New_timeshift-job.sh Boottime
 sudo /usr/local/bin/New_timeshift-job.sh Other
 sudo /usr/local/bin/timeshift_cleanup_cron.sh
+sudo /usr/local/bin/linux_hardware_report.sh
+
 
 0 */4 * * * /usr/local/bin/timeshift_cleanup_cron.sh
 
