@@ -83,9 +83,10 @@ echo "$SNAPSHOT_LIST" >> "$REPORT"
 echo >> "$REPORT"
 echo "== Systemd timers (next runs) ==" >> "$REPORT"
 NEWTIMERS=$(systemctl list-timers --all --no-legend | grep new_timeshift || true)
-CINNAMON_TIMERS=$(systemctl list-timers --all --no-legend | grep -E "cinnamon|timeshift" || true)
+CINNAMON_TIMERS=$(systemctl list-timers --all --no-legend | grep -E "cinnamon|timeshift|linux_hardware_report.timer" || true)
 # echo "$NEWTIMERS" >> "$REPORT"
 echo "$CINNAMON_TIMERS" >> "$REPORT"
+
 
 # === HTML Helpers ===
 colorize_line() {

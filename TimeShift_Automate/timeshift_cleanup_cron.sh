@@ -93,7 +93,7 @@ echo "" >> "$RAW_REPORT"
 
 # Systemd timers
 NEWTIMERS=$(systemctl list-timers --all --no-legend | grep new_timeshift || true)
-CINNAMON_TIMERS=$(systemctl list-timers --all --no-legend | grep -E "cinnamon|timeshift" || true)
+CINNAMON_TIMERS=$(systemctl list-timers --all --no-legend | grep -E "cinnamon|timeshift|linux_hardware_report.timer" || true)
 
 echo "----- System D Timers  -----" >> "$RAW_REPORT"  2>&1
 echo "$CINNAMON_TIMERS" >> "$RAW_REPORT" 2>&1

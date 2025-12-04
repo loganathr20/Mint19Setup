@@ -8,6 +8,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now new_timeshift-8h.timer
 sudo systemctl enable --now new_timeshift-boot.timer
 sudo systemctl enable --now timeshift-cleanup.timer
+sudo systemctl enable --now linux_hardware_report.timer
 
 # Reload again (not required but okay)
 sudo systemctl daemon-reload
@@ -16,7 +17,7 @@ sudo systemctl daemon-reload
 echo -e "\n\n\n"
 
 # List matching timers
-sudo systemctl list-timers --all | grep -E "cinnamon|timeshift"
+sudo systemctl list-timers --all | grep -E "cinnamon|timeshift|linux_hardware_report.timer"
 
 echo -e "\n\n\n"
 
