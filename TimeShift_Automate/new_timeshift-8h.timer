@@ -4,7 +4,7 @@
 Description=Run Timeshift every 12 hours
 
 [Timer]
-OnBootSec=18min
+OnBootSec=25min
 OnUnitActiveSec=12h
 AccuracySec=1min
 Persistent=true

@@ -361,7 +361,8 @@ alias 8hstart='sudo systemctl start new_timeshift-8h.service'
 alias bootstart='sudo systemctl start new_timeshift-boot.service' 
 alias cleanupstart='sudo systemctl start timeshift-cleanup.service' 
 
-
+alias sy='cd /etc/systemd/system/'
+alias bin='cd /usr/local/bin/'
 
 alias sc='svn cleanup'
 alias upp='svn update'
