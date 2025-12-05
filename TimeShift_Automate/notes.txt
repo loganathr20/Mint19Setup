@@ -175,6 +175,9 @@ sudo nano /usr/local/bin/linux_hardware_report.sh
 sudo nano /etc/systemd/system/linux_hardware_report.service
 sudo nano /etc/systemd/system/linux_hardware_report.timer
 
+rm -rf /usr/local/bin/linux_hardware_report_backup.sh
+mv /usr/local/bin/linux_hardware_report.sh /usr/local/bin/linux_hardware_report_backup.sh
+
 rm -rf /usr/local/bin/linux_hardware_report.sh
 touch /usr/local/bin/linux_hardware_report.sh
 chmod +x /usr/local/bin/linux_hardware_report.sh
