@@ -1,0 +1,36 @@
+#!/bin/bash
+clear
+
+# Reload systemd
+sudo systemctl daemon-reload
+
+# Enable timers
+sudo systemctl enable --now new_timeshift-8h.timer
+sudo systemctl enable --now new_timeshift-boot.timer
+sudo systemctl enable --now timeshift-cleanup.timer
+sudo systemctl enable --now linux_hardware_report.timer
+
+# Reload again (not required but okay)
+sudo systemctl daemon-reload
+
+# Print blank lines
+echo -e "\n\n\n"
+
+# List matching timers
+sudo systemctl list-timers --all | grep -E "cinnamon|timeshift|linux_hardware_report.timer"
+
+echo -e "\n\n\n"
+
+sudo chmod +x /usr/local/bin/linux_hardware_report.sh
+sudo /usr/local/bin/linux_hardware_report.sh
+
+echo "Linux Health Report Generated. Check Email loganathr20@gmail.com"
+
+echo -e "\n\n\n"
+
+
+# Wait for user input
+read -p "Press Enter to continue..." temp
+
+
+
