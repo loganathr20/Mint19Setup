@@ -197,6 +197,10 @@ sudo systemctl enable --now linux_hardware_report.timer
 
 systemctl list-timers linux_hardware_report.timer
 
+Headers:
+System Summary
+CPU & Load
+Memory & Swap
 
 Note::
 

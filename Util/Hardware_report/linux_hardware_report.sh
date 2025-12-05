@@ -33,6 +33,16 @@ color_status_html() {
   fi
 }
 
+# colored service HTML (RUNNING / STOPPED)
+color_service_html() {
+  local s="$1"
+  if [[ "$s" == "RUNNING" ]]; then
+    printf '<b style="color:#1b8f1b">RUNNING</b>'
+  else
+    printf '<b style="color:#c23b22">STOPPED</b>'
+  fi
+}
+
 # Pre-capture common outputs
 PS_OUTPUT=$(ps -eo pid,user,%cpu,%mem,cmd --sort=-%cpu,-%mem 2>/dev/null || true)
 LSCPU_MODEL=$(lscpu 2>/dev/null | awk -F: '/Model name/{gsub(/^[ \t]+|[ \t]+$/,"",$2); print $2; exit}' || echo "Unknown CPU")
@@ -100,6 +110,59 @@ FAILED_SERVICES=$(systemctl --failed --no-legend 2>/dev/null | grep -c .)
 FAILED_SERVICES=${FAILED_SERVICES:-0}
 CRIT_LOGS=$(journalctl -p 3 -n 100 --no-pager 2>/dev/null | grep -c .)
 CRIT_LOGS=${CRIT_LOGS:-0}
+
+# --- Service detection & status helpers ---
+# Returns first existing unit among candidates, or empty string
+find_unit() {
+  for u in "$@"; do
+    if systemctl list-units --all --type=service --full --no-legend --no-pager 2>/dev/null | awk '{print $1}' | grep -xq "$u"; then
+      printf '%s' "$u"
+      return 0
+    fi
+  done
+  # also allow units without .service passed in
+  for u in "$@"; do
+    if systemctl list-units --all --type=service --full --no-legend --no-pager 2>/dev/null | awk -F'.service' '{print $1".service"}' | grep -xq "${u}.service"; then
+      printf '%s.service' "$u"
+      return 0
+    fi
+  done
+  return 1
+}
+
+# check_service: returns two values: STATUS (RUNNING/STOPPED) and SINCE (ActiveEnterTimestamp)
+check_service() {
+  local unit="$1"
+  local status="STOPPED"
+  local since="-"
+  if [[ -z "$unit" ]]; then
+    printf '%s\t%s' "$status" "$since"
+    return 0
+  fi
+
+  if systemctl is-active --quiet "$unit"; then
+    status="RUNNING"
+  else
+    status="STOPPED"
+  fi
+
+  # try to get ActiveEnterTimestamp
+  local ts
+  ts=$(systemctl show -p ActiveEnterTimestamp --value "$unit" 2>/dev/null || true)
+  ts=${ts:-"-"}
+  printf '%s\t%s' "$status" "$ts"
+}
+
+# Determine actual units to check (tries common names)
+JENKINS_UNIT=$(find_unit jenkins jenkins.service || true)
+TOMCAT_UNIT=$(find_unit tomcat tomcat.service tomcat9 tomcat9.service tomcat10 catalina tomcat8 tomcat8.service || true)
+# For Jira, try common variants (jiraserver, jira, atlassian-jira)
+JIRA_UNIT=$(find_unit jiraserver jira atlassian-jira jira.service atlassian-jira.service || true)
+
+# Evaluate statuses (status and since)
+read -r JENKINS_STATUS JENKINS_SINCE <<< "$(check_service "${JENKINS_UNIT:-jenkins}" | awk -F'\t' '{print $1, $2}')"
+read -r TOMCAT_STATUS TOMCAT_SINCE <<< "$(check_service "${TOMCAT_UNIT:-tomcat}" | awk -F'\t' '{print $1, $2}')"
+read -r JIRA_STATUS JIRA_SINCE <<< "$(check_service "${JIRA_UNIT:-jira}" | awk -F'\t' '{print $1, $2}')"
 
 # --- Component scoring functions ---
 score_cpu() {
@@ -334,6 +397,18 @@ cat >> "$TMPHTML" <<HTML
         <p class="small">Max detected temp: ${TEMP_MAX}°C — temp score: ${TEMP_SCORE}%</p>
       </div>
 
+      <!-- Application Service Status (Jenkins / Tomcat / Jira) -->
+      <div class="panel" style="margin-top:12px;">
+        <h3>Application Service Status</h3>
+        <table>
+          <tr><th>Service</th><th>Status</th><th>Since</th></tr>
+          <tr><td>Jenkins</td><td>$(color_service_html "$JENKINS_STATUS")</td><td>$(safe_html "${JENKINS_SINCE:--}")</td></tr>
+          <tr><td>Tomcat</td><td>$(color_service_html "$TOMCAT_STATUS")</td><td>$(safe_html "${TOMCAT_SINCE:--}")</td></tr>
+          <tr><td>Jira</td><td>$(color_service_html "$JIRA_STATUS")</td><td>$(safe_html "${JIRA_SINCE:--}")</td></tr>
+        </table>
+        <p class="small">Status retrieved via systemd (<code>is-active</code>) — unit names checked: jenkins, tomcat (tomcat9/tomcat10/catalina), jira (jiraserver/atlassian-jira).</p>
+      </div>
+
       <!-- Systemd timers: RAW output in <pre> blocks for readability (no table formatting) -->
       <div class="panel" style="margin-top:12px;">
         <h3>Systemd Timers — Important (filtered)</h3>
@@ -421,5 +496,4 @@ cp "$TMPHTML" "$TMPTXT"
 } | msmtp -a default "$EMAIL" 2>/dev/null
 
 exit 0
-
 
