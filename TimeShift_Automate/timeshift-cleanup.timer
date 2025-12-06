@@ -1,9 +1,9 @@
 [Unit]
-Description=Timeshift Cleanup Timer (every 3 hours, wakes system)
+Description=Timeshift Cleanup Timer (every 6 hours, wakes system)
 
 [Timer]
 OnBootSec=35min
-OnUnitActiveSec=55min
+OnUnitActiveSec=6h
 # OnUnitActiveSec=45min
 AccuracySec=1min
 Unit=timeshift-cleanup.service

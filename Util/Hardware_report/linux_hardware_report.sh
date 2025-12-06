@@ -99,7 +99,6 @@ read -r JENKINS_STATUS JENKINS_SINCE <<< "$(check_service "$JENKINS_UNIT" | awk 
 read -r TOMCAT_STATUS TOMCAT_SINCE <<< "$(check_service "$TOMCAT_UNIT" | awk -F'\t' '{print $1,$2}')"
 read -r JIRA_STATUS JIRA_SINCE <<< "$(check_service "$JIRA_UNIT" | awk -F'\t' '{print $1,$2}')"
 
-# Add color-coded badges
 status_badge() {
     local status="$1"
     if [[ "$status" == "RUNNING" ]]; then
@@ -217,7 +216,7 @@ cat >> "$TMPHTML" <<HTML
 HTML
 
 # --------------------------
-# Application Health Check (color-coded)
+# Application Health Check
 # --------------------------
 cat >> "$TMPHTML" <<HTML
 <div class="panel">
@@ -228,6 +227,16 @@ cat >> "$TMPHTML" <<HTML
 <tr><td>Tomcat</td><td>$TOMCAT_HTML</td><td>$TOMCAT_SINCE</td></tr>
 <tr><td>Jira</td><td>$JIRA_HTML</td><td>$JIRA_SINCE</td></tr>
 </table>
+</div>
+HTML
+
+# --------------------------
+# NEW SECTION INSERTED HERE (Option A)
+# --------------------------
+cat >> "$TMPHTML" <<HTML
+<div class="panel">
+<h3>Timeshift Snapshots</h3>
+<div class="pre">$(timeshift --list 2>/dev/null || echo "Timeshift not installed")</div>
 </div>
 HTML
 
@@ -250,7 +259,13 @@ $(df -i | tail -n +2 | awk '{print "<tr><td>" $1 "</td><td>" $3 "</td><td>" $4 "
 
 <div class="panel">
 <h3>Cron Jobs (all users)</h3>
-<div class="pre">$(for u in $(cut -f1 -d: /etc/passwd); do crontab -l -u "$u" 2>/dev/null; done)</div>
+<div class="pre">
+==== /etc/crontab ====
+$(safe_html "$(cat /etc/crontab 2>/dev/null)")
+
+==== User Cron Jobs ====
+$(for u in $(cut -f1 -d: /etc/passwd); do crontab -l -u "$u" 2>/dev/null; done)
+</div>
 </div>
 
 <div class="panel">
