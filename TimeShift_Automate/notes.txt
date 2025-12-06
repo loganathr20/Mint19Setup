@@ -227,3 +227,8 @@ Contact : Author : Loganatha Raja Email : loganathr@gmail.com
 
 
 
+after Disk Usage below section missing in report. please fix and give full script.
+Application Health Check
+Timeshift Snapshots
+Filesystem Inode Usage
+Last 5 Reboots
