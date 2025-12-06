@@ -178,7 +178,7 @@ sudo nano /etc/systemd/system/linux_hardware_report.timer
 rm -rf /usr/local/bin/linux_hardware_report_backup.sh
 mv /usr/local/bin/linux_hardware_report.sh /usr/local/bin/linux_hardware_report_backup.sh
 
-mv /usr/local/bin/linux_hardware_report.sh /usr/local/bin/linux_hardware_report_1.sh
+mv /usr/local/bin/linux_hardware_report.sh /usr/local/bin/linux_hardware_report_backup1.sh
 
 rm -rf /usr/local/bin/linux_hardware_report.sh
 touch /usr/local/bin/linux_hardware_report.sh
@@ -203,6 +203,27 @@ CPU & Load
 Memory & Swap
 
 Note::
+
+
+
+Below sections should be right after Open Ports & Listening Services.. why is it sepearate. can you fix and give complete script without changing the html format or appearance of the script.
+
+Linux Health check. Please review below script.
+
+Can you include the below sections  and the associated script needed for report after Open Ports & Listening Services (not in the side bar) .  Please dont touch the existing sections of the script, report or the html sytle as it works neat.   Please use the same html style for the new sections. 
+Please give full complete script.
+
+Top Memory-consuming Processes (top 10)
+Top CPU-consuming Processes (top 10)
+Detailed Failed Services
+Uptime & Last Boot
+Last 20 sudo commands (if available)
+Package Manager Health
+DNS Resolution Test
+Disk I/O / Latency Snapshot
+Kernel dmesg Errors / Warnings (last 200 lines
+Disclaimer email 
+Contact : Author : Loganatha Raja Email : loganathr@gmail.com
 
 
 

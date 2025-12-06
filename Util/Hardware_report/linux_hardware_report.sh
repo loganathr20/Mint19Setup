@@ -1,5 +1,5 @@
 #!/bin/bash
-# Linux System Health Report (Complete Fixed Version)
+# Linux System Health Report (Complete Version with Sidebar Fix)
 # Usage: sudo bash /usr/local/bin/linux_hardware_report.sh
 
 EMAIL="loganathr20@gmail.com"
@@ -138,6 +138,9 @@ th { background:#f7fbff; font-weight:600; color:#0b5f86; }
 .pre { background:#fbfbfd; padding:8px; border-radius:6px; overflow:auto; font-family:monospace; font-size:12px; white-space:pre-wrap; }
 .health-badge { display:inline-block; padding:6px 10px; border-radius:20px; color:#fff; font-weight:700; }
 .scroll-x { overflow-x:auto; }
+.red { color:#fff; background:#c23b22; padding:2px 6px; border-radius:4px; font-weight:700;}
+.orange { color:#fff; background:#ff6f00; padding:2px 6px; border-radius:4px; font-weight:700;}
+.separator { border-top:2px solid #0b5f86; margin:10px 0;}
 </style>
 </head>
 <body>
@@ -146,15 +149,9 @@ th { background:#f7fbff; font-weight:600; color:#0b5f86; }
 <p class="subtitle"><strong>Host:</strong> $HOSTNAME &nbsp;&nbsp; <strong>Date:</strong> $NOW</p>
 </div>
 <div class="container">
-<div>
-HTML
+<div> <!-- LEFT COLUMN -->
 
-# --------------------------
-# Left Column Panels
-# --------------------------
-
-# System Summary
-cat >> "$TMPHTML" <<HTML
+<!-- System Summary -->
 <div class="panel summary">
 <h3>System Summary</h3>
 <table>
@@ -170,10 +167,8 @@ cat >> "$TMPHTML" <<HTML
 <tr><td class="metric">Overall Health</td><td><span class="health-badge" style="background:$HEALTH_COLOR;">$HEALTH_LABEL ($HEALTH_SCORE%)</span></td></tr>
 </table>
 </div>
-HTML
 
-# CPU & Load
-cat >> "$TMPHTML" <<HTML
+<!-- CPU & Load -->
 <div class="panel">
 <h3>CPU & Load</h3>
 <table>
@@ -182,10 +177,8 @@ cat >> "$TMPHTML" <<HTML
 <tr><td>CPU Score</td><td>${CPU_SCORE}%</td></tr>
 </table>
 </div>
-HTML
 
-# Memory & Swap
-cat >> "$TMPHTML" <<HTML
+<!-- Memory & Swap -->
 <div class="panel">
 <h3>Memory & Swap</h3>
 <table>
@@ -196,29 +189,26 @@ cat >> "$TMPHTML" <<HTML
 <tr><td>Swap Score</td><td>${SWAP_SCORE}%</td></tr>
 </table>
 </div>
-HTML
 
-# Disk Usage
-cat >> "$TMPHTML" <<HTML
+<!-- Disk Usage -->
 <div class="panel">
 <h3>Disk Usage</h3>
 <table>
 <tr><th>Filesystem</th><th>Type</th><th>Size</th><th>Used</th><th>Avail</th><th>Use%</th><th>Mount</th></tr>
 HTML
+
+# Disk usage rows
 df -hT | tail -n +2 | while read -r FS TYPE SZ USED AVAIL USEP MOUNT; do
   printf '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>\n' \
   "$(safe_html "$FS")" "$(safe_html "$TYPE")" "$(safe_html "$SZ")" "$(safe_html "$USED")" "$(safe_html "$AVAIL")" "$(safe_html "$USEP")" "$(safe_html "$MOUNT")" >> "$TMPHTML"
 done
+
 cat >> "$TMPHTML" <<HTML
 </table>
 <p class="small">Root usage: ${ROOT_USE_PERC}% — Disk Score: ${DISK_SCORE}%</p>
 </div>
-HTML
 
-# --------------------------
-# Application Health Check
-# --------------------------
-cat >> "$TMPHTML" <<HTML
+<!-- Application Health Check -->
 <div class="panel">
 <h3>Application Health Check</h3>
 <table>
@@ -228,22 +218,14 @@ cat >> "$TMPHTML" <<HTML
 <tr><td>Jira</td><td>$JIRA_HTML</td><td>$JIRA_SINCE</td></tr>
 </table>
 </div>
-HTML
 
-# --------------------------
-# NEW SECTION INSERTED HERE (Option A)
-# --------------------------
-cat >> "$TMPHTML" <<HTML
+<!-- Timeshift Snapshots -->
 <div class="panel">
 <h3>Timeshift Snapshots</h3>
 <div class="pre">$(timeshift --list 2>/dev/null || echo "Timeshift not installed")</div>
 </div>
-HTML
 
-# --------------------------
-# Remaining Left Column Panels
-# --------------------------
-cat >> "$TMPHTML" <<HTML
+<!-- Filesystem Inode Usage -->
 <div class="panel">
 <h3>Filesystem Inode Usage</h3>
 <table>
@@ -252,70 +234,143 @@ $(df -i | tail -n +2 | awk '{print "<tr><td>" $1 "</td><td>" $3 "</td><td>" $4 "
 </table>
 </div>
 
+<!-- Last 5 Reboots -->
 <div class="panel">
 <h3>Last 5 Reboots</h3>
 <div class="pre">$(last -n 5 -x | head -n 5)</div>
 </div>
 
+<!-- Cron Jobs -->
 <div class="panel">
 <h3>Cron Jobs (all users)</h3>
 <div class="pre">
 ==== /etc/crontab ====
 $(safe_html "$(cat /etc/crontab 2>/dev/null)")
 
+<div class="separator"></div>
+
 ==== User Cron Jobs ====
 $(for u in $(cut -f1 -d: /etc/passwd); do crontab -l -u "$u" 2>/dev/null; done)
 </div>
 </div>
 
+<!-- Disk I/O Statistics -->
 <div class="panel">
 <h3>Disk I/O Statistics</h3>
 <div class="pre">$(command -v iostat >/dev/null 2>&1 && iostat -xz 1 1 2>/dev/null || echo "iostat not available. Install sysstat package.")</div>
 </div>
 
+<!-- Active Network Connections -->
 <div class="panel">
 <h3>Active Network Connections</h3>
 <div class="pre">$(ss -tunap 2>/dev/null | head -n 30)</div>
 </div>
 
-<div class="panel">
-<h3>USB Devices</h3>
-<div class="pre">$(lsusb 2>/dev/null || echo 'lsusb not available')</div>
-</div>
-
+<!-- Open Ports & Listening Services -->
 <div class="panel">
 <h3>Open Ports & Listening Services</h3>
-<div class="pre">$(ss -tuln 2>/dev/null || echo "ss not available")</div>
-</div>
-HTML
-
-# --------------------------
-# Right Column Panels
-# --------------------------
-cat >> "$TMPHTML" <<HTML
-</div>
-<div>
-<div class="panel">
-<h3>Recent Critical Logs (last 20)</h3>
-<div class="pre">$(journalctl -p 3 -n 20 --no-pager 2>/dev/null || echo 'journalctl not available')</div>
+<div class="pre">$(ss -tulnp 2>/dev/null | head -n 30)</div>
 </div>
 
+<!-- NEW SECTIONS START HERE -->
+
+<!-- Top Memory-consuming Processes (top 10) -->
 <div class="panel">
-<h3>PCI Devices</h3>
-<div class="pre">$(lspci -vvnn 2>/dev/null || echo 'lspci not available')</div>
+<h3>Top Memory-consuming Processes (top 10)</h3>
+<div class="pre">$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head -n 11)</div>
+</div>
+
+<!-- Top CPU-consuming Processes (top 10) -->
+<div class="panel">
+<h3>Top CPU-consuming Processes (top 10)</h3>
+<div class="pre">$(ps -eo pid,ppid,cmd,%cpu,%mem --sort=-%cpu | head -n 11)</div>
+</div>
+
+<!-- Detailed Failed Services -->
+<div class="panel">
+<h3>Detailed Failed Services</h3>
+<div class="pre">$(systemctl --failed --no-pager || echo "No failed services")</div>
+</div>
+
+<!-- Uptime & Last Boot -->
+<div class="panel">
+<h3>Uptime & Last Boot</h3>
+<div class="pre">Uptime: $(uptime -p)
+Last boot: $(who -b)</div>
+</div>
+
+<!-- Last 20 sudo commands -->
+<div class="panel">
+<h3>Last 20 sudo commands</h3>
+<div class="pre">$(journalctl _COMM=sudo --no-pager | grep COMMAND | tail -n 20 || echo "No sudo commands found")</div>
+</div>
+
+<!-- Package Manager Health -->
+<div class="panel">
+<h3>Package Manager Health</h3>
+<div class="pre">
+$(if command -v apt &>/dev/null; then apt update -qq >/dev/null 2>&1 && apt list --upgradable 2>/dev/null || echo "APT package manager not healthy"; elif command -v yum &>/dev/null; then yum check-update >/dev/null 2>&1 && echo "YUM package manager OK" || echo "YUM check failed"; else echo "No supported package manager detected"; fi)
 </div>
 </div>
+
+<!-- DNS Resolution Test -->
+<div class="panel">
+<h3>DNS Resolution Test</h3>
+<div class="pre">
+$(dig +short google.com || nslookup google.com || echo "DNS test failed")
 </div>
+</div>
+
+<!-- Disk I/O / Latency Snapshot -->
+<div class="panel">
+<h3>Disk I/O / Latency Snapshot</h3>
+<div class="pre">$(ioping -c 5 / 2>/dev/null || echo "ioping not available")</div>
+</div>
+
+<!-- Kernel dmesg Errors / Warnings (last 200 lines) -->
+<div class="panel">
+<h3>Kernel dmesg Errors / Warnings (last 200 lines)</h3>
+<div class="pre">$(dmesg | tail -n 200 | grep -i -E "error|warn" || echo "No errors/warnings in last 200 lines")</div>
+</div>
+
+<!-- Disclaimer -->
+<div class="panel">
+<h3>Disclaimer</h3>
+<p class="small">Contact: Author: Loganatha Raja &nbsp;&nbsp; Email: loganathr@gmail.com</p>
+<p class="small">This report is for informational purposes only.</p>
+</div>
+
+</div> <!-- END LEFT COLUMN -->
+
+<!-- RIGHT COLUMN / SIDEBAR -->
+<div> 
+<div class="panel">
+<h3>Hardware Health Summary</h3>
+<table>
+<tr><th>Metric</th><th>Score</th></tr>
+<tr><td>CPU</td><td>${CPU_SCORE}%</td></tr>
+<tr><td>Memory</td><td>${MEM_SCORE}%</td></tr>
+<tr><td>Swap</td><td>${SWAP_SCORE}%</td></tr>
+<tr><td>Disk</td><td>${DISK_SCORE}%</td></tr>
+<tr><td>SMART</td><td>${SMART_SCORE}%</td></tr>
+<tr><td>Temperature</td><td>${TEMP_SCORE}%</td></tr>
+<tr><td>Failed Services</td><td>${FAILED_SVC_SCORE}%</td></tr>
+<tr><td>Critical Logs</td><td>${LOG_SCORE}%</td></tr>
+<tr><td><b>Overall Health</b></td><td><span class="health-badge" style="background:$HEALTH_COLOR;">$HEALTH_SCORE%</span></td></tr>
+</table>
+</div>
+</div> <!-- END RIGHT COLUMN -->
+
+</div> <!-- END CONTAINER -->
 </body>
 </html>
 HTML
 
-# --------------------------
-# Send email & open
-# --------------------------
+# Send Email
 if command -v mailx &>/dev/null; then
-  mailx -a "Content-Type: text/html" -s "$SUBJECT" "$EMAIL" < "$TMPHTML"
+  cat "$TMPHTML" | mailx -a "Content-Type: text/html" -s "$SUBJECT" "$EMAIL"
 fi
-[[ -x "$(command -v xdg-open)" ]] && xdg-open "$TMPHTML"
+
+echo "Report generated and emailed to $EMAIL"
 
 
